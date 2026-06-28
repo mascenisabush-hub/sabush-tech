@@ -624,10 +624,10 @@
         <span class="card-url">mercado.sabushtech.com</span>
         <button class="card-link" style="color:var(--gold);background:none;border:none;cursor:pointer;padding:0;font-family:inherit;" onclick="openNotifyModal(event)">Notify me when live →</button>
       </a>
-      <a class="product-card p-english reveal" href="https://english.sabushtech.com" target="_blank">
+      <a class="product-card p-english reveal" href="#" onclick="openEnglishModal(event)" style="cursor:pointer;">
         <div class="card-icon">🎙️</div>
         <div class="card-tag">Online Training</div>
-        <div class="card-title">Sabush English Club</div>
+        <div class="card-title">Sabush English Club <span class="coming-soon-badge" style="background:rgba(34,211,238,0.12);color:#22d3ee;">Coming Soon</span></div>
         <p class="card-desc">Master business and conversational English online. Practical fluency training focused on what matters for professionals and entrepreneurs.</p>
         <ul class="card-features">
           <li>Business English for professionals</li>
@@ -636,7 +636,7 @@
           <li>Flexible online sessions</li>
         </ul>
         <span class="card-url">english.sabushtech.com</span>
-        <span class="card-link">Join the club →</span>
+        <button class="card-link" style="color:#22d3ee;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;" onclick="openEnglishModal(event)">Notify me when live →</button>
       </a>
     </div>
   </div>
@@ -890,7 +890,7 @@
       <a href="https://erp.sabushtech.com" target="_blank">Sabush System ERP</a>
       <a href="https://pos.sabushtech.com" target="_blank">Sabush POS</a>
       <a href="#">Mercado Sabush <span class="coming">Coming Soon</span></a>
-      <a href="https://english.sabushtech.com" target="_blank">Sabush English Club</a>
+      <a href="#" onclick="openEnglishModal(event)">Sabush English Club <span class="coming" style="color:rgba(34,211,238,0.5)">Coming Soon</span></a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
@@ -922,6 +922,56 @@
 <script>
 
 
+
+
+  // English Club Notify Modal
+  function openEnglishModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('englishModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeEnglishModal(e, force) {
+    if (!force && e && e.target !== document.getElementById('englishModal')) return;
+    document.getElementById('englishModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeEnglishModal(null, true);
+      closeNotifyModal(null, true);
+    }
+  });
+  function submitEnglish() {
+    const name  = document.getElementById('englishName').value.trim();
+    const email = document.getElementById('englishEmail').value.trim();
+    if (!name)  { document.getElementById('englishName').focus(); return; }
+    if (!email || !email.includes('@')) { document.getElementById('englishEmail').focus(); return; }
+
+    const btn = document.getElementById('englishBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const role  = document.getElementById('englishRole').value.trim();
+    const phone = document.getElementById('englishPhone').value.trim();
+    const subject = encodeURIComponent('Sabush English Club — Notify Me');
+    const body    = encodeURIComponent(
+      'Name: ' + name +
+      '\nRole: ' + (role || 'N/A') +
+      '\nEmail: ' + email +
+      '\nWhatsApp: ' + (phone || 'N/A')
+    );
+    window.open('mailto:sabushgroup@gmail.com?subject=' + subject + '&body=' + body);
+
+    const leads = JSON.parse(localStorage.getItem('english-leads') || '[]');
+    leads.push({ name, email, role, phone, date: new Date().toISOString() });
+    localStorage.setItem('english-leads', JSON.stringify(leads));
+
+    setTimeout(function() {
+      document.getElementById('englishFormWrap').style.display = 'none';
+      document.getElementById('englishEmailConfirm').textContent = email;
+      document.getElementById('englishSuccess').style.display = 'block';
+    }, 600);
+  }
 
   // Notify Me Modal
   function openNotifyModal(e) {
@@ -1074,6 +1124,39 @@
       <div class="ns-icon">🎉</div>
       <h4>You're on the list!</h4>
       <p>We'll reach out to <span id="notifyEmailConfirm" style="color:#a855f7"></span> the moment Mercado Sabush goes live. Spread the word!</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ENGLISH CLUB NOTIFY MODAL -->
+<div class="modal-overlay" id="englishModal" onclick="closeEnglishModal(event)">
+  <div class="modal-box" style="border-color:rgba(34,211,238,0.25);">
+    <button class="modal-close" onclick="closeEnglishModal(null, true)">✕</button>
+    <div class="modal-badge" style="background:rgba(34,211,238,0.12);border-color:rgba(34,211,238,0.25);color:#22d3ee;">🎙️ Coming Soon</div>
+    <h3>Join <span style="color:#22d3ee;">Sabush English Club</span></h3>
+    <p>We're putting the finishing touches on Mozambique's best online English training platform for business professionals. Be the first to know when we open enrolment.</p>
+    <div class="modal-perks">
+      <div class="modal-perk" style="--perk-color:#22d3ee;">Early enrolment access before public launch</div>
+      <div class="modal-perk" style="--perk-color:#22d3ee;">Discounted founding member rate</div>
+      <div class="modal-perk" style="--perk-color:#22d3ee;">One email when we open — no spam</div>
+    </div>
+    <div id="englishFormWrap">
+      <div class="notify-form">
+        <input type="text" id="englishName" placeholder="Your name" autocomplete="name"/>
+        <input type="text" id="englishRole" placeholder="Your role or profession (optional)"/>
+        <input type="email" id="englishEmail" placeholder="Email address" autocomplete="email"/>
+        <input type="tel" id="englishPhone" placeholder="WhatsApp number (optional)" autocomplete="tel"/>
+        <button class="notify-btn" id="englishBtn" onclick="submitEnglish()"
+          style="background:linear-gradient(135deg,#22d3ee,#4ade80);box-shadow:0 4px 20px rgba(34,211,238,0.3);">
+          Notify Me When We Open →
+        </button>
+      </div>
+    </div>
+    <div class="notify-success" id="englishSuccess">
+      <div class="ns-icon">🎉</div>
+      <h4>You're on the list!</h4>
+      <p>We'll contact <span id="englishEmailConfirm" style="color:#22d3ee;"></span> as soon as enrolment opens. Get ready to level up your English!</p>
     </div>
   </div>
 </div>
