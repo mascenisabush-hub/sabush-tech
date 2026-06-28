@@ -46,6 +46,27 @@
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--teal); }
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    display: flex; align-items: center; gap: 0;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(0,201,177,0.2);
+    border-radius: 8px; overflow: hidden;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    padding: 7px 13px; font-size: 0.78rem; font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--muted); letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+    line-height: 1;
+  }
+  .lang-btn.active {
+    background: var(--teal); color: var(--navy);
+  }
+  .lang-btn:hover:not(.active) { color: var(--white); }
   .nav-cta { background: var(--teal); color: var(--navy); padding: 9px 22px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: opacity 0.2s; }
   .nav-cta:hover { opacity: 0.88; }
 
@@ -265,25 +286,29 @@
     <span>Sabush Tech <span class="logo-sub">LDA · Smart Business Ecosystem</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#demo">Demo</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#testimonials">Clients</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#products" data-en="Products" data-pt="Produtos">Products</a></li>
+    <li><a href="#demo" data-en="Demo" data-pt="Demo">Demo</a></li>
+    <li><a href="#services" data-en="Services" data-pt="Serviços">Services</a></li>
+    <li><a href="#testimonials" data-en="Clients" data-pt="Clientes">Clients</a></li>
+    <li><a href="#faq" data-en="FAQ" data-pt="FAQ">FAQ</a></li>
+    <li><a href="#contact" data-en="Contact" data-pt="Contacto">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get Started</a>
+  <div class="lang-toggle" id="langToggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')" id="btn-pt">PT</button>
+  </div>
+  <a href="#contact" class="nav-cta" data-en="Get Started" data-pt="Começar">Get Started</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#products" onclick="closeMobileMenu()">Products</a>
-  <a href="#demo" onclick="closeMobileMenu()">Demo</a>
-  <a href="#services" onclick="closeMobileMenu()">Services</a>
-  <a href="#testimonials" onclick="closeMobileMenu()">Clients</a>
-  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-  <a href="#contact" class="mob-cta" onclick="closeMobileMenu()">Get Started</a>
+  <a href="#products" onclick="closeMobileMenu()" data-en="Products" data-pt="Produtos">Products</a>
+  <a href="#demo" onclick="closeMobileMenu()" data-en="Demo" data-pt="Demo">Demo</a>
+  <a href="#services" onclick="closeMobileMenu()" data-en="Services" data-pt="Serviços">Services</a>
+  <a href="#testimonials" onclick="closeMobileMenu()" data-en="Clients" data-pt="Clientes">Clients</a>
+  <a href="#faq" onclick="closeMobileMenu()" data-en="FAQ" data-pt="FAQ">FAQ</a>
+  <a href="#contact" class="mob-cta" onclick="closeMobileMenu()" data-en="Get Started" data-pt="Começar">Get Started</a>
 </div>
 
 <!-- HERO -->
@@ -292,12 +317,12 @@
   <div class="grid-overlay"></div>
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-label">// Sabush Tech LDA · Matola, Mozambique</div>
-      <h1>One Brand.<br><span class="accent">Every Tool</span> Your<br>Business <span class="gold">Needs.</span></h1>
-      <p class="hero-sub">From managing inventory and invoices to selling online, training your team in English, and building your digital presence — Sabush has you covered.</p>
+      <div class="hero-label" data-en="// Sabush Tech LDA · Matola, Mozambique" data-pt="// Sabush Tech LDA · Matola, Moçambique">// Sabush Tech LDA · Matola, Mozambique</div>
+      <h1 data-en-html="One Brand.<br><span class='accent'>Every Tool</span> Your<br>Business <span class='gold'>Needs.</span>" data-pt-html="Uma Marca.<br><span class='accent'>Tudo o que</span> o Seu<br>Negócio <span class='gold'>Precisa.</span>">One Brand.<br><span class="accent">Every Tool</span> Your<br>Business <span class="gold">Needs.</span></h1>
+      <p class="hero-sub" data-en="From managing inventory and invoices to selling online, training your team in English, and building your digital presence — Sabush has you covered." data-pt="Desde a gestão de inventário e facturas até vender online, treinar a sua equipa em inglês e construir a sua presença digital — a Sabush tem tudo para si.">From managing inventory and invoices to selling online, training your team in English, and building your digital presence — Sabush has you covered.</p>
       <div class="hero-btns">
-        <a href="#products" class="btn-primary">Explore Products</a>
-        <a href="#contact" class="btn-ghost">Talk to Us</a>
+        <a href="#products" class="btn-primary" data-en="Explore Products" data-pt="Ver Produtos">Explore Products</a>
+        <a href="#contact" class="btn-ghost" data-en="Talk to Us" data-pt="Fale Connosco">Talk to Us</a>
       </div>
     </div>
     <div class="orbit-container">
@@ -370,19 +395,19 @@
   <div class="stats-inner">
     <div class="stat-item reveal">
       <div class="stat-num">4+</div>
-      <div class="stat-label">Products & Platforms</div>
+      <div class="stat-label" data-en="Products & Platforms" data-pt="Produtos & Plataformas">Products & Platforms</div>
     </div>
     <div class="stat-item reveal">
       <div class="stat-num">500+</div>
-      <div class="stat-label">Businesses Served</div>
+      <div class="stat-label" data-en="Businesses Served" data-pt="Empresas Servidas">Businesses Served</div>
     </div>
     <div class="stat-item reveal">
       <div class="stat-num">3</div>
-      <div class="stat-label">Countries Reached</div>
+      <div class="stat-label" data-en="Countries Reached" data-pt="Países Alcançados">Countries Reached</div>
     </div>
     <div class="stat-item reveal">
       <div class="stat-num">24/7</div>
-      <div class="stat-label">Customer Support</div>
+      <div class="stat-label" data-en="Customer Support" data-pt="Suporte ao Cliente">Customer Support</div>
     </div>
   </div>
 </section>
@@ -392,8 +417,8 @@
   <div style="max-width:1200px;margin:0 auto;">
     <div class="center reveal">
       <div class="section-label">// Our Products</div>
-      <h2 class="section-title">Built for Business Growth</h2>
-      <p class="section-sub">Four powerful platforms, one ecosystem — each solving a real problem for businesses like yours.</p>
+      <h2 class="section-title" data-en="Built for Business Growth" data-pt="Construído para o Crescimento do Negócio">Built for Business Growth</h2>
+      <p class="section-sub" data-en="Four powerful platforms, one ecosystem — each solving a real problem for businesses like yours." data-pt="Quatro plataformas poderosas, um ecossistema — cada uma resolvendo um problema real para negócios como o seu.">Four powerful platforms, one ecosystem — each solving a real problem for businesses like yours.</p>
     </div>
     <div class="products-grid">
       <a class="product-card p-erp reveal" href="https://erp.sabushtech.com" target="_blank">
@@ -677,11 +702,11 @@
 <section id="contact">
   <div class="cta-box reveal">
     <div class="section-label" style="text-align:center">// Let's Work Together</div>
-    <h2>Ready to take your business<br>to the next level?</h2>
+    <h2 data-en="Ready to take your business to the next level?" data-pt="Pronto para levar o seu negócio ao próximo nível?">Ready to take your business<br>to the next level?</h2>
     <p>Whether you need an ERP system, a POS, a marketplace presence, a new website, or English fluency training — Sabush Tech is ready to help. Reach out today.</p>
     <div class="cta-row">
-      <a href="mailto:sabushgroup@gmail.com" class="btn-primary">Email Us</a>
-      <a href="https://wa.me/258858624086" target="_blank" class="btn-ghost">WhatsApp Us</a>
+      <a href="mailto:sabushgroup@gmail.com" class="btn-primary" data-en="Email Us" data-pt="Enviar Email">Email Us</a>
+      <a href="https://wa.me/258858624086" target="_blank" class="btn-ghost" data-en="WhatsApp Us" data-pt="WhatsApp">WhatsApp Us</a>
     </div>
     <div class="contact-cards">
       <a href="mailto:sabushgroup@gmail.com" class="contact-card"><span>✉️</span> sabushgroup@gmail.com</a>
@@ -734,6 +759,33 @@
 </footer>
 
 <script>
+
+  // Language Toggle
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    localStorage.setItem('sabush-lang', lang);
+
+    // Toggle button states
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+
+    // Translate all elements with data-en / data-pt
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = lang === 'pt' ? el.getAttribute('data-pt') : el.getAttribute('data-en');
+    });
+
+    // Translate elements with inner HTML (headings with spans)
+    document.querySelectorAll('[data-en-html]').forEach(el => {
+      el.innerHTML = lang === 'pt' ? el.getAttribute('data-pt-html') : el.getAttribute('data-en-html');
+    });
+  }
+
+  // Load saved language on page load
+  (function() {
+    const saved = localStorage.getItem('sabush-lang') || 'en';
+    if (saved === 'pt') setLang('pt');
+  })();
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
