@@ -275,9 +275,82 @@
     section { padding: 60px 5%; }
     .stats-inner { grid-template-columns: 1fr 1fr; }
   }
+
+  /* PAGE LOADER */
+  #page-loader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  #page-loader.hidden {
+    opacity: 0; visibility: hidden; pointer-events: none;
+  }
+  .loader-inner {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 20px;
+    animation: loaderFadeIn 0.4s ease forwards;
+  }
+  @keyframes loaderFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .loader-wordmark {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.6rem; font-weight: 800;
+    letter-spacing: 0.06em;
+    display: flex; gap: 0;
+  }
+  .lw-sa   { color: var(--white); }
+  .lw-bush { color: var(--teal);  }
+  .loader-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: var(--muted);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0;
+    animation: loaderFadeIn 0.4s ease 0.5s forwards;
+  }
+
+  /* HERO CONTENT entrance — delayed until loader hides */
+  .hero-content, .orbit-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .hero-content.entered, .orbit-container.entered {
+    opacity: 1; transform: none;
+  }
+
 </style>
 </head>
 <body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-inner">
+    <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="14" fill="none" stroke="#00C9B1" stroke-width="2" opacity="0.2"/>
+      <circle cx="32" cy="32" r="14" fill="none" stroke="#00C9B1" stroke-width="2"
+        stroke-dasharray="88" stroke-dashoffset="88" stroke-linecap="round">
+        <animate attributeName="stroke-dashoffset" from="88" to="0" dur="0.9s" fill="freeze" begin="0.1s"/>
+      </circle>
+      <circle cx="32" cy="18" r="4" fill="#111f36" stroke="#00C9B1" stroke-width="1.5">
+        <animateTransform attributeName="transform" type="rotate"
+          from="0 32 32" to="360 32 32" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="32" cy="32" r="5" fill="#00C9B1" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" fill="freeze" begin="0.8s"/>
+        <animate attributeName="r" from="2" to="5" dur="0.3s" fill="freeze" begin="0.8s"/>
+      </circle>
+    </svg>
+    <div class="loader-wordmark">
+      <span class="lw-sa">SA</span><span class="lw-bush">BUSH</span>
+    </div>
+    <div class="loader-sub">Smart Business Ecosystem</div>
+  </div>
+</div>
+
 
 <!-- NAV -->
 <nav>
@@ -759,6 +832,21 @@
 </footer>
 
 <script>
+
+
+  // Page Loader
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const loader = document.getElementById('page-loader');
+      loader.classList.add('hidden');
+      // Trigger hero entrance after loader fades
+      setTimeout(function() {
+        document.querySelectorAll('.hero-content, .orbit-container').forEach(function(el) {
+          el.classList.add('entered');
+        });
+      }, 300);
+    }, 1500);
+  });
 
   // Language Toggle
   function setLang(lang) {
