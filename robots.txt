@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://mascenisabush-hub.github.io/sabush-tech/sitemap.xml
+Sitemap: https://sabushtech.com/sitemap.xml
