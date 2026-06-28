@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sabush Tech LDA — Smart Business Ecosystem</title>
+<meta name="description" content="Sabush Tech LDA offers ERP, POS, digital marketplace, and English training solutions built for businesses in Mozambique and Africa. One ecosystem, every tool your business needs.">
+<meta name="keywords" content="ERP Mozambique, POS system Mozambique, business software Africa, Sabush Tech, Matola, gestão empresarial, sistema ERP, ponto de venda">
+<meta name="author" content="Sabush Tech LDA">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mascenisabush-hub.github.io/sabush-tech/">
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mascenisabush-hub.github.io/sabush-tech/">
+<meta property="og:title" content="Sabush Tech LDA — Smart Business Ecosystem">
+<meta property="og:description" content="ERP, POS, marketplace, and English training built for businesses in Mozambique and Africa. One brand, every tool your business needs.">
+<meta property="og:site_name" content="Sabush Tech LDA">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sabush Tech LDA — Smart Business Ecosystem">
+<meta name="twitter:description" content="ERP, POS, marketplace, and English training built for businesses in Mozambique and Africa.">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -201,6 +218,23 @@
     .testimonials-grid { grid-template-columns: 1fr 1fr; }
     .demo-inner { grid-template-columns: 1fr; }
   }
+  /* MOBILE NAV */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; top: 62px; z-index: 99;
+    background: rgba(11,22,40,0.98); backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 32px; padding: 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--white); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 700; transition: color 0.2s; }
+  .mobile-menu a:hover { color: var(--teal); }
+  .mobile-menu .mob-cta { background: var(--teal); color: var(--navy); padding: 14px 36px; border-radius: 10px; font-size: 1.1rem; }
+
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; text-align: center; }
     .orbit-container { max-width: 300px; }
@@ -209,6 +243,8 @@
     .services-grid, .why-grid { grid-template-columns: 1fr; }
     .stats-inner { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; gap: 28px; }
     .cta-box { padding: 36px 22px; }
@@ -237,7 +273,18 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get Started</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" onclick="closeMobileMenu()">Products</a>
+  <a href="#demo" onclick="closeMobileMenu()">Demo</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Clients</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#contact" class="mob-cta" onclick="closeMobileMenu()">Get Started</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -681,6 +728,7 @@
       <a href="#testimonials">Clients</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
+      <a href="privacy.html">Privacy</a>
     </div>
   </div>
 </footer>
@@ -697,6 +745,22 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // Mobile nav
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
   // FAQ toggle
   function toggleFaq(btn) {
