@@ -322,6 +322,94 @@
     opacity: 1; transform: none;
   }
 
+
+  /* NOTIFY ME MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(6,13,26,0.85); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+  .modal-box {
+    background: #111f36;
+    border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 20px; padding: 44px 40px;
+    max-width: 480px; width: 100%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.35s ease;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+  .modal-overlay.open .modal-box { transform: translateY(0); }
+  .modal-close {
+    position: absolute; top: 16px; right: 18px;
+    background: none; border: none; cursor: pointer;
+    color: var(--muted); font-size: 1.4rem; line-height: 1;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--white); }
+  .modal-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(168,85,247,0.12);
+    border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 20px; padding: 5px 14px;
+    font-size: 0.72rem; font-weight: 700;
+    color: #a855f7; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .modal-box h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.6rem; font-weight: 800;
+    color: var(--white); margin-bottom: 10px; line-height: 1.2;
+  }
+  .modal-box h3 span { color: #a855f7; }
+  .modal-box p {
+    font-size: 0.9rem; color: var(--muted);
+    line-height: 1.7; margin-bottom: 28px;
+  }
+  .notify-form { display: flex; flex-direction: column; gap: 14px; }
+  .notify-form input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 13px 16px;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem;
+    color: var(--white); width: 100%;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .notify-form input::placeholder { color: var(--muted); }
+  .notify-form input:focus { border-color: rgba(168,85,247,0.5); }
+  .notify-btn {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    color: #fff; border: none; border-radius: 10px;
+    padding: 14px 28px; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(168,85,247,0.35);
+  }
+  .notify-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .notify-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .notify-success {
+    display: none; text-align: center; padding: 20px 0 8px;
+  }
+  .notify-success .ns-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .notify-success h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 8px;
+  }
+  .notify-success p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0; }
+  .modal-perks {
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
+  }
+  .modal-perk {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.84rem; color: var(--muted);
+  }
+  .modal-perk::before { content: "✓"; color: #a855f7; font-weight: 700; flex-shrink: 0; }
+
 </style>
 </head>
 <body>
@@ -522,7 +610,7 @@
         <span class="card-url">pos.sabushtech.com</span>
         <span class="card-link">Open POS →</span>
       </a>
-      <a class="product-card p-mercado reveal" href="#" style="cursor:default;">
+      <a class="product-card p-mercado reveal" href="#" style="cursor:pointer;" onclick="openNotifyModal(event)">
         <div class="card-icon">🛒</div>
         <div class="card-tag">Digital Marketplace</div>
         <div class="card-title">Mercado Sabush <span class="coming-soon-badge">Coming Soon</span></div>
@@ -534,7 +622,7 @@
           <li>Reach buyers beyond your location</li>
         </ul>
         <span class="card-url">mercado.sabushtech.com</span>
-        <span class="card-link" style="color:var(--gold)">Notify me when live →</span>
+        <button class="card-link" style="color:var(--gold);background:none;border:none;cursor:pointer;padding:0;font-family:inherit;" onclick="openNotifyModal(event)">Notify me when live →</button>
       </a>
       <a class="product-card p-english reveal" href="https://english.sabushtech.com" target="_blank">
         <div class="card-icon">🎙️</div>
@@ -834,6 +922,56 @@
 <script>
 
 
+
+  // Notify Me Modal
+  function openNotifyModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('notifyModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNotifyModal(e, force) {
+    if (!force && e && e.target !== document.getElementById('notifyModal')) return;
+    document.getElementById('notifyModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeNotifyModal(null, true);
+  });
+  function submitNotify() {
+    const name  = document.getElementById('notifyName').value.trim();
+    const email = document.getElementById('notifyEmail').value.trim();
+    if (!name)  { document.getElementById('notifyName').focus(); return; }
+    if (!email || !email.includes('@')) { document.getElementById('notifyEmail').focus(); return; }
+
+    const btn = document.getElementById('notifyBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    // Send via mailto as fallback (no backend needed)
+    const business = document.getElementById('notifyBusiness').value.trim();
+    const phone    = document.getElementById('notifyPhone').value.trim();
+    const subject  = encodeURIComponent('Mercado Sabush — Notify Me');
+    const body     = encodeURIComponent(
+      'Name: ' + name +
+      '\nBusiness: ' + (business || 'N/A') +
+      '\nEmail: ' + email +
+      '\nWhatsApp: ' + (phone || 'N/A')
+    );
+    window.open('mailto:sabushgroup@gmail.com?subject=' + subject + '&body=' + body);
+
+    // Store locally too
+    const leads = JSON.parse(localStorage.getItem('mercado-leads') || '[]');
+    leads.push({ name, email, business, phone, date: new Date().toISOString() });
+    localStorage.setItem('mercado-leads', JSON.stringify(leads));
+
+    // Show success
+    setTimeout(function() {
+      document.getElementById('notifyFormWrap').style.display = 'none';
+      document.getElementById('notifyEmailConfirm').textContent = email;
+      document.getElementById('notifySuccess').style.display = 'block';
+    }, 600);
+  }
+
   // Page Loader
   window.addEventListener('load', function() {
     setTimeout(function() {
@@ -910,5 +1048,35 @@
     if (!isOpen) item.classList.add('open');
   }
 </script>
+
+<!-- MERCADO NOTIFY MODAL -->
+<div class="modal-overlay" id="notifyModal" onclick="closeNotifyModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeNotifyModal(null, true)">✕</button>
+    <div class="modal-badge">🛒 Coming Soon</div>
+    <h3>Be First on <span>Mercado Sabush</span></h3>
+    <p>Mozambique's digital marketplace is launching soon. Leave your details and we'll notify you the moment it goes live — plus give you early access.</p>
+    <div class="modal-perks">
+      <div class="modal-perk">Free early access before public launch</div>
+      <div class="modal-perk">Priority listing for your business</div>
+      <div class="modal-perk">No spam — one email when we launch</div>
+    </div>
+    <div id="notifyFormWrap">
+      <div class="notify-form">
+        <input type="text" id="notifyName" placeholder="Your name" autocomplete="name"/>
+        <input type="text" id="notifyBusiness" placeholder="Business name (optional)"/>
+        <input type="email" id="notifyEmail" placeholder="Email address" autocomplete="email"/>
+        <input type="tel" id="notifyPhone" placeholder="WhatsApp number (optional)" autocomplete="tel"/>
+        <button class="notify-btn" id="notifyBtn" onclick="submitNotify()">Notify Me When Live →</button>
+      </div>
+    </div>
+    <div class="notify-success" id="notifySuccess">
+      <div class="ns-icon">🎉</div>
+      <h4>You're on the list!</h4>
+      <p>We'll reach out to <span id="notifyEmailConfirm" style="color:#a855f7"></span> the moment Mercado Sabush goes live. Spread the word!</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
