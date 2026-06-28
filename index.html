@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabush Tech LDA — Smart Business Ecosystem</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1628; --navy-mid: #142035; --slate: #2D3F5A;
+    --teal: #00C9B1; --teal-dim: rgba(0,201,177,0.12);
+    --gold: #F5A623; --gold-dim: rgba(245,166,35,0.12);
+    --white: #F8FAFB; --muted: #8A9BB5; --card-bg: #111f36;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 6%; background: rgba(11,22,40,0.88);
+    backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,201,177,0.1);
+  }
+  .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--teal); display: inline-block; }
+  .logo-sub { font-size: 0.65rem; color: var(--muted); font-weight: 400; display: block; letter-spacing: 0.04em; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta { background: var(--teal); color: var(--navy); padding: 9px 22px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 6% 80px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,201,177,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(245,166,35,0.05) 0%, transparent 60%); pointer-events: none; }
+  .grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,201,177,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,201,177,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; width: 100%; position: relative; z-index: 2; }
+  .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--teal); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
+  .hero h1 .accent { color: var(--teal); }
+  .hero h1 .gold { color: var(--gold); }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.7; max-width: 480px; margin-bottom: 40px; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: var(--teal); color: var(--navy); padding: 13px 28px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(0,201,177,0.3); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,201,177,0.4); }
+  .btn-ghost { border: 1.5px solid rgba(0,201,177,0.35); color: var(--teal); padding: 13px 28px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: background 0.2s; }
+  .btn-ghost:hover { background: var(--teal-dim); }
+  .orbit-container { width: 100%; aspect-ratio: 1; max-width: 480px; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center; }
+  .orbit-svg { width: 100%; height: 100%; }
+
+  /* SECTION SHARED */
+  section { padding: 90px 6%; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--teal); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.2; color: var(--white); margin-bottom: 16px; }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 560px; margin-bottom: 56px; }
+  .center { text-align: center; }
+  .center .section-sub { margin-left: auto; margin-right: auto; }
+
+  /* STATS BAR */
+  #stats { background: var(--teal); padding: 40px 6%; }
+  .stats-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .stat-item { text-align: center; padding: 10px 20px; border-right: 1px solid rgba(11,22,40,0.15); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--navy); line-height: 1; }
+  .stat-label { font-size: 0.82rem; color: rgba(11,22,40,0.65); font-weight: 500; margin-top: 4px; }
+
+  /* PRODUCTS */
+  #products { background: var(--navy-mid); }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .product-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: block; }
+  .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--c1), var(--c2)); opacity: 0; transition: opacity 0.3s; }
+  .product-card:hover { border-color: rgba(0,201,177,0.25); transform: translateY(-4px); }
+  .product-card:hover::before { opacity: 1; }
+  .card-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; background: var(--icon-bg); }
+  .card-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+  .card-features { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .card-features li { font-size: 0.82rem; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .card-features li::before { content: '→'; color: var(--teal); flex-shrink: 0; font-size: 0.75rem; margin-top: 1px; }
+  .card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; margin-top: 20px; text-decoration: none; color: var(--teal); transition: gap 0.2s; }
+  .product-card:hover .card-link { gap: 10px; }
+  .card-url { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: rgba(0,201,177,0.5); margin-top: 12px; display: block; }
+  .coming-soon-badge { display: inline-block; background: var(--gold-dim); color: var(--gold); font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
+  .p-erp { --c1: #00C9B1; --c2: #00a8f3; --icon-bg: rgba(0,201,177,0.12); }
+  .p-pos { --c1: #F5A623; --c2: #f07b3f; --icon-bg: rgba(245,166,35,0.12); }
+  .p-mercado { --c1: #a855f7; --c2: #ec4899; --icon-bg: rgba(168,85,247,0.12); }
+  .p-english { --c1: #22d3ee; --c2: #4ade80; --icon-bg: rgba(34,211,238,0.12); }
+
+  /* DEMO SECTION */
+  #demo { background: var(--navy); }
+  .demo-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .demo-text .section-sub { margin-bottom: 32px; }
+  .demo-features { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .demo-features li { display: flex; align-items: flex-start; gap: 14px; }
+  .demo-features li .dicon { width: 36px; height: 36px; border-radius: 10px; background: var(--teal-dim); border: 1px solid rgba(0,201,177,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .demo-features li .dtxt strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+  .demo-features li .dtxt span { font-size: 0.82rem; color: var(--muted); }
+  .demo-screen { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,201,177,0.15); background: var(--card-bg); }
+  .demo-topbar { background: var(--navy-mid); padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .demo-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .demo-url { margin-left: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 4px 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); flex: 1; }
+  .demo-body { padding: 20px; }
+  .demo-sidebar-mini { display: grid; grid-template-columns: 70px 1fr; gap: 12px; min-height: 200px; }
+  .dsm-side { background: #0a1525; border-radius: 8px; padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; }
+  .dsm-item { padding: 6px 8px; border-radius: 5px; font-size: 0.62rem; color: var(--muted); font-weight: 500; }
+  .dsm-item.active { background: var(--teal); color: var(--navy); font-weight: 700; }
+  .dsm-main { display: flex; flex-direction: column; gap: 10px; }
+  .dsm-welcome { background: linear-gradient(120deg, #0f2040, #1a3a5c); border-radius: 8px; padding: 14px 16px; }
+  .dsm-welcome h4 { font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+  .dsm-welcome p { font-size: 0.68rem; color: var(--muted); }
+  .dsm-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .dsm-card { border-radius: 7px; padding: 10px 12px; }
+  .dsm-card.t { background: var(--teal); }
+  .dsm-card.g { background: var(--gold); }
+  .dsm-card p { font-size: 0.62rem; color: rgba(11,22,40,0.7); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+  .dsm-card strong { font-size: 1.1rem; font-weight: 800; color: var(--navy); }
+  .dsm-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .dsm-action { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 7px; text-align: center; font-size: 0.6rem; color: var(--muted); }
+
+  /* SERVICES */
+  #services { background: var(--navy-mid); }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .service-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 36px; transition: border-color 0.3s, transform 0.3s; }
+  .service-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
+  .service-icon { font-size: 2rem; margin-bottom: 18px; }
+  .service-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .service-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+  .service-tag { display: inline-block; margin-top: 18px; font-size: 0.75rem; font-weight: 600; color: var(--gold); background: var(--gold-dim); padding: 5px 12px; border-radius: 20px; }
+
+  /* WHY */
+  #why { background: var(--navy); }
+  .why-inner { max-width: 1100px; margin: 0 auto; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 56px; }
+  .why-item { display: flex; flex-direction: column; gap: 12px; }
+  .why-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--teal); line-height: 1; }
+  .why-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); }
+  .why-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--navy-mid); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .testi-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; position: relative; transition: border-color 0.3s, transform 0.3s; }
+  .testi-card:hover { border-color: rgba(0,201,177,0.2); transform: translateY(-3px); }
+  .testi-quote { font-size: 2.5rem; color: var(--teal); opacity: 0.3; line-height: 1; margin-bottom: 12px; font-family: Georgia, serif; }
+  .testi-text { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 16px; letter-spacing: 2px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .testi-name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+  .testi-role { font-size: 0.75rem; color: var(--muted); }
+  .testi-product { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+  /* FAQ */
+  #faq { background: var(--navy); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 20px; }
+  .faq-q span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); }
+  .faq-icon { color: var(--teal); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .faq-a p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; padding-bottom: 20px; }
+  .faq-item.open .faq-a { max-height: 300px; }
+
+  /* CONTACT */
+  #contact { background: var(--navy-mid); text-align: center; }
+  .cta-box { max-width: 760px; margin: 0 auto; background: linear-gradient(135deg, rgba(0,201,177,0.08), rgba(245,166,35,0.06)); border: 1px solid rgba(0,201,177,0.18); border-radius: 24px; padding: 60px 48px; }
+  .cta-box h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--white); margin-bottom: 16px; }
+  .cta-box p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-cards { display: flex; gap: 16px; justify-content: center; margin-top: 36px; flex-wrap: wrap; }
+  .contact-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 14px 20px; font-size: 0.85rem; color: var(--muted); display: flex; align-items: center; gap: 10px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+  .contact-card:hover { border-color: var(--teal); color: var(--white); }
+  .contact-card span { font-size: 1.1rem; }
+
+  /* FOOTER */
+  footer { background: #060d1a; padding: 50px 6% 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-brand .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--white); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; text-decoration: none; }
+  .footer-brand p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; max-width: 240px; }
+  .footer-col h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .footer-col a { display: block; font-size: 0.83rem; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--teal); }
+  .footer-col .coming { color: rgba(245,166,35,0.5); font-size: 0.7rem; margin-left: 6px; }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer-copy { font-size: 0.8rem; color: var(--muted); }
+  .footer-links-row { display: flex; gap: 20px; }
+  .footer-links-row a { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links-row a:hover { color: var(--teal); }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .demo-inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .orbit-container { max-width: 300px; }
+    .hero-sub { margin: 0 auto 40px; }
+    .hero-btns { justify-content: center; }
+    .services-grid, .why-grid { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .cta-box { padding: 36px 22px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 500px) {
+    section { padding: 60px 5%; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-dot"></span>
+    <span>Sabush Tech <span class="logo-sub">LDA · Smart Business Ecosystem</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">// Sabush Tech LDA · Matola, Mozambique</div>
+      <h1>One Brand.<br><span class="accent">Every Tool</span> Your<br>Business <span class="gold">Needs.</span></h1>
+      <p class="hero-sub">From managing inventory and invoices to selling online, training your team in English, and building your digital presence — Sabush has you covered.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Explore Products</a>
+        <a href="#contact" class="btn-ghost">Talk to Us</a>
+      </div>
+    </div>
+    <div class="orbit-container">
+      <svg class="orbit-svg" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00C9B1" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#00C9B1" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="220" cy="220" r="180" fill="url(#glow)"/>
+        <circle cx="220" cy="220" r="155" fill="none" stroke="rgba(0,201,177,0.1)" stroke-width="1" stroke-dasharray="4 8"/>
+        <circle cx="220" cy="220" r="105" fill="none" stroke="rgba(245,166,35,0.1)" stroke-width="1" stroke-dasharray="4 8"/>
+        <circle cx="220" cy="220" r="38" fill="#142035" stroke="#00C9B1" stroke-width="1.5"/>
+        <text x="220" y="215" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="14" fill="#F8FAFB">SA</text>
+        <text x="220" y="230" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="14" fill="#00C9B1">BUSH</text>
+        <g transform="translate(220,220)">
+          <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
+          <g transform="translate(0,-155)">
+            <circle r="32" fill="#111f36" stroke="#00C9B1" stroke-width="1.5"/>
+            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#00C9B1">ERP</text>
+            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#8A9BB5">System</text>
+          </g>
+        </g>
+        <g transform="translate(220,220)">
+          <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
+          <g transform="translate(0,-155)">
+            <circle r="32" fill="#111f36" stroke="#F5A623" stroke-width="1.5"/>
+            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#F5A623">POS</text>
+            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#8A9BB5">System</text>
+          </g>
+        </g>
+        <g transform="translate(220,220)">
+          <animateTransform attributeName="transform" type="rotate" from="180 0 0" to="540 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
+          <g transform="translate(0,-155)">
+            <circle r="32" fill="#111f36" stroke="#a855f7" stroke-width="1.5"/>
+            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#a855f7">MKTPL</text>
+            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#8A9BB5">Mercado</text>
+          </g>
+        </g>
+        <g transform="translate(220,220)">
+          <animateTransform attributeName="transform" type="rotate" from="270 0 0" to="630 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
+          <g transform="translate(0,-155)">
+            <circle r="32" fill="#111f36" stroke="#22d3ee" stroke-width="1.5"/>
+            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#22d3ee">ENG</text>
+            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#8A9BB5">Club</text>
+          </g>
+        </g>
+        <g transform="translate(220,220)">
+          <animateTransform attributeName="transform" type="rotate" from="45 0 0" to="405 0 0" dur="10s" repeatCount="indefinite" additive="sum"/>
+          <g transform="translate(0,-105)">
+            <circle r="22" fill="#111f36" stroke="#F5A623" stroke-width="1.2"/>
+            <text text-anchor="middle" dy="4" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#F5A623">WEB</text>
+          </g>
+        </g>
+        <g transform="translate(220,220)">
+          <animateTransform attributeName="transform" type="rotate" from="225 0 0" to="585 0 0" dur="10s" repeatCount="indefinite" additive="sum"/>
+          <g transform="translate(0,-105)">
+            <circle r="22" fill="#111f36" stroke="#00C9B1" stroke-width="1.2"/>
+            <text text-anchor="middle" dy="4" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#00C9B1">AUTO</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Products & Platforms</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Businesses Served</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Countries Reached</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Customer Support</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="center reveal">
+      <div class="section-label">// Our Products</div>
+      <h2 class="section-title">Built for Business Growth</h2>
+      <p class="section-sub">Four powerful platforms, one ecosystem — each solving a real problem for businesses like yours.</p>
+    </div>
+    <div class="products-grid">
+      <a class="product-card p-erp reveal" href="https://erp.sabushtech.com" target="_blank">
+        <div class="card-icon">🧾</div>
+        <div class="card-tag">ERP Software</div>
+        <div class="card-title">Sabush System ERP</div>
+        <p class="card-desc">The all-in-one business management system for wholesale and retail — inventory, invoicing, and reporting under one roof.</p>
+        <ul class="card-features">
+          <li>Inventory tracking & stock alerts</li>
+          <li>Wholesale & retail invoicing</li>
+          <li>POS integration built in</li>
+          <li>Sales reports & analytics</li>
+        </ul>
+        <span class="card-url">erp.sabushtech.com</span>
+        <span class="card-link">Open ERP →</span>
+      </a>
+      <a class="product-card p-pos reveal" href="https://pos.sabushtech.com" target="_blank">
+        <div class="card-icon">🖥️</div>
+        <div class="card-tag">Point of Sale</div>
+        <div class="card-title">Sabush POS</div>
+        <p class="card-desc">A fast, reliable POS system designed for retail businesses — streamline checkouts, track sales, and serve customers without delays.</p>
+        <ul class="card-features">
+          <li>Fast & intuitive checkout flow</li>
+          <li>Receipt printing & digital receipts</li>
+          <li>Daily sales summaries</li>
+          <li>Works offline when needed</li>
+        </ul>
+        <span class="card-url">pos.sabushtech.com</span>
+        <span class="card-link">Open POS →</span>
+      </a>
+      <a class="product-card p-mercado reveal" href="#" style="cursor:default;">
+        <div class="card-icon">🛒</div>
+        <div class="card-tag">Digital Marketplace</div>
+        <div class="card-title">Mercado Sabush <span class="coming-soon-badge">Coming Soon</span></div>
+        <p class="card-desc">Upload your shop to Mozambique's growing digital marketplace. Customers discover your products and services online — no tech skills needed.</p>
+        <ul class="card-features">
+          <li>List products & services instantly</li>
+          <li>Customers find you by category</li>
+          <li>Built-in shop profile page</li>
+          <li>Reach buyers beyond your location</li>
+        </ul>
+        <span class="card-url">mercado.sabushtech.com</span>
+        <span class="card-link" style="color:var(--gold)">Notify me when live →</span>
+      </a>
+      <a class="product-card p-english reveal" href="https://english.sabushtech.com" target="_blank">
+        <div class="card-icon">🎙️</div>
+        <div class="card-tag">Online Training</div>
+        <div class="card-title">Sabush English Club</div>
+        <p class="card-desc">Master business and conversational English online. Practical fluency training focused on what matters for professionals and entrepreneurs.</p>
+        <ul class="card-features">
+          <li>Business English for professionals</li>
+          <li>Daily conversation confidence</li>
+          <li>Speaking fluency focus</li>
+          <li>Flexible online sessions</li>
+        </ul>
+        <span class="card-url">english.sabushtech.com</span>
+        <span class="card-link">Join the club →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO SECTION -->
+<section id="demo">
+  <div class="demo-inner">
+    <div class="demo-text reveal">
+      <div class="section-label">// See It In Action</div>
+      <h2 class="section-title">Your Entire Business,<br>One <span style="color:var(--teal)">Dashboard</span></h2>
+      <p class="section-sub">Sabush System ERP gives you a real-time view of every corner of your business — from the POS floor to your wholesale invoices.</p>
+      <ul class="demo-features">
+        <li>
+          <div class="dicon">📊</div>
+          <div class="dtxt"><strong>Real-time sales dashboard</strong><span>See retail, wholesale, and cash sales update live as transactions happen.</span></div>
+        </li>
+        <li>
+          <div class="dicon">🔗</div>
+          <div class="dtxt"><strong>POS + ERP fully connected</strong><span>Every sale at the counter instantly reflects in your inventory and reports.</span></div>
+        </li>
+        <li>
+          <div class="dicon">📦</div>
+          <div class="dtxt"><strong>Smart inventory alerts</strong><span>Get notified before stock runs out so you never miss a sale.</span></div>
+        </li>
+      </ul>
+      <a href="https://erp.sabushtech.com" target="_blank" class="btn-primary">Try the ERP Free</a>
+    </div>
+    <div class="demo-screen reveal">
+      <div class="demo-topbar">
+        <div class="demo-dot" style="background:#ff5f57"></div>
+        <div class="demo-dot" style="background:#febc2e"></div>
+        <div class="demo-dot" style="background:#28c840"></div>
+        <div class="demo-url">erp.sabushtech.com/dashboard</div>
+      </div>
+      <div class="demo-body">
+        <div class="demo-sidebar-mini">
+          <div class="dsm-side">
+            <div class="dsm-item active">Dashboard</div>
+            <div class="dsm-item">Reports</div>
+            <div class="dsm-item">POS</div>
+            <div class="dsm-item">Invoices</div>
+            <div class="dsm-item">Stock</div>
+            <div class="dsm-item">Clients</div>
+          </div>
+          <div class="dsm-main">
+            <div class="dsm-welcome">
+              <h4>Welcome, Administrator 👋</h4>
+              <p>Sunday, 28 June 2026 · System active</p>
+            </div>
+            <div class="dsm-cards">
+              <div class="dsm-card t"><p>Retail Sales</p><strong>22,583 MT</strong></div>
+              <div class="dsm-card g"><p>Cash Sales</p><strong>8,940 MT</strong></div>
+            </div>
+            <div class="dsm-actions">
+              <div class="dsm-action">New Invoice</div>
+              <div class="dsm-action">New Client</div>
+              <div class="dsm-action">Sales Report</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="center reveal">
+      <div class="section-label">// Additional Services</div>
+      <h2 class="section-title">We Build & Automate<br>So You Can <span style="color:var(--gold)">Focus on Growth</span></h2>
+      <p class="section-sub">Beyond our platforms, we offer expert services to bring your business into the digital age.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <div class="service-title">Website Design for Small Businesses</div>
+        <p class="service-desc">Professional, mobile-friendly websites that represent your brand and attract customers — designed for businesses ready to level up their online presence.</p>
+        <span class="service-tag">Starting from scratch? We've got you.</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">Business Task Automation</div>
+        <p class="service-desc">Stop wasting hours on repetitive tasks. We analyse your workflow and build automations that save time, reduce errors, and free your team for higher-value work.</p>
+        <span class="service-tag">Save time. Save money. Scale faster.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SABUSH -->
+<section id="why">
+  <div class="why-inner">
+    <div class="center reveal">
+      <div class="section-label">// Why Sabush</div>
+      <h2 class="section-title">Everything. Connected.</h2>
+      <p class="section-sub" style="margin:0 auto 0;">We're not just software — we're your digital business partner from day one.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal"><div class="why-num">06</div><div class="why-title">Products & Services Under One Roof</div><p class="why-desc">ERP, POS, marketplace, English training, website design, automation — no need to juggle multiple vendors.</p></div>
+      <div class="why-item reveal"><div class="why-num">🌍</div><div class="why-title">Built for African Businesses</div><p class="why-desc">Designed with the realities of local markets in mind — simple, affordable, and ready to scale as you grow.</p></div>
+      <div class="why-item reveal"><div class="why-num">24/7</div><div class="why-title">Ongoing Support</div><p class="why-desc">We don't disappear after setup. Our team is here to help you get the most out of every Sabush product.</p></div>
+      <div class="why-item reveal"><div class="why-num">🔗</div><div class="why-title">Integrated Ecosystem</div><p class="why-desc">Your ERP, POS, and marketplace all speak to each other, giving you a unified view of your business.</p></div>
+      <div class="why-item reveal"><div class="why-num">🚀</div><div class="why-title">Quick to Deploy</div><p class="why-desc">Get up and running fast. No months-long implementation — our tools are designed for quick setup and real-world use.</p></div>
+      <div class="why-item reveal"><div class="why-num">📈</div><div class="why-title">Grow at Your Own Pace</div><p class="why-desc">Start with what you need today and add more as your business expands. Sabush scales with you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="center reveal">
+      <div class="section-label">// Client Stories</div>
+      <h2 class="section-title">Businesses That <span style="color:var(--teal)">Trust Sabush</span></h2>
+      <p class="section-sub">Real results from real businesses across Mozambique.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Since switching to Sabush ERP, managing our wholesale and retail invoicing is completely effortless. What used to take hours now takes minutes. Our stock is always accurate.</p>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(0,201,177,0.15);color:var(--teal)">CM</div>
+          <div>
+            <div class="testi-name">Carlos Machava</div>
+            <div class="testi-role">Owner, Distribuidora Machava</div>
+            <div class="testi-product">Sabush System ERP</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The POS system is incredibly fast. My cashiers love it. Checkouts are smooth, we never lose a sale, and end-of-day reports are generated automatically. Game changer.</p>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(245,166,35,0.15);color:var(--gold)">FA</div>
+          <div>
+            <div class="testi-name">Fátima Alves</div>
+            <div class="testi-role">Manager, Supermercado Central</div>
+            <div class="testi-product">Sabush POS</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The English Club transformed how I communicate with international clients. My confidence in business conversations has improved dramatically in just two months of training.</p>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(34,211,238,0.15);color:#22d3ee">JN</div>
+          <div>
+            <div class="testi-name">João Nhamitambo</div>
+            <div class="testi-role">Entrepreneur, Maputo</div>
+            <div class="testi-product">Sabush English Club</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="center reveal" style="margin-bottom:48px;">
+      <div class="section-label">// FAQ</div>
+      <h2 class="section-title">Common Questions</h2>
+      <p class="section-sub" style="margin-bottom:0">Everything you need to know before getting started.</p>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Is Sabush System ERP available in Portuguese?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Yes — Sabush System ERP is fully available in Portuguese, making it ideal for businesses in Mozambique and other Portuguese-speaking African markets. The interface, invoices, and reports are all in Portuguese.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Does the POS system work without internet?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Sabush POS is designed to handle connectivity challenges common in Mozambique. It can continue processing sales during internet outages and syncs automatically once the connection is restored — so your business never stops.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Who is Sabush built for?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Sabush is built for small and medium-sized businesses in Mozambique and across Africa — retail shops, wholesalers, restaurants, service businesses, and entrepreneurs who want to manage their operations digitally without complexity or high cost.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>How long does it take to set up?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Most businesses are up and running within a day. Our team guides you through the setup process — from creating your account and configuring products to training your staff. We stay close during the onboarding period.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>When does Mercado Sabush launch?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Mercado Sabush is currently in development and will be available at mercado.sabushtech.com. Contact us at sabushgroup@gmail.com or call +258 858 624 086 to be notified as soon as it goes live and to secure an early spot for your business.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Can I get a website designed by Sabush Tech?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Absolutely. We offer professional website design services for small businesses who want a strong online presence. Reach out via email at sabushgroup@gmail.com or WhatsApp us on +258 858 624 086 to discuss your project and get a quote.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Do you support M-Pesa and e-Mola payments?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Yes. Sabush POS supports multiple Mozambican payment methods including cash, M-Pesa, e-Mola, bank transfer, and Multibanco card — so your customers can pay however is most convenient for them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cta-box reveal">
+    <div class="section-label" style="text-align:center">// Let's Work Together</div>
+    <h2>Ready to take your business<br>to the next level?</h2>
+    <p>Whether you need an ERP system, a POS, a marketplace presence, a new website, or English fluency training — Sabush Tech is ready to help. Reach out today.</p>
+    <div class="cta-row">
+      <a href="mailto:sabushgroup@gmail.com" class="btn-primary">Email Us</a>
+      <a href="https://wa.me/258858624086" target="_blank" class="btn-ghost">WhatsApp Us</a>
+    </div>
+    <div class="contact-cards">
+      <a href="mailto:sabushgroup@gmail.com" class="contact-card"><span>✉️</span> sabushgroup@gmail.com</a>
+      <a href="tel:+258858624086" class="contact-card"><span>📞</span> +258 858 624 086</a>
+      <a href="https://maps.google.com/?q=Muhalaze,Matola,Mozambique" target="_blank" class="contact-card"><span>📍</span> Muhalaze, Cidade de Matola — 1114</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo"><span style="width:9px;height:9px;border-radius:50%;background:var(--teal);display:inline-block;"></span> Sabush Tech LDA</a>
+      <p>Smart digital tools for growing businesses in Mozambique and across Africa. One ecosystem, every solution.</p>
+      <p style="margin-top:12px;font-size:0.78rem;color:var(--muted);">📍 Muhalaze, Cidade de Matola, Província de Maputo — ZIP 1114</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="https://erp.sabushtech.com" target="_blank">Sabush System ERP</a>
+      <a href="https://pos.sabushtech.com" target="_blank">Sabush POS</a>
+      <a href="#">Mercado Sabush <span class="coming">Coming Soon</span></a>
+      <a href="https://english.sabushtech.com" target="_blank">Sabush English Club</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Website Design</a>
+      <a href="#services">Task Automation</a>
+      <a href="#contact">Get a Quote</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:sabushgroup@gmail.com">sabushgroup@gmail.com</a>
+      <a href="tel:+258858624086">+258 858 624 086</a>
+      <a href="https://wa.me/258858624086" target="_blank">WhatsApp</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Sabush Tech LDA. All rights reserved. · Matola, Mozambique</div>
+    <div class="footer-links-row">
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80 * (i % 4));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
