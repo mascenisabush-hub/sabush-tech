@@ -9,9 +9,9 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --navy: #1A3A6E; --navy-mid: #234A85; --card-bg: #1F3F77;
+    --navy: #F5F8FC; --navy-mid: #EAF0FA; --card-bg: #FFFFFF;
     --teal: #2E6FE8; --gold: #F5A623;
-    --white: #FFFFFF; --muted: #C9D6F0;
+    --white: #16243E; --muted: #5C6B85;
   }
   body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); }
   nav {
@@ -19,6 +19,7 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px 6%; background: rgba(26,58,110,0.92);
     backdrop-filter: blur(14px); border-bottom: 1px solid rgba(46,111,232,0.1);
+    --white: #F8FAFB; --muted: #C9D6F0;
   }
   .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   .logo-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); }
@@ -34,8 +35,8 @@
   ul li { font-size: 0.93rem; color: var(--muted); line-height: 1.8; margin-bottom: 6px; }
   a { color: var(--teal); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 40px 0; }
-  footer { background: #060d1a; padding: 30px 6%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+  .divider { border: none; border-top: 1px solid rgba(11,22,40,0.1); margin: 40px 0; }
+  footer { background: #060d1a; padding: 30px 6%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); --muted: #C9D6F0; }
   footer p { font-size: 0.8rem; color: var(--muted); }
   footer a { color: var(--teal); }
 </style>
