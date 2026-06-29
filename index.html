@@ -42,6 +42,7 @@
     --white: #F8FAFB; --muted: #C9D6F0;
   }
   .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo-img { height: 40px; width: 40px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(46,111,232,0.3)); }
   .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--teal); display: inline-block; }
   .logo-sub { font-size: 0.65rem; color: var(--muted); font-weight: 400; display: block; letter-spacing: 0.04em; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -541,7 +542,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">
-    <span class="logo-dot"></span>
+    <img src="logo.png" alt="Sabush Tech Logo" class="logo-img">
     <span>Sabush Tech <span class="logo-sub">LDA · Smart Business Ecosystem</span></span>
   </a>
   <ul class="nav-links">
@@ -979,7 +980,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="#" class="footer-logo"><span style="width:9px;height:9px;border-radius:50%;background:var(--teal);display:inline-block;"></span> Sabush Tech LDA</a>
+      <a href="#" class="footer-logo"><img src="logo.png" alt="Sabush Tech Logo" style="height:32px;width:32px;object-fit:contain;filter:drop-shadow(0 0 4px rgba(46,111,232,0.3));"> Sabush Tech LDA</a>
       <p data-en="Smart digital tools for growing businesses in Mozambique and across Africa. One ecosystem, every solution." data-pt="Ferramentas digitais inteligentes para negócios em crescimento em Moçambique e em África. Um ecossistema, todas as soluções.">Smart digital tools for growing businesses in Mozambique and across Africa. One ecosystem, every solution.</p>
       <p style="margin-top:12px;font-size:0.78rem;color:var(--muted);">📍 Muhalaze, Cidade de Matola, Província de Maputo — ZIP 1114</p>
     </div>
