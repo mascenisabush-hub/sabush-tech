@@ -31,6 +31,21 @@
     --white: #16243E; --muted: #5C6B85; --card-bg: #FFFFFF;
   }
   html { scroll-behavior: smooth; }
+
+  /* SCROLL PROGRESS BAR */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; z-index: 9999;
+    height: 3px; width: 0%;
+    background: linear-gradient(90deg, #2E6FE8, #F5A623, #2E6FE8);
+    background-size: 200% 100%;
+    animation: progressShimmer 2s linear infinite;
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  @keyframes progressShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
   body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
 
   /* NAV */
@@ -47,7 +62,7 @@
   .logo-sub { font-size: 0.65rem; color: var(--muted); font-weight: 400; display: block; letter-spacing: 0.04em; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--teal); }
+  .nav-links a:hover, .nav-links a.active { color: var(--teal); }
 
   /* LANGUAGE TOGGLE */
   .lang-toggle {
@@ -83,12 +98,75 @@
   .hero h1 .gold { color: var(--gold); }
   .hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.7; max-width: 480px; margin-bottom: 40px; }
   .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary { background: var(--teal); color: var(--navy); padding: 13px 28px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(46,111,232,0.3); }
+  .btn-primary {
+    background: var(--teal); color: var(--navy); padding: 13px 28px;
+    border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(46,111,232,0.3);
+    position: relative; overflow: hidden; display: inline-block;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover::after { left: 160%; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(46,111,232,0.4); }
   .btn-ghost { border: 1.5px solid rgba(46,111,232,0.35); color: var(--teal); padding: 13px 28px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: background 0.2s; }
   .btn-ghost:hover { background: var(--teal-dim); }
-  .orbit-container { width: 100%; aspect-ratio: 1; max-width: 480px; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center; }
-  .orbit-svg { width: 100%; height: 100%; }
+  .orbit-container { width: 100%; aspect-ratio: 1; max-width: 460px; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center; }
+
+  /* HERO LOGO SHOWCASE */
+  .hero-logo-showcase { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .hlc-glow {
+    position: absolute; width: 280px; height: 280px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(46,111,232,0.18) 0%, rgba(245,166,35,0.06) 50%, transparent 70%);
+    filter: blur(20px); animation: hlcPulse 4s ease-in-out infinite;
+  }
+  @keyframes hlcPulse { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
+  .hlc-rings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .hlc-ring {
+    position: absolute; border-radius: 50%; border: 1px dashed;
+    animation: hlcSpin linear infinite;
+  }
+  .hlc-ring-1 { width: 320px; height: 320px; border-color: rgba(46,111,232,0.15); animation-duration: 30s; }
+  .hlc-ring-2 { width: 420px; height: 420px; border-color: rgba(245,166,35,0.1); animation-duration: 45s; animation-direction: reverse; }
+  @keyframes hlcSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .hlc-center {
+    position: relative; z-index: 2;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a6e, #234A85);
+    border: 2px solid rgba(46,111,232,0.4);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 60px rgba(46,111,232,0.25), 0 0 120px rgba(46,111,232,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
+    animation: hlcFloat 6s ease-in-out infinite;
+  }
+  @keyframes hlcFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .hlc-logo-img { width: 100px; height: 100px; object-fit: contain; filter: drop-shadow(0 4px 16px rgba(46,111,232,0.5)); }
+
+  /* PRODUCT BADGES */
+  .hlc-badge {
+    position: absolute; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    background: rgba(15,31,61,0.9); backdrop-filter: blur(12px);
+    border: 1px solid rgba(46,111,232,0.25); border-radius: 12px;
+    padding: 8px 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    animation: hlcFloat ease-in-out infinite;
+    cursor: default;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .hlc-badge:hover { transform: scale(1.1) !important; box-shadow: 0 12px 32px rgba(46,111,232,0.3); }
+  .hlc-badge-icon { font-size: 1.2rem; line-height: 1; }
+  .hlc-badge-label { font-family: "Plus Jakarta Sans",sans-serif; font-size: 0.62rem; font-weight: 700; color: #C9D6F0; letter-spacing: 0.04em; white-space: nowrap; }
+
+  .hlc-badge-erp  { top: 5%;  left: 50%; transform: translateX(-50%); animation-duration: 5.5s; border-color: rgba(46,111,232,0.4); }
+  .hlc-badge-pos  { top: 20%; right: 4%; animation-duration: 6.2s; animation-delay: -1s; border-color: rgba(245,166,35,0.4); }
+  .hlc-badge-mktpl{ bottom: 20%; right: 4%; animation-duration: 5.8s; animation-delay: -2s; border-color: rgba(168,85,247,0.4); }
+  .hlc-badge-eng  { bottom: 5%; left: 50%; transform: translateX(-50%); animation-duration: 6.5s; animation-delay: -0.5s; border-color: rgba(34,211,238,0.4); }
+  .hlc-badge-web  { bottom: 20%; left: 4%; animation-duration: 5.2s; animation-delay: -1.8s; border-color: rgba(245,166,35,0.35); }
+  .hlc-badge-auto { top: 20%; left: 4%; animation-duration: 6.8s; animation-delay: -3s; border-color: rgba(46,111,232,0.35); }
 
   /* SECTION SHARED */
   section { padding: 90px 6%; }
@@ -99,21 +177,37 @@
   .center .section-sub { margin-left: auto; margin-right: auto; }
 
   /* STATS BAR */
-  #stats { background: var(--teal); padding: 40px 6%; }
-  .stats-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-  .stat-item { text-align: center; padding: 10px 20px; border-right: 1px solid rgba(26,58,110,0.15); }
-  .stat-item:last-child { border-right: none; }
-  .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--navy); line-height: 1; }
-  .stat-label { font-size: 0.82rem; color: rgba(26,58,110,0.65); font-weight: 500; margin-top: 4px; }
+  #stats { background: #060d1a; padding: 60px 6%; position: relative; overflow: hidden; }
+  #stats::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46,111,232,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .stats-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stat-item {
+    text-align: center; padding: 28px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(46,111,232,0.12);
+    border-radius: 16px;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    --white: #F8FAFB; --muted: #C9D6F0;
+  }
+  .stat-item:hover { border-color: rgba(46,111,232,0.35); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(46,111,232,0.15); }
+  .stat-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+  .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.6rem; font-weight: 800; color: #2E6FE8; line-height: 1; }
+  .stat-suffix { color: #F5A623; }
+  .stat-label { font-size: 0.82rem; color: #C9D6F0; font-weight: 500; margin-top: 6px; opacity: 0.8; }
 
   /* PRODUCTS */
   #products { background: var(--navy-mid); }
   .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
   .product-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 16px; padding: 32px; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: block; }
-  .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--c1), var(--c2)); opacity: 0; transition: opacity 0.3s; }
-  .product-card:hover { border-color: rgba(46,111,232,0.25); transform: translateY(-4px); }
+  .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--c1), var(--c2), var(--c1)); background-size: 200%; opacity: 0; transition: opacity 0.3s; animation: cardBorderShimmer 3s linear infinite; }
+  @keyframes cardBorderShimmer { 0% { background-position: 0%; } 100% { background-position: 200%; } }
+  .product-card:hover { border-color: rgba(46,111,232,0.2); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(11,22,40,0.12); }
   .product-card:hover::before { opacity: 1; }
-  .card-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; background: var(--icon-bg); }
+  .card-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; background: var(--icon-bg); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .product-card:hover .card-icon { transform: scale(1.08) rotate(-3deg); }
   .card-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
   .card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
   .card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
@@ -138,7 +232,7 @@
   .demo-features li .dicon { width: 36px; height: 36px; border-radius: 10px; background: var(--teal-dim); border: 1px solid rgba(46,111,232,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
   .demo-features li .dtxt strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
   .demo-features li .dtxt span { font-size: 0.82rem; color: var(--muted); }
-  .demo-screen { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(46,111,232,0.15); background: #0F1F3D; --white: #F8FAFB; --muted: #C9D6F0; --navy-mid: #142035; --navy: #0F1F3D; }
+  .demo-screen { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(46,111,232,0.2); background: #0F1F3D; --white: #F8FAFB; --muted: #C9D6F0; --navy-mid: #142035; --navy: #0F1F3D; box-shadow: 0 32px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(46,111,232,0.1), 0 0 60px rgba(46,111,232,0.08); }
   .demo-topbar { background: var(--navy-mid); padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .demo-dot { width: 10px; height: 10px; border-radius: 50%; }
   .demo-url { margin-left: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 4px 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); flex: 1; }
@@ -165,7 +259,15 @@
   .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
   .service-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 16px; padding: 36px; transition: border-color 0.3s, transform 0.3s; }
   .service-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
-  .service-icon { font-size: 2rem; margin-bottom: 18px; }
+  .service-icon {
+    width: 64px; height: 64px; border-radius: 18px; font-size: 1.8rem;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(245,166,35,0.12), rgba(245,166,35,0.05));
+    border: 1px solid rgba(245,166,35,0.2);
+    transition: transform 0.3s;
+  }
+  .service-card:hover .service-icon { transform: scale(1.1) rotate(-4deg); }
   .service-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
   .service-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
   .service-tag { display: inline-block; margin-top: 18px; font-size: 0.75rem; font-weight: 600; color: var(--gold); background: var(--gold-dim); padding: 5px 12px; border-radius: 20px; }
@@ -175,28 +277,56 @@
   .why-inner { max-width: 1100px; margin: 0 auto; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 56px; }
   .why-item { display: flex; flex-direction: column; gap: 12px; }
-  .why-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--teal); line-height: 1; }
+  .why-num {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; line-height: 1;
+    background: linear-gradient(135deg, rgba(46,111,232,0.12), rgba(46,111,232,0.06));
+    border: 1px solid rgba(46,111,232,0.2);
+    box-shadow: 0 4px 16px rgba(46,111,232,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex-shrink: 0;
+  }
+  .why-item:hover .why-num { transform: scale(1.1) rotate(-3deg); box-shadow: 0 8px 24px rgba(46,111,232,0.2); }
+  .why-item { padding: 24px; border-radius: 16px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s; }
+  .why-item:hover { border-color: rgba(46,111,232,0.12); background: rgba(46,111,232,0.03); }
   .why-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); }
   .why-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
   /* TESTIMONIALS */
   #testimonials { background: var(--navy-mid); }
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
-  .testi-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 16px; padding: 28px; position: relative; transition: border-color 0.3s, transform 0.3s; }
-  .testi-card:hover { border-color: rgba(46,111,232,0.2); transform: translateY(-3px); }
-  .testi-quote { font-size: 2.5rem; color: var(--teal); opacity: 0.3; line-height: 1; margin-bottom: 12px; font-family: Georgia, serif; }
+  .testi-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 20px; padding: 32px; position: relative; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; overflow: hidden; }
+  .testi-card::after { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: radial-gradient(circle at top right, rgba(46,111,232,0.06), transparent); pointer-events: none; }
+  .testi-card:hover { border-color: rgba(46,111,232,0.2); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(11,22,40,0.1); }
+  .testi-quote {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(46,111,232,0.15), rgba(46,111,232,0.05));
+    border: 1px solid rgba(46,111,232,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; color: var(--teal); line-height: 1;
+    margin-bottom: 16px; font-family: Georgia, serif; font-weight: 700;
+  }
   .testi-text { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
   .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 16px; letter-spacing: 2px; }
   .testi-author { display: flex; align-items: center; gap: 12px; }
   .testi-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
   .testi-name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
   .testi-role { font-size: 0.75rem; color: var(--muted); }
-  .testi-product { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+  .testi-product {
+    display: inline-block; margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+    color: var(--teal); letter-spacing: 0.08em; text-transform: uppercase;
+    background: rgba(46,111,232,0.08); border: 1px solid rgba(46,111,232,0.15);
+    padding: 3px 8px; border-radius: 20px;
+  }
 
   /* FAQ */
   #faq { background: var(--navy); }
   .faq-inner { max-width: 760px; margin: 0 auto; }
-  .faq-item { border-bottom: 1px solid rgba(11,22,40,0.1); }
+  .faq-item { border-bottom: 1px solid rgba(11,22,40,0.1); border-radius: 12px; padding: 0 16px; transition: background 0.2s; }
+  .faq-item:hover { background: rgba(46,111,232,0.03); }
+  .faq-item.open { background: rgba(46,111,232,0.04); border-color: rgba(46,111,232,0.12); }
   .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 20px; }
   .faq-q span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); }
   .faq-icon { color: var(--teal); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; }
@@ -207,7 +337,25 @@
 
   /* CONTACT */
   #contact { background: var(--navy-mid); text-align: center; }
-  .cta-box { max-width: 760px; margin: 0 auto; background: linear-gradient(135deg, rgba(46,111,232,0.08), rgba(245,166,35,0.06)); border: 1px solid rgba(46,111,232,0.18); border-radius: 24px; padding: 60px 48px; }
+  .cta-box {
+    max-width: 760px; margin: 0 auto;
+    background: linear-gradient(135deg, rgba(46,111,232,0.1) 0%, rgba(245,166,35,0.07) 50%, rgba(46,111,232,0.08) 100%);
+    border: 1px solid rgba(46,111,232,0.2);
+    border-radius: 28px; padding: 64px 52px;
+    position: relative; overflow: hidden;
+  }
+  .cta-box::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(46,111,232,0.12), transparent);
+    pointer-events: none;
+  }
+  .cta-box::after {
+    content: ''; position: absolute; bottom: -60px; left: -60px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.1), transparent);
+    pointer-events: none;
+  }
   .cta-box h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--white); margin-bottom: 16px; }
   .cta-box p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
   .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -513,6 +661,9 @@
 </head>
 <body>
 
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
+
 <!-- PAGE LOADER -->
 <div id="page-loader">
   <div class="loader-inner">
@@ -586,91 +737,83 @@
       </div>
     </div>
     <div class="orbit-container">
-      <svg class="orbit-svg" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#2E6FE8" stop-opacity="0.18"/>
-            <stop offset="100%" stop-color="#2E6FE8" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <circle cx="220" cy="220" r="180" fill="url(#glow)"/>
-        <circle cx="220" cy="220" r="155" fill="none" stroke="rgba(46,111,232,0.1)" stroke-width="1" stroke-dasharray="4 8"/>
-        <circle cx="220" cy="220" r="105" fill="none" stroke="rgba(245,166,35,0.1)" stroke-width="1" stroke-dasharray="4 8"/>
-        <circle cx="220" cy="220" r="38" fill="#234A85" stroke="#2E6FE8" stroke-width="1.5"/>
-        <text x="220" y="215" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="14" fill="#FFFFFF">SA</text>
-        <text x="220" y="230" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="14" fill="#2E6FE8">BUSH</text>
-        <g transform="translate(220,220)">
-          <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
-          <g transform="translate(0,-155)">
-            <circle r="32" fill="#1F3F77" stroke="#2E6FE8" stroke-width="1.5"/>
-            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#2E6FE8">ERP</text>
-            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#C9D6F0">System</text>
-          </g>
-        </g>
-        <g transform="translate(220,220)">
-          <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
-          <g transform="translate(0,-155)">
-            <circle r="32" fill="#1F3F77" stroke="#F5A623" stroke-width="1.5"/>
-            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#F5A623">POS</text>
-            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#C9D6F0">System</text>
-          </g>
-        </g>
-        <g transform="translate(220,220)">
-          <animateTransform attributeName="transform" type="rotate" from="180 0 0" to="540 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
-          <g transform="translate(0,-155)">
-            <circle r="32" fill="#1F3F77" stroke="#a855f7" stroke-width="1.5"/>
-            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#a855f7">MKTPL</text>
-            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#C9D6F0">Mercado</text>
-          </g>
-        </g>
-        <g transform="translate(220,220)">
-          <animateTransform attributeName="transform" type="rotate" from="270 0 0" to="630 0 0" dur="18s" repeatCount="indefinite" additive="sum"/>
-          <g transform="translate(0,-155)">
-            <circle r="32" fill="#1F3F77" stroke="#22d3ee" stroke-width="1.5"/>
-            <text text-anchor="middle" dy="-6" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#22d3ee">ENG</text>
-            <text text-anchor="middle" dy="7" font-family="Inter,sans-serif" font-size="7" fill="#C9D6F0">Club</text>
-          </g>
-        </g>
-        <g transform="translate(220,220)">
-          <animateTransform attributeName="transform" type="rotate" from="45 0 0" to="405 0 0" dur="10s" repeatCount="indefinite" additive="sum"/>
-          <g transform="translate(0,-105)">
-            <circle r="22" fill="#1F3F77" stroke="#F5A623" stroke-width="1.2"/>
-            <text text-anchor="middle" dy="4" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#F5A623">WEB</text>
-          </g>
-        </g>
-        <g transform="translate(220,220)">
-          <animateTransform attributeName="transform" type="rotate" from="225 0 0" to="585 0 0" dur="10s" repeatCount="indefinite" additive="sum"/>
-          <g transform="translate(0,-105)">
-            <circle r="22" fill="#1F3F77" stroke="#2E6FE8" stroke-width="1.2"/>
-            <text text-anchor="middle" dy="4" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#2E6FE8">AUTO</text>
-          </g>
-        </g>
-      </svg>
+      <div class="hero-logo-showcase">
+        <div class="hlc-glow"></div>
+        <div class="hlc-rings">
+          <div class="hlc-ring hlc-ring-1"></div>
+          <div class="hlc-ring hlc-ring-2"></div>
+        </div>
+        <div class="hlc-center">
+          <img src="logo.png" alt="Sabush Tech" class="hlc-logo-img">
+        </div>
+        <div class="hlc-badge hlc-badge-erp">
+          <span class="hlc-badge-icon">🧾</span>
+          <span class="hlc-badge-label">ERP</span>
+        </div>
+        <div class="hlc-badge hlc-badge-pos">
+          <span class="hlc-badge-icon">🖥️</span>
+          <span class="hlc-badge-label">POS</span>
+        </div>
+        <div class="hlc-badge hlc-badge-mktpl">
+          <span class="hlc-badge-icon">🛒</span>
+          <span class="hlc-badge-label">Mercado</span>
+        </div>
+        <div class="hlc-badge hlc-badge-eng">
+          <span class="hlc-badge-icon">🎙️</span>
+          <span class="hlc-badge-label">English</span>
+        </div>
+        <div class="hlc-badge hlc-badge-web">
+          <span class="hlc-badge-icon">🌐</span>
+          <span class="hlc-badge-label">Web</span>
+        </div>
+        <div class="hlc-badge hlc-badge-auto">
+          <span class="hlc-badge-icon">⚙️</span>
+          <span class="hlc-badge-label">Auto</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- WAVE DIVIDER: hero → stats -->
+<div style="background:#060d1a;margin-top:-2px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C360,60 1080,0 1440,40 L1440,0 Z" fill="#F5F8FC"/>
+  </svg>
+</div>
 
 <!-- STATS BAR -->
 <section id="stats">
   <div class="stats-inner">
     <div class="stat-item reveal">
-      <div class="stat-num">4+</div>
+      <span class="stat-icon">📦</span>
+      <div class="stat-num"><span class="count-up" data-target="4">0</span><span class="stat-suffix">+</span></div>
       <div class="stat-label" data-en="Products & Platforms" data-pt="Produtos & Plataformas">Products & Platforms</div>
     </div>
     <div class="stat-item reveal">
-      <div class="stat-num">500+</div>
+      <span class="stat-icon">🏪</span>
+      <div class="stat-num"><span class="count-up" data-target="500">0</span><span class="stat-suffix">+</span></div>
       <div class="stat-label" data-en="Businesses Served" data-pt="Empresas Servidas">Businesses Served</div>
     </div>
     <div class="stat-item reveal">
-      <div class="stat-num">3</div>
+      <span class="stat-icon">🌍</span>
+      <div class="stat-num"><span class="count-up" data-target="3">0</span></div>
       <div class="stat-label" data-en="Countries Reached" data-pt="Países Alcançados">Countries Reached</div>
     </div>
     <div class="stat-item reveal">
-      <div class="stat-num">24/7</div>
+      <span class="stat-icon">🛟</span>
+      <div class="stat-num" style="font-size:2rem;">24<span class="stat-suffix">/7</span></div>
       <div class="stat-label" data-en="Customer Support" data-pt="Suporte ao Cliente">Customer Support</div>
     </div>
   </div>
 </section>
+
+<!-- WAVE DIVIDER: stats → products -->
+<div style="background:#EAF0FA;margin-top:-2px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C480,0 960,60 1440,20 L1440,0 L0,0 Z" fill="#060d1a"/>
+  </svg>
+</div>
 
 <!-- PRODUCTS -->
 <section id="products">
@@ -740,6 +883,13 @@
     </div>
   </div>
 </section>
+
+<!-- WAVE DIVIDER: products → demo -->
+<div style="background:#F5F8FC;margin-top:-2px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,20 C360,60 1080,0 1440,40 L1440,0 L0,0 Z" fill="#EAF0FA"/>
+  </svg>
+</div>
 
 <!-- DEMO SECTION -->
 <section id="demo">
@@ -836,9 +986,9 @@
       <p class="section-sub" style="margin:0 auto 0;" data-en="We're not just software — we're your digital business partner from day one." data-pt="Não somos apenas software — somos o seu parceiro digital de negócios desde o primeiro dia.">We're not just software — we're your digital business partner from day one.</p>
     </div>
     <div class="why-grid">
-      <div class="why-item reveal"><div class="why-num">06</div><div class="why-title" data-en="Products & Services Under One Roof" data-pt="Produtos e Serviços Num Só Lugar">Products & Services Under One Roof</div><p class="why-desc" data-en="ERP, POS, marketplace, English training, website design, automation — no need to juggle multiple vendors." data-pt="ERP, POS, mercado, formação em inglês, design de websites, automatização — sem necessidade de vários fornecedores.">ERP, POS, marketplace, English training, website design, automation — no need to juggle multiple vendors.</p></div>
+      <div class="why-item reveal"><div class="why-num">🧩</div><div class="why-title" data-en="Products & Services Under One Roof" data-pt="Produtos e Serviços Num Só Lugar">Products & Services Under One Roof</div><p class="why-desc" data-en="ERP, POS, marketplace, English training, website design, automation — no need to juggle multiple vendors." data-pt="ERP, POS, mercado, formação em inglês, design de websites, automatização — sem necessidade de vários fornecedores.">ERP, POS, marketplace, English training, website design, automation — no need to juggle multiple vendors.</p></div>
       <div class="why-item reveal"><div class="why-num">🌍</div><div class="why-title" data-en="Built for African Businesses" data-pt="Construído para Negócios Africanos">Built for African Businesses</div><p class="why-desc" data-en="Designed with the realities of local markets in mind — simple, affordable, and ready to scale as you grow." data-pt="Desenhado tendo em conta as realidades dos mercados locais — simples, acessível e pronto para crescer consigo.">Designed with the realities of local markets in mind — simple, affordable, and ready to scale as you grow.</p></div>
-      <div class="why-item reveal"><div class="why-num">24/7</div><div class="why-title" data-en="Ongoing Support" data-pt="Suporte Contínuo">Ongoing Support</div><p class="why-desc" data-en="We don't disappear after setup. Our team is here to help you get the most out of every Sabush product." data-pt="Não desaparecemos após a instalação. A nossa equipa está aqui para o ajudar a tirar o máximo partido de cada produto Sabush.">We don't disappear after setup. Our team is here to help you get the most out of every Sabush product.</p></div>
+      <div class="why-item reveal"><div class="why-num">🛟</div><div class="why-title" data-en="Ongoing Support" data-pt="Suporte Contínuo">Ongoing Support</div><p class="why-desc" data-en="We don't disappear after setup. Our team is here to help you get the most out of every Sabush product." data-pt="Não desaparecemos após a instalação. A nossa equipa está aqui para o ajudar a tirar o máximo partido de cada produto Sabush.">We don't disappear after setup. Our team is here to help you get the most out of every Sabush product.</p></div>
       <div class="why-item reveal"><div class="why-num">🔗</div><div class="why-title" data-en="Integrated Ecosystem" data-pt="Ecossistema Integrado">Integrated Ecosystem</div><p class="why-desc" data-en="Your ERP, POS, and marketplace all speak to each other, giving you a unified view of your business." data-pt="O seu ERP, POS e mercado comunicam entre si, dando-lhe uma visão unificada do seu negócio.">Your ERP, POS, and marketplace all speak to each other, giving you a unified view of your business.</p></div>
       <div class="why-item reveal"><div class="why-num">🚀</div><div class="why-title" data-en="Quick to Deploy" data-pt="Rápido de Implementar">Quick to Deploy</div><p class="why-desc" data-en="Get up and running fast. No months-long implementation — our tools are designed for quick setup and real-world use." data-pt="Comece rapidamente. Sem implementações de meses — as nossas ferramentas são desenhadas para configuração rápida e uso real.">Get up and running fast. No months-long implementation — our tools are designed for quick setup and real-world use.</p></div>
       <div class="why-item reveal"><div class="why-num">📈</div><div class="why-title" data-en="Grow at Your Own Pace" data-pt="Cresça ao Seu Ritmo">Grow at Your Own Pace</div><p class="why-desc" data-en="Start with what you need today and add more as your business expands. Sabush scales with you." data-pt="Comece com o que precisa hoje e adicione mais à medida que o seu negócio cresce. Sabush escala consigo.">Start with what you need today and add more as your business expands. Sabush scales with you.</p></div>
@@ -1229,6 +1379,50 @@
     document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // ── SCROLL PROGRESS BAR ──────────────────────────────
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', function() {
+    const scrollTop = document.documentElement.scrollTop;
+    const docH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progressBar.style.width = (scrollTop / docH * 100) + '%';
+  }, { passive: true });
+
+  // ── ACTIVE NAV LINK ───────────────────────────────────
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = document.querySelectorAll('section[id]');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => navObserver.observe(s));
+
+  // ── COUNT-UP ANIMATION ────────────────────────────────
+  function animateCount(el) {
+    const target = parseInt(el.getAttribute('data-target'));
+    const duration = 1800;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current);
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.count-up').forEach(animateCount);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-item').forEach(el => countObserver.observe(el));
 </script>
 
 <!-- MERCADO NOTIFY MODAL -->
