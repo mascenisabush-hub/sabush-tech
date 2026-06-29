@@ -408,6 +408,7 @@
   .mobile-menu .mob-cta { background: var(--teal); color: var(--navy); padding: 14px 36px; border-radius: 10px; font-size: 1.1rem; }
 
   @media (max-width: 768px) {
+    body { padding-bottom: 76px; }
     .hero-inner { grid-template-columns: 1fr; text-align: center; }
     .orbit-container { max-width: 300px; }
     .hero-sub { margin: 0 auto 40px; }
@@ -701,6 +702,7 @@
     <li><a href="#demo" data-en="Demo" data-pt="Demo">Demo</a></li>
     <li><a href="#services" data-en="Services" data-pt="Serviços">Services</a></li>
     <li><a href="#testimonials" data-en="Clients" data-pt="Clientes">Clients</a></li>
+    <li><a href="#blog" data-en="Blog" data-pt="Blog">Blog</a></li>
     <li><a href="#faq" data-en="FAQ" data-pt="FAQ">FAQ</a></li>
     <li><a href="#contact" data-en="Contact" data-pt="Contacto">Contact</a></li>
   </ul>
@@ -718,6 +720,7 @@
   <a href="#demo" onclick="closeMobileMenu()" data-en="Demo" data-pt="Demo">Demo</a>
   <a href="#services" onclick="closeMobileMenu()" data-en="Services" data-pt="Serviços">Services</a>
   <a href="#testimonials" onclick="closeMobileMenu()" data-en="Clients" data-pt="Clientes">Clients</a>
+  <a href="#blog" onclick="closeMobileMenu()" data-en="Blog" data-pt="Blog">Blog</a>
   <a href="#faq" onclick="closeMobileMenu()" data-en="FAQ" data-pt="FAQ">FAQ</a>
   <a href="#contact" class="mob-cta" onclick="closeMobileMenu()" data-en="Get Started" data-pt="Começar">Get Started</a>
 </div>
@@ -1075,6 +1078,82 @@
 
   </div>
 </section>
+
+
+<!-- BLOG / INSIGHTS -->
+<section id="blog" style="background:var(--navy);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="center reveal">
+      <div class="section-label" data-en="// Insights &amp; Tips" data-pt="// Insights e Dicas">// Insights &amp; Tips</div>
+      <h2 class="section-title" data-en="Smart Business Reads" data-pt="Leituras para Negócios Inteligentes">Smart Business Reads</h2>
+      <p class="section-sub" data-en="Practical guides and real stories to help Mozambican businesses grow faster with technology." data-pt="Guias práticos e histórias reais para ajudar negócios moçambicanos a crescer mais rápido com tecnologia.">Practical guides and real stories to help Mozambican businesses grow faster with technology.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;" class="reveal">
+
+      <!-- Article 1 -->
+      <article style="background:var(--card-bg);border:1px solid rgba(11,22,40,0.08);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(11,22,40,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="height:180px;background:linear-gradient(135deg,#0D2B55,#2E6FE8);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;">
+          💬
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(2,192,144,0.2),transparent 60%);pointer-events:none;"></div>
+        </div>
+        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;background:rgba(46,111,232,0.08);padding:4px 10px;border-radius:20px;" data-en="WhatsApp · 5 min read" data-pt="WhatsApp · 5 min de leitura">WhatsApp · 5 min read</span>
+          </div>
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:12px;" data-en="Why Mozambican Businesses Need WhatsApp Automation in 2026" data-pt="Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026">Why Mozambican Businesses Need WhatsApp Automation in 2026</h3>
+          <p style="font-size:0.87rem;color:var(--muted);line-height:1.7;flex:1;" data-en="Over 90% of Mozambican businesses already use WhatsApp daily. Learn how automating it transforms customer service, sales, and follow-ups — without extra staff." data-pt="Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.">Over 90% of Mozambican businesses already use WhatsApp daily. Learn how automating it transforms customer service, sales, and follow-ups — without extra staff.</p>
+          <button onclick="openBlogModal('whatsapp')" style="margin-top:20px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--teal);transition:gap 0.2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'" data-en="Read article →" data-pt="Ler artigo →">Read article →</button>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article style="background:var(--card-bg);border:1px solid rgba(11,22,40,0.08);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(11,22,40,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="height:180px;background:linear-gradient(135deg,#1C4A1C,#02C39A);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;">
+          🧾
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(245,166,35,0.2),transparent 60%);pointer-events:none;"></div>
+        </div>
+        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#02C39A;letter-spacing:0.1em;text-transform:uppercase;background:rgba(2,195,154,0.08);padding:4px 10px;border-radius:20px;" data-en="ERP · 6 min read" data-pt="ERP · 6 min de leitura">ERP · 6 min read</span>
+          </div>
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:12px;" data-en="How ERP Saves a Retail Shop 10+ Hours Every Week" data-pt="Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista">How ERP Saves a Retail Shop 10+ Hours Every Week</h3>
+          <p style="font-size:0.87rem;color:var(--muted);line-height:1.7;flex:1;" data-en="Manual stock counts, handwritten invoices, end-of-day cash reconciliation — these tasks eat your week. Discover how Sabush System ERP eliminates them one by one." data-pt="Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.">Manual stock counts, handwritten invoices, end-of-day cash reconciliation — these tasks eat your week. Discover how Sabush System ERP eliminates them one by one.</p>
+          <button onclick="openBlogModal('erp')" style="margin-top:20px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:#02C39A;transition:gap 0.2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'" data-en="Read article →" data-pt="Ler artigo →">Read article →</button>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article style="background:var(--card-bg);border:1px solid rgba(11,22,40,0.08);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(11,22,40,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="height:180px;background:linear-gradient(135deg,#3B1F6B,#a855f7);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;">
+          🚀
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(46,111,232,0.25),transparent 60%);pointer-events:none;"></div>
+        </div>
+        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#a855f7;letter-spacing:0.1em;text-transform:uppercase;background:rgba(168,85,247,0.08);padding:4px 10px;border-radius:20px;" data-en="Growth · 4 min read" data-pt="Crescimento · 4 min de leitura">Growth · 4 min read</span>
+          </div>
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:12px;" data-en="5 Signs Your Business Is Ready to Automate" data-pt="5 Sinais de que o Seu Negócio Está Pronto para Automatizar">5 Signs Your Business Is Ready to Automate</h3>
+          <p style="font-size:0.87rem;color:var(--muted);line-height:1.7;flex:1;" data-en="Not every business is at the same stage. Here are the 5 clearest indicators that automation will deliver immediate ROI for your Mozambican SME — and how to start." data-pt="Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.">Not every business is at the same stage. Here are the 5 clearest indicators that automation will deliver immediate ROI for your Mozambican SME — and how to start.</p>
+          <button onclick="openBlogModal('ready')" style="margin-top:20px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:#a855f7;transition:gap 0.2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'" data-en="Read article →" data-pt="Ler artigo →">Read article →</button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- View all hint -->
+    <div class="center reveal" style="margin-top:36px;">
+      <p style="font-size:0.88rem;color:var(--muted);" data-en="More articles coming soon — follow us on WhatsApp to get notified." data-pt="Mais artigos em breve — siga-nos no WhatsApp para ser notificado.">More articles coming soon — follow us on WhatsApp to get notified.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG ARTICLE MODALS -->
+<div class="modal-overlay" id="blogModal" onclick="closeBlogModal(event)">
+  <div id="blogModalBox" style="background:#0F1F3D;border:1px solid rgba(46,111,232,0.2);border-radius:20px;padding:0;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform 0.35s ease;box-shadow:0 24px 80px rgba(0,0,0,0.5);">
+    <button onclick="closeBlogModal(null,true)" style="position:sticky;top:16px;left:100%;margin-right:16px;z-index:10;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;color:#C9D6F0;font-size:1.1rem;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);">✕</button>
+    <div id="blogModalContent" style="padding:0 36px 36px;margin-top:-20px;"></div>
+  </div>
+</div>
 
 <!-- WHY SABUSH -->
 <section id="why">
@@ -1525,6 +1604,201 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-item').forEach(el => countObserver.observe(el));
+
+  // ── BLOG ARTICLE CONTENT ─────────────────────────────────────────────────
+  const blogArticles = {
+    whatsapp: {
+      color: '#2E6FE8',
+      emoji: '💬',
+      tag: 'WhatsApp · 5 min read',
+      titleEn: 'Why Mozambican Businesses Need WhatsApp Automation in 2026',
+      titlePt: 'Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026',
+      bodyEn: `
+        <p>WhatsApp is not just a messaging app in Mozambique — it is the <strong>primary communication channel</strong> for business. Whether you run a shop in Matola, a clinic in Maputo, or a wholesale operation in Beira, your customers already expect to reach you on WhatsApp.</p>
+        <p>The problem? Responding manually to every message, sending invoices one by one, and following up on unpaid orders by hand takes enormous time — time better spent on growing your business.</p>
+        <h4>What WhatsApp Automation Actually Does</h4>
+        <p>A properly set-up WhatsApp automation system handles:</p>
+        <ul>
+          <li><strong>Instant replies</strong> — customers get a response in seconds, even at 2 AM</li>
+          <li><strong>Order confirmations</strong> — automatically sent when a purchase is made</li>
+          <li><strong>Invoice delivery</strong> — PDF receipts sent directly to the client's phone</li>
+          <li><strong>Payment reminders</strong> — polite follow-ups sent automatically on day 3, 7, and 14</li>
+          <li><strong>Appointment confirmations</strong> — booking confirmations with reminders 24h before</li>
+        </ul>
+        <h4>The Numbers Don't Lie</h4>
+        <p>Businesses that implement WhatsApp automation report <strong>40–60% faster response times</strong>, <strong>30% fewer missed follow-ups</strong>, and customers who feel better served — all without adding staff.</p>
+        <h4>Getting Started</h4>
+        <p>Sabush Tech builds and manages WhatsApp automation systems for businesses across Mozambique. Starting from 3,000 MZN/month, we handle the setup, the chatbot logic, and the ongoing maintenance. You focus on your business — we handle the messages.</p>
+      `,
+      bodyPt: `
+        <p>O WhatsApp não é apenas uma aplicação de mensagens em Moçambique — é o <strong>canal de comunicação principal</strong> para negócios. Se tem uma loja na Matola, uma clínica em Maputo ou uma operação grossista na Beira, os seus clientes já esperam contactá-lo pelo WhatsApp.</p>
+        <p>O problema? Responder manualmente a cada mensagem, enviar facturas uma a uma e fazer follow-up de pagamentos em atraso à mão consome muito tempo — tempo melhor investido no crescimento do seu negócio.</p>
+        <h4>O que a Automatização do WhatsApp Realmente Faz</h4>
+        <ul>
+          <li><strong>Respostas instantâneas</strong> — os clientes recebem resposta em segundos, mesmo às 2 da manhã</li>
+          <li><strong>Confirmações de pedidos</strong> — enviadas automaticamente quando uma compra é efectuada</li>
+          <li><strong>Entrega de facturas</strong> — recibos PDF enviados directamente para o telemóvel do cliente</li>
+          <li><strong>Lembretes de pagamento</strong> — follow-ups automáticos nos dias 3, 7 e 14</li>
+          <li><strong>Confirmações de marcações</strong> — confirmações de reservas com lembretes 24h antes</li>
+        </ul>
+        <h4>Os Números Não Mentem</h4>
+        <p>Negócios que implementam automatização do WhatsApp reportam <strong>40–60% de tempo de resposta mais rápido</strong> e <strong>30% menos follow-ups perdidos</strong> — sem contratar mais pessoal.</p>
+        <h4>Como Começar</h4>
+        <p>A Sabush Tech constrói e gere sistemas de automatização do WhatsApp para negócios em todo Moçambique. A partir de 3.000 MZN/mês, tratamos da configuração, da lógica do chatbot e da manutenção contínua.</p>
+      `
+    },
+    erp: {
+      color: '#02C39A',
+      emoji: '🧾',
+      tag: 'ERP · 6 min read',
+      titleEn: 'How ERP Saves a Retail Shop 10+ Hours Every Week',
+      titlePt: 'Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista',
+      bodyEn: `
+        <p>If you run a retail or wholesale business in Mozambique, there's a good chance you're losing <strong>10 to 15 hours every week</strong> to tasks that software could handle in seconds. Here's how.</p>
+        <h4>The Hidden Time Drains</h4>
+        <ul>
+          <li><strong>Manual stock counting</strong> — walking the floor, writing numbers, comparing to last month's sheet</li>
+          <li><strong>Handwritten invoices</strong> — copying product names, calculating totals, finding the right price</li>
+          <li><strong>End-of-day reconciliation</strong> — matching cash to sales, finding where it doesn't add up</li>
+          <li><strong>Supplier follow-ups</strong> — checking what needs reordering before stock runs out</li>
+          <li><strong>Monthly reporting</strong> — compiling figures from notebooks, receipts, and memory</li>
+        </ul>
+        <h4>What Sabush System ERP Changes</h4>
+        <p>Every product scanned at the POS <strong>automatically updates inventory</strong>. Every sale generates an invoice. At the end of the day, your report is already done. Stock alerts fire before you run out. Supplier orders are triggered automatically.</p>
+        <p>Our clients report saving <strong>2–3 hours daily</strong> within the first week of switching to Sabush System ERP.</p>
+        <h4>Real Example</h4>
+        <p>A wholesale shop in Matola with 3 staff members used to spend every Friday afternoon on manual stock counts. After implementing Sabush ERP, that process takes 20 minutes — and the numbers are more accurate.</p>
+        <h4>Try It Today</h4>
+        <p>Sabush System ERP is live at <strong>erp.sabushtech.com</strong>. Get in touch and our team will walk you through setup — most businesses are fully running within 24 hours.</p>
+      `,
+      bodyPt: `
+        <p>Se gere uma loja retalhista ou grossista em Moçambique, há uma boa hipótese de estar a perder <strong>10 a 15 horas por semana</strong> em tarefas que o software poderia tratar em segundos.</p>
+        <h4>Os Drenos de Tempo Ocultos</h4>
+        <ul>
+          <li><strong>Contagem manual de stock</strong> — percorrer o armazém, escrever números, comparar com a folha do mês passado</li>
+          <li><strong>Facturas manuscritas</strong> — copiar nomes de produtos, calcular totais, encontrar o preço certo</li>
+          <li><strong>Reconciliação de fim de dia</strong> — comparar dinheiro com vendas, encontrar onde não bate certo</li>
+          <li><strong>Follow-up de fornecedores</strong> — verificar o que precisa de ser reabastecido</li>
+          <li><strong>Relatórios mensais</strong> — compilar números de cadernos, recibos e memória</li>
+        </ul>
+        <h4>O que o Sabush System ERP Muda</h4>
+        <p>Cada produto lido no POS <strong>actualiza automaticamente o inventário</strong>. Cada venda gera uma factura. No fim do dia, o relatório já está feito. Os alertas de stock disparam antes de esgotar.</p>
+        <p>Os nossos clientes reportam poupar <strong>2–3 horas diárias</strong> na primeira semana após a mudança para o Sabush System ERP.</p>
+        <h4>Experimente Hoje</h4>
+        <p>O Sabush System ERP está disponível em <strong>erp.sabushtech.com</strong>. Entre em contacto e a nossa equipa orienta-o na configuração — a maioria das empresas está totalmente operacional em 24 horas.</p>
+      `
+    },
+    ready: {
+      color: '#a855f7',
+      emoji: '🚀',
+      tag: 'Growth · 4 min read',
+      titleEn: '5 Signs Your Business Is Ready to Automate',
+      titlePt: '5 Sinais de que o Seu Negócio Está Pronto para Automatizar',
+      bodyEn: `
+        <p>Automation isn't for every business at every stage — but if any of these 5 signs sound familiar, you're leaving significant time and money on the table.</p>
+        <h4>Sign 1: You Repeat the Same Tasks Every Day</h4>
+        <p>If someone on your team does the same thing every morning — sending a report, updating a spreadsheet, confirming appointments — that task can be automated. Repetition is the clearest signal.</p>
+        <h4>Sign 2: Customers Wait Too Long for Replies</h4>
+        <p>If customers message you and wait more than 2 hours for a response, you're losing sales. An automated WhatsApp chatbot replies in 3 seconds — even when you're asleep.</p>
+        <h4>Sign 3: You've Made Costly Mistakes from Manual Data Entry</h4>
+        <p>Wrong prices on invoices, incorrect stock numbers, missed orders — these are symptoms of manual processes. Automation eliminates the human error layer entirely.</p>
+        <h4>Sign 4: You Can't See Your Business in Real Time</h4>
+        <p>If you don't know your sales figures from yesterday without digging through notebooks, you need a reporting automation. Real-time dashboards delivered to your phone every morning change decision-making completely.</p>
+        <h4>Sign 5: Growth Is Creating Chaos Instead of Profit</h4>
+        <p>When more customers means more stress (not more revenue), you've hit the manual ceiling. Automation lets you scale without proportionally scaling your headcount or your working hours.</p>
+        <h4>Ready to Start?</h4>
+        <p>Sabush Tech offers a <strong>free workflow audit</strong> — we map your current operations and identify exactly which automations would save you the most time and money. No commitment required.</p>
+      `,
+      bodyPt: `
+        <p>A automatização não é para todos os negócios em todas as fases — mas se algum destes 5 sinais lhe soa familiar, está a deixar tempo e dinheiro significativos na mesa.</p>
+        <h4>Sinal 1: Repete as Mesmas Tarefas Todos os Dias</h4>
+        <p>Se alguém na sua equipa faz a mesma coisa todas as manhãs — enviar um relatório, actualizar uma folha de cálculo, confirmar marcações — essa tarefa pode ser automatizada.</p>
+        <h4>Sinal 2: Os Clientes Esperam Demasiado pelas Respostas</h4>
+        <p>Se os clientes lhe enviam mensagem e esperam mais de 2 horas por uma resposta, está a perder vendas. Um chatbot WhatsApp automatizado responde em 3 segundos — mesmo quando está a dormir.</p>
+        <h4>Sinal 3: Já Cometeu Erros Custosos por Entrada Manual de Dados</h4>
+        <p>Preços errados em facturas, números de stock incorrectos, pedidos perdidos — estes são sintomas de processos manuais. A automatização elimina completamente a camada de erro humano.</p>
+        <h4>Sinal 4: Não Consegue Ver o Seu Negócio em Tempo Real</h4>
+        <p>Se não sabe as suas vendas de ontem sem procurar em cadernos, precisa de automatização de relatórios. Painéis em tempo real entregues no seu telemóvel todas as manhãs mudam completamente a tomada de decisão.</p>
+        <h4>Sinal 5: O Crescimento Está a Criar Caos em vez de Lucro</h4>
+        <p>Quando mais clientes significa mais stress (não mais receita), atingiu o tecto do manual. A automatização permite crescer sem aumentar proporcionalmente a equipa ou as horas de trabalho.</p>
+        <h4>Pronto para Começar?</h4>
+        <p>A Sabush Tech oferece uma <strong>auditoria gratuita do fluxo de trabalho</strong> — mapeamos as suas operações actuais e identificamos exactamente quais as automatizações que lhe poupariam mais tempo e dinheiro.</p>
+      `
+    }
+  };
+
+  function openBlogModal(key) {
+    const lang = localStorage.getItem('sabush-lang') || 'en';
+    const art = blogArticles[key];
+    const overlay = document.getElementById('blogModal');
+    const box = document.getElementById('blogModalBox');
+    const content = document.getElementById('blogModalContent');
+    content.innerHTML = `
+      <div style="margin-bottom:20px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:${art.color};letter-spacing:0.1em;text-transform:uppercase;background:${art.color}18;padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;">${art.tag}</div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:800;color:#F8FAFB;line-height:1.3;margin-bottom:0;">${lang === 'pt' ? art.titlePt : art.titleEn}</h2>
+      </div>
+      <div style="font-size:0.9rem;color:#C9D6F0;line-height:1.8;" class="blog-body">${lang === 'pt' ? art.bodyPt : art.bodyEn}</div>
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
+        <a href="https://wa.me/258858624086?text=Olá%20Sabush%20Tech!%20Li%20o%20vosso%20artigo%20e%20gostaria%20de%20saber%20mais." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 24px;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;text-decoration:none;">💬 ${lang === 'pt' ? 'Fale Connosco' : 'Talk to Us on WhatsApp'}</a>
+      </div>
+    `;
+    // Style the blog body inner elements
+    content.querySelectorAll('.blog-body h4').forEach(h => { h.style.cssText = 'font-family:Plus Jakarta Sans,sans-serif;font-size:1rem;font-weight:700;color:#F8FAFB;margin:20px 0 8px;'; });
+    content.querySelectorAll('.blog-body ul').forEach(ul => { ul.style.cssText = 'padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin:8px 0 16px;'; });
+    content.querySelectorAll('.blog-body li').forEach(li => { li.style.cssText = 'display:flex;gap:8px;align-items:flex-start;'; li.innerHTML = '<span style="color:' + art.color + ';flex-shrink:0;margin-top:2px;">→</span>' + li.innerHTML; });
+    content.querySelectorAll('.blog-body p').forEach(p => { p.style.marginBottom = '12px'; });
+    overlay.classList.add('open');
+    setTimeout(() => { box.style.transform = 'translateY(0)'; }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBlogModal(e, force) {
+    if (!force && e && e.target !== document.getElementById('blogModal')) return;
+    const box = document.getElementById('blogModalBox');
+    box.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      document.getElementById('blogModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeBlogModal(null, true);
+  });
+
+  // ── STICKY MOBILE CTA ─────────────────────────────────────────────────────
+  (function() {
+    const cta = document.getElementById('mobileCta');
+    if (!cta) return;
+    // Only show on mobile
+    function isMobile() { return window.innerWidth <= 768; }
+    let shown = false;
+    function showCta() {
+      if (!isMobile()) return;
+      cta.style.display = 'block';
+      setTimeout(() => { cta.style.transform = 'translateY(0)'; }, 50);
+      shown = true;
+    }
+    function hideCta() {
+      cta.style.transform = 'translateY(100%)';
+    }
+    // Show after scrolling 300px
+    window.addEventListener('scroll', function() {
+      if (!isMobile()) return;
+      const scrolled = window.scrollY || document.documentElement.scrollTop;
+      // Hide when contact section is visible
+      const contact = document.getElementById('contact');
+      if (contact) {
+        const rect = contact.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) { hideCta(); return; }
+      }
+      if (scrolled > 300) showCta();
+      else if (shown) hideCta();
+    }, { passive: true });
+    window.addEventListener('resize', function() {
+      if (!isMobile()) { cta.style.display = 'none'; shown = false; }
+    });
+  })();
+
 </script>
 
 <!-- MERCADO NOTIFY MODAL -->
@@ -1620,6 +1894,31 @@
   <div class="cookie-actions">
     <button class="cookie-decline" onclick="declineCookies()" data-en="Decline" data-pt="Recusar">Decline</button>
     <button class="cookie-accept" onclick="acceptCookies()" data-en="Accept All" data-pt="Aceitar Tudo">Accept All</button>
+  </div>
+</div>
+
+
+<!-- STICKY MOBILE CTA -->
+<div id="mobileCta" style="
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:998;
+  background:rgba(10,22,40,0.97);
+  backdrop-filter:blur(16px);
+  border-top:1px solid rgba(46,111,232,0.15);
+  padding:12px 16px;
+  transform:translateY(100%);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+">
+  <div style="display:flex;gap:10px;max-width:500px;margin:0 auto;">
+    <a href="https://wa.me/258858624086?text=Olá%20Sabush%20Tech!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20serviços." target="_blank" rel="noopener"
+      style="flex:1;background:#25D366;color:#fff;border-radius:12px;padding:13px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.92rem;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 20px rgba(37,211,102,0.3);">
+      <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.46.664 4.76 1.82 6.74L2 30l7.46-1.8A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/><path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z" fill="#25D366"/></svg>
+      <span data-en="WhatsApp Us" data-pt="WhatsApp">WhatsApp Us</span>
+    </a>
+    <a href="#contact"
+      style="flex:1;background:rgba(46,111,232,0.15);border:1.5px solid rgba(46,111,232,0.35);color:#2E6FE8;border-radius:12px;padding:13px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.92rem;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;">
+      <span data-en="Get Started" data-pt="Começar">Get Started</span>
+    </a>
   </div>
 </div>
 
