@@ -257,17 +257,24 @@
   /* SERVICES */
   #services { background: var(--navy-mid); }
   .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
-  .service-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 16px; padding: 36px; transition: border-color 0.3s, transform 0.3s; }
-  .service-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
+  .service-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); border-top: 5px solid var(--accent, #F5A623); box-shadow: 0 4px 22px rgba(11,22,40,0.07); border-radius: 16px; padding: 36px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px var(--accent-shadow, rgba(245,166,35,0.22)); }
   .service-icon {
-    width: 64px; height: 64px; border-radius: 18px; font-size: 1.8rem;
+    width: 68px; height: 68px; border-radius: 18px; font-size: 2rem;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, rgba(245,166,35,0.12), rgba(245,166,35,0.05));
-    border: 1px solid rgba(245,166,35,0.2);
+    background: var(--accent-wash, linear-gradient(135deg, rgba(245,166,35,0.18), rgba(245,166,35,0.06)));
+    border: 1.5px solid var(--accent-border, rgba(245,166,35,0.3));
+    box-shadow: 0 6px 18px var(--accent-shadow, rgba(245,166,35,0.15));
     transition: transform 0.3s;
   }
-  .service-card:hover .service-icon { transform: scale(1.1) rotate(-4deg); }
+  .service-card:hover .service-icon { transform: scale(1.12) rotate(-5deg); }
+  .service-card .service-num {
+    position: absolute; top: 16px; right: 16px; width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 700;
+    background: var(--accent-wash-solid, rgba(245,166,35,0.14)); color: var(--accent, #F5A623);
+  }
   .service-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
   .service-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
   .service-tag { display: inline-block; margin-top: 18px; font-size: 0.75rem; font-weight: 600; color: var(--gold); background: var(--gold-dim); padding: 5px 12px; border-radius: 20px; }
@@ -991,9 +998,9 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;" class="reveal">
 
       <!-- 01 Marketing Automation -->
-      <div class="service-card" style="border-color:rgba(46,111,232,0.12);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(46,111,232,0.4);font-weight:700;letter-spacing:0.1em;">01</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(46,111,232,0.15),rgba(46,111,232,0.05));border-color:rgba(46,111,232,0.25);">📣</div>
+      <div class="service-card" style="position:relative;overflow:hidden;--accent:#2E6FE8;--accent-shadow:rgba(46,111,232,0.28);--accent-wash-solid:rgba(46,111,232,0.14);">
+        <div class="service-num">01</div>
+        <div class="service-icon" style="background:linear-gradient(135deg,rgba(46,111,232,0.22),rgba(46,111,232,0.07));border-color:rgba(46,111,232,0.35);">📣</div>
         <div class="service-title" data-en="Marketing Automation" data-pt="Automatização de Marketing">Marketing Automation</div>
         <p class="service-desc" data-en="Reach customers automatically — promotions, follow-ups, and campaigns sent via WhatsApp or email on a schedule you set." data-pt="Alcance clientes automaticamente — promoções, follow-ups e campanhas enviadas via WhatsApp ou email no horário que definir.">Reach customers automatically — promotions, follow-ups, and campaigns sent via WhatsApp or email on a schedule you set.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
@@ -1006,9 +1013,9 @@
       </div>
 
       <!-- 02 Booking Automation -->
-      <div class="service-card" style="border-color:rgba(245,166,35,0.12);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(245,166,35,0.4);font-weight:700;letter-spacing:0.1em;">02</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(245,166,35,0.15),rgba(245,166,35,0.05));border-color:rgba(245,166,35,0.25);">📅</div>
+      <div class="service-card" style="position:relative;overflow:hidden;--accent:#F5A623;--accent-shadow:rgba(245,166,35,0.28);--accent-wash-solid:rgba(245,166,35,0.16);">
+        <div class="service-num">02</div>
+        <div class="service-icon" style="background:linear-gradient(135deg,rgba(245,166,35,0.22),rgba(245,166,35,0.07));border-color:rgba(245,166,35,0.35);">📅</div>
         <div class="service-title" data-en="Booking &amp; Appointment Automation" data-pt="Automatização de Reservas e Marcações">Booking &amp; Appointment Automation</div>
         <p class="service-desc" data-en="Never miss a booking — confirmations, reminders, and waitlists handled automatically so you can focus on serving clients." data-pt="Nunca perca uma reserva — confirmações, lembretes e listas de espera geridos automaticamente para que se foque em servir clientes.">Never miss a booking — confirmations, reminders, and waitlists handled automatically so you can focus on serving clients.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
@@ -1021,9 +1028,9 @@
       </div>
 
       <!-- 03 E-commerce Automation -->
-      <div class="service-card" style="border-color:rgba(168,85,247,0.12);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(168,85,247,0.4);font-weight:700;letter-spacing:0.1em;">03</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(168,85,247,0.15),rgba(168,85,247,0.05));border-color:rgba(168,85,247,0.25);">🛒</div>
+      <div class="service-card" style="position:relative;overflow:hidden;--accent:#a855f7;--accent-shadow:rgba(168,85,247,0.28);--accent-wash-solid:rgba(168,85,247,0.16);">
+        <div class="service-num">03</div>
+        <div class="service-icon" style="background:linear-gradient(135deg,rgba(168,85,247,0.22),rgba(168,85,247,0.07));border-color:rgba(168,85,247,0.35);">🛒</div>
         <div class="service-title" data-en="E-commerce Order Automation" data-pt="Automatização de Pedidos E-commerce">E-commerce Order Automation</div>
         <p class="service-desc" data-en="Sell more with less effort — orders, stock updates, and buyer notifications all automated from your online store." data-pt="Venda mais com menos esforço — pedidos, actualizações de stock e notificações de compradores totalmente automatizados.">Sell more with less effort — orders, stock updates, and buyer notifications all automated from your online store.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
@@ -1036,9 +1043,9 @@
       </div>
 
       <!-- 04 Reporting Automation -->
-      <div class="service-card" style="border-color:rgba(34,211,238,0.12);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(34,211,238,0.4);font-weight:700;letter-spacing:0.1em;">04</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(34,211,238,0.15),rgba(34,211,238,0.05));border-color:rgba(34,211,238,0.25);">📊</div>
+      <div class="service-card" style="position:relative;overflow:hidden;--accent:#22d3ee;--accent-shadow:rgba(34,211,238,0.28);--accent-wash-solid:rgba(34,211,238,0.16);">
+        <div class="service-num">04</div>
+        <div class="service-icon" style="background:linear-gradient(135deg,rgba(34,211,238,0.22),rgba(34,211,238,0.07));border-color:rgba(34,211,238,0.35);">📊</div>
         <div class="service-title" data-en="Reporting &amp; Dashboard Automation" data-pt="Automatização de Relatórios e Painéis">Reporting &amp; Dashboard Automation</div>
         <p class="service-desc" data-en="Business insights delivered to your phone — daily, weekly, and monthly reports generated and sent automatically. No login required." data-pt="Insights do negócio entregues no seu telemóvel — relatórios diários, semanais e mensais gerados e enviados automaticamente.">Business insights delivered to your phone — daily, weekly, and monthly reports generated and sent automatically. No login required.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
@@ -1051,9 +1058,9 @@
       </div>
 
       <!-- 05 WhatsApp Automation -->
-      <div class="service-card" style="border-color:rgba(37,211,102,0.15);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(37,211,102,0.4);font-weight:700;letter-spacing:0.1em;">05</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(37,211,102,0.15),rgba(37,211,102,0.05));border-color:rgba(37,211,102,0.25);">💬</div>
+      <div class="service-card" style="position:relative;overflow:hidden;--accent:#25D366;--accent-shadow:rgba(37,211,102,0.28);--accent-wash-solid:rgba(37,211,102,0.16);">
+        <div class="service-num">05</div>
+        <div class="service-icon" style="background:linear-gradient(135deg,rgba(37,211,102,0.22),rgba(37,211,102,0.07));border-color:rgba(37,211,102,0.35);">💬</div>
         <div class="service-title" data-en="WhatsApp Business Automation" data-pt="Automatização do WhatsApp Business">WhatsApp Business Automation</div>
         <p class="service-desc" data-en="Turn WhatsApp into a 24/7 business assistant — instant replies to FAQs, auto-send invoices, payment reminders, and seamless handover to a human agent when needed." data-pt="Transforme o WhatsApp num assistente comercial 24/7 — respostas instantâneas a perguntas, envio automático de facturas, lembretes de pagamento.">Turn WhatsApp into a 24/7 business assistant — instant replies to FAQs, auto-send invoices, payment reminders, and seamless handover to a human agent when needed.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
