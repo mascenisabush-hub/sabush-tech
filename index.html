@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -746,8 +746,8 @@
     <li><a href="#contact" data-en="Contact" data-pt="Contacto">Contact</a></li>
   </ul>
   <div class="lang-toggle" id="langToggle">
-    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
-    <button class="lang-btn" onclick="setLang('pt')" id="btn-pt">PT</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn active" onclick="setLang('pt')" id="btn-pt">PT</button>
   </div>
   <a href="#contact" class="nav-cta" data-en="Get Started" data-pt="Começar">Get Started</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
@@ -1704,10 +1704,10 @@
     document.documentElement.lang = lang;
   }
 
-  // Load saved language on page load
+  // Load saved language on page load (Portuguese by default)
   (function() {
-    const saved = localStorage.getItem('sabush-lang') || 'en';
-    if (saved === 'pt') setLang('pt');
+    const saved = localStorage.getItem('sabush-lang') || 'pt';
+    setLang(saved);
   })();
 
   // Scroll reveal
