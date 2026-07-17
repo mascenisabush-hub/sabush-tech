@@ -233,6 +233,38 @@
   .demo-features li .dtxt strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
   .demo-features li .dtxt span { font-size: 0.82rem; color: var(--muted); }
   .demo-screen { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(46,111,232,0.2); background: #0F1F3D; --white: #F8FAFB; --muted: #C9D6F0; --navy-mid: #142035; --navy: #0F1F3D; box-shadow: 0 32px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(46,111,232,0.1), 0 0 60px rgba(46,111,232,0.08); }
+
+  /* DEMO REQUEST FORM */
+  .demo-form-card { max-width: 1100px; margin: 70px auto 0; background: var(--card-bg); border: 1px solid rgba(46,111,232,0.12); border-radius: 20px; padding: 44px; box-shadow: 0 24px 60px rgba(16,36,74,0.08); }
+  .demo-form-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--white); margin: 8px 0 10px; }
+  .demo-form-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 30px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+  .form-field { display: flex; flex-direction: column; gap: 7px; }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-field label { font-size: 0.8rem; font-weight: 700; color: var(--white); letter-spacing: 0.01em; }
+  .form-field input, .form-field select, .form-field textarea {
+    padding: 12px 14px; border-radius: 10px; border: 1.5px solid rgba(46,111,232,0.18);
+    font-family: 'Inter', sans-serif; font-size: 0.92rem; background: #F9FBFE; color: var(--white);
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--teal); }
+  .form-field textarea { resize: vertical; min-height: 80px; font-family: 'Inter', sans-serif; }
+  .form-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+  .btn-whatsapp {
+    background: #25D366; color: #fff; padding: 13px 26px; border-radius: 10px; font-weight: 700;
+    font-size: 0.95rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(37,211,102,0.25);
+  }
+  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35); }
+  button.btn-primary { cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+  button.btn-primary:disabled { opacity: 0.65; cursor: not-allowed; transform: none !important; }
+  .form-status { font-size: 0.88rem; font-weight: 600; padding: 12px 16px; border-radius: 10px; display: none; }
+  .form-status.success { display: block; color: #1e9e5a; background: rgba(30,158,90,0.08); }
+  .form-status.error { display: block; color: #d0453a; background: rgba(208,69,58,0.08); }
+  @media (max-width: 700px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .demo-form-card { padding: 30px 24px; }
+  }
   .demo-topbar { background: var(--navy-mid); padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .demo-dot { width: 10px; height: 10px; border-radius: 50%; }
   .demo-url { margin-left: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 4px 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); flex: 1; }
@@ -968,6 +1000,48 @@
       </div>
     </div>
   </div>
+
+  <div class="demo-form-card reveal" id="requestDemo">
+    <div class="section-label" data-en="// Get Started" data-pt="// Comece Agora">// Get Started</div>
+    <h3 class="demo-form-title" data-en="Request a Free Demo" data-pt="Solicite uma Demonstração Gratuita">Request a Free Demo</h3>
+    <p class="demo-form-sub" data-en="Tell us a bit about your business and we'll reach out within 24 hours — or message us on WhatsApp right now." data-pt="Conte-nos um pouco sobre o seu negócio e entraremos em contacto em 24 horas — ou fale connosco já pelo WhatsApp.">Tell us a bit about your business and we'll reach out within 24 hours — or message us on WhatsApp right now.</p>
+
+    <form id="demoForm" class="form-grid" onsubmit="return submitDemoForm(event)">
+      <div class="form-field">
+        <label data-en="Full Name" data-pt="Nome Completo">Full Name</label>
+        <input type="text" id="demoName" required data-placeholder-en="Your name" data-placeholder-pt="O seu nome" placeholder="Your name" autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label data-en="Business Name" data-pt="Nome do Negócio">Business Name</label>
+        <input type="text" id="demoBusiness" required data-placeholder-en="Your business name" data-placeholder-pt="Nome do seu negócio" placeholder="Your business name" autocomplete="organization">
+      </div>
+      <div class="form-field">
+        <label data-en="Phone / WhatsApp" data-pt="Telefone / WhatsApp">Phone / WhatsApp</label>
+        <input type="tel" id="demoPhone" required data-placeholder-en="+258 ..." data-placeholder-pt="+258 ..." placeholder="+258 ..." autocomplete="tel">
+      </div>
+      <div class="form-field">
+        <label data-en="Which product?" data-pt="Qual produto?">Which product?</label>
+        <select id="demoProduct">
+          <option value="Sabush System ERP" data-en="Sabush System ERP" data-pt="Sabush System ERP">Sabush System ERP</option>
+          <option value="Sabush POS" data-en="Sabush POS" data-pt="Sabush POS">Sabush POS</option>
+          <option value="Mercado Sabush" data-en="Mercado Sabush (Marketplace)" data-pt="Mercado Sabush">Mercado Sabush (Marketplace)</option>
+          <option value="Sabush English Club" data-en="Sabush English Club" data-pt="Sabush English Club">Sabush English Club</option>
+          <option value="Not sure yet" data-en="Not sure yet" data-pt="Ainda não sei">Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-field full">
+        <label data-en="Message (optional)" data-pt="Mensagem (opcional)">Message (optional)</label>
+        <textarea id="demoMessage" rows="3" data-placeholder-en="Tell us a bit about your business needs..." data-placeholder-pt="Conte-nos um pouco sobre as necessidades do seu negócio..." placeholder="Tell us a bit about your business needs..."></textarea>
+      </div>
+      <div class="form-field full form-actions">
+        <button type="submit" class="btn-primary" id="demoSubmitBtn" data-en="Request Demo" data-pt="Solicitar Demonstração">Request Demo</button>
+        <button type="button" class="btn-whatsapp" onclick="sendDemoViaWhatsApp()" data-en="Continue on WhatsApp" data-pt="Continuar no WhatsApp">Continue on WhatsApp</button>
+      </div>
+      <div class="form-field full">
+        <div id="demoFormStatus" class="form-status"></div>
+      </div>
+    </form>
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -1504,6 +1578,88 @@
       document.getElementById('notifyEmailConfirm').textContent = email;
       document.getElementById('notifySuccess').style.display = 'block';
     }, 600);
+  }
+
+  // Request a Demo — form
+  function getDemoFieldValues() {
+    return {
+      name: document.getElementById('demoName').value.trim(),
+      business: document.getElementById('demoBusiness').value.trim(),
+      phone: document.getElementById('demoPhone').value.trim(),
+      product: document.getElementById('demoProduct').value,
+      message: document.getElementById('demoMessage').value.trim()
+    };
+  }
+
+  function submitDemoForm(event) {
+    event.preventDefault();
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const { name, business, phone, product, message } = getDemoFieldValues();
+    const statusEl = document.getElementById('demoFormStatus');
+
+    if (!name || !business || !phone) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = lang === 'pt'
+        ? 'Por favor preencha o nome, negócio e telefone.'
+        : 'Please fill in your name, business, and phone.';
+      return false;
+    }
+
+    const btn = document.getElementById('demoSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = lang === 'pt' ? 'Enviando…' : 'Sending…';
+
+    // No-backend friendly delivery: opens a pre-filled email to the team
+    const subject = encodeURIComponent('Demo Request — ' + product);
+    const body = encodeURIComponent(
+      'Name: ' + name +
+      '\nBusiness: ' + business +
+      '\nPhone/WhatsApp: ' + phone +
+      '\nProduct: ' + product +
+      '\nMessage: ' + (message || 'N/A')
+    );
+    window.open('mailto:sabushgroup@gmail.com?subject=' + subject + '&body=' + body);
+
+    // Keep a local record too (same pattern used elsewhere on this site)
+    const leads = JSON.parse(localStorage.getItem('demo-leads') || '[]');
+    leads.push({ name, business, phone, product, message, date: new Date().toISOString() });
+    localStorage.setItem('demo-leads', JSON.stringify(leads));
+
+    setTimeout(function() {
+      statusEl.className = 'form-status success';
+      statusEl.textContent = lang === 'pt'
+        ? 'Obrigado! O seu email de demonstração foi aberto — envie-o e entraremos em contacto em breve.'
+        : "Thanks! Your demo request email is ready to send — we'll be in touch soon.";
+      btn.disabled = false;
+      btn.textContent = lang === 'pt' ? 'Solicitar Demonstração' : 'Request Demo';
+      document.getElementById('demoForm').reset();
+    }, 700);
+
+    return false;
+  }
+
+  function sendDemoViaWhatsApp() {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const { name, business, phone, product, message } = getDemoFieldValues();
+
+    let text;
+    if (lang === 'pt') {
+      text = 'Olá Sabush Tech! Gostaria de solicitar uma demonstração.' +
+        '\nNome: ' + (name || '-') +
+        '\nNegócio: ' + (business || '-') +
+        '\nTelefone: ' + (phone || '-') +
+        '\nProduto: ' + product +
+        (message ? '\nMensagem: ' + message : '');
+    } else {
+      text = "Hi Sabush Tech! I'd like to request a demo." +
+        '\nName: ' + (name || '-') +
+        '\nBusiness: ' + (business || '-') +
+        '\nPhone: ' + (phone || '-') +
+        '\nProduct: ' + product +
+        (message ? '\nMessage: ' + message : '');
+    }
+
+    window.open('https://wa.me/258858624086?text=' + encodeURIComponent(text), '_blank');
   }
 
   // Page Loader
