@@ -49,26 +49,54 @@
   }
   body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
 
+  /* UTILITY BAR (mockup-style, scrolls away, sits above the sticky nav) */
+  .utility-bar {
+    background: #0B2545;
+    color: #cfd8e6;
+    font-size: 0.8rem;
+    padding: 8px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .utility-left { display: flex; gap: 26px; align-items: center; }
+  .utility-left a { color: #cfd8e6; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .utility-right { display: flex; align-items: center; gap: 12px; }
+  .utility-right .u-label { color: #a9b8cf; margin-right: 2px; }
+  .u-social {
+    width: 24px; height: 24px; border-radius: 6px;
+    background: rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .u-social:hover { background: var(--gold); }
+  .u-social svg { width: 13px; height: 13px; fill: #fff; }
+  @media (max-width: 640px) {
+    .utility-bar .u-email { display: none; }
+  }
+
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: sticky; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 6%; background: rgba(26,58,110,0.92);
-    backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,43,133,0.1);
-    --white: #F8FAFB; --muted: #C9D6F0;
+    padding: 14px 6%; background: #ffffff;
+    box-shadow: 0 1px 0 rgba(11,37,69,0.08);
+    border-bottom: none;
   }
   .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-  .logo-img { height: 40px; width: 40px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(0,43,133,0.3)); }
+  .logo-img { height: 40px; width: 40px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(0,43,133,0.15)); }
   .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); display: inline-block; }
   .logo-sub { font-size: 0.65rem; color: var(--muted); font-weight: 400; display: block; letter-spacing: 0.04em; }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { color: var(--white); text-decoration: none; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; transition: color 0.2s; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-color: var(--gold); }
 
   /* LANGUAGE TOGGLE */
   .lang-toggle {
     display: flex; align-items: center; gap: 0;
-    background: rgba(255,255,255,0.06);
+    background: rgba(0,43,133,0.06);
     border: 1px solid rgba(0,43,133,0.2);
     border-radius: 8px; overflow: hidden;
     flex-shrink: 0;
@@ -85,11 +113,11 @@
     background: var(--gold); color: #000012;
   }
   .lang-btn:hover:not(.active) { color: var(--white); }
-  .nav-cta { background: var(--gold); color: #000012; padding: 9px 22px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: opacity 0.2s; }
-  .nav-cta:hover { opacity: 0.88; }
+  .nav-cta { background: var(--gold); color: #000012; padding: 10px 24px; border-radius: 8px; font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.3px; text-decoration: none; transition: opacity 0.2s, transform .15s ease; }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
 
   /* HERO */
-  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 6% 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #000014 0%, #000040 55%, #000014 100%); }
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 70px 6% 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #000014 0%, #000040 55%, #000014 100%); }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 45% at 78% 15%, rgba(0,43,133,0.16) 0%, transparent 65%), radial-gradient(ellipse 40% 35% at 12% 85%, rgba(184,134,11,0.09) 0%, transparent 70%); pointer-events: none; }
   .grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 85%); }
   .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; width: 100%; position: relative; z-index: 2; }
@@ -438,7 +466,7 @@
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .mobile-menu {
-    display: none; position: fixed; inset: 0; top: 62px; z-index: 99;
+    display: none; position: fixed; inset: 0; top: 108px; z-index: 99;
     background: rgba(26,58,110,0.98); backdrop-filter: blur(20px);
     flex-direction: column; align-items: center; justify-content: center;
     gap: 32px; padding: 40px;
@@ -700,6 +728,63 @@
     .cookie-accept, .cookie-decline { flex: 1; text-align: center; }
   }
 
+  /* ===== HERO v2 (mockup layout: copy + photo + product panel) ===== */
+  .hero-inner-v2 {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-photo-v2 {
+    position: relative;
+    height: 460px;
+    border-radius: 16px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 14%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%);
+  }
+  .hero-photo-v2 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .product-panel-v2 {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,134,11,0.25);
+    border-radius: 16px;
+    padding: 20px 22px;
+  }
+  .product-item-v2 {
+    display: flex; gap: 14px; padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .product-item-v2:last-child { border-bottom: none; padding-bottom: 0; }
+  .product-item-v2:first-child { padding-top: 0; }
+  .product-icon-v2 {
+    width: 42px; height: 42px; flex-shrink: 0;
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(184,134,11,0.1);
+    font-size: 1.15rem;
+  }
+  .product-text-v2 h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem; color: #F5EFE0; font-weight: 800; letter-spacing: 0.3px; margin-bottom: 4px;
+  }
+  .product-text-v2 p {
+    font-size: 0.74rem; color: #A9B8D6; line-height: 1.45; margin-bottom: 5px;
+  }
+  .product-link-v2 {
+    font-size: 0.74rem; color: var(--gold); font-weight: 700; text-decoration: none;
+  }
+  .product-link-v2:hover { text-decoration: underline; }
+  @media (max-width: 1000px) {
+    .hero-inner-v2 { grid-template-columns: 1fr; }
+    .hero-photo-v2 { height: 320px; mask-image: none; -webkit-mask-image: none; order: 1; }
+    .hero-content { order: 0; }
+    .product-panel-v2 { order: 2; }
+  }
 </style>
 </head>
 <body>
@@ -732,6 +817,21 @@
   </div>
 </div>
 
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="utility-left">
+    <a href="tel:+258858624086">📞 858624086</a>
+    <a href="mailto:sabushgroup@gmail.com" class="u-email">✉️ sabushgroup@gmail.com</a>
+  </div>
+  <div class="utility-right">
+    <span class="u-label" data-en="Follow us:" data-pt="Siga-nos:">Siga-nos:</span>
+    <a class="u-social" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+    <a class="u-social" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.8 2.6 4.8 6.1V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+    <a class="u-social" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.06.01 4.12.06 1.06.05 1.78.22 2.4.46.66.26 1.2.6 1.75 1.15.55.55.9 1.1 1.15 1.75.24.63.41 1.35.46 2.4.05 1.06.06 1.42.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.78-.46 2.4a4.9 4.9 0 0 1-1.15 1.75 4.9 4.9 0 0 1-1.75 1.15c-.63.24-1.35.41-2.4.46-1.06.05-1.42.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.78-.22-2.4-.46a4.9 4.9 0 0 1-1.75-1.15 4.9 4.9 0 0 1-1.15-1.75c-.24-.63-.41-1.35-.46-2.4C2.01 15.06 2 14.7 2 12s.01-3.06.06-4.12c.05-1.06.22-1.78.46-2.4.26-.66.6-1.2 1.15-1.75A4.9 4.9 0 0 1 5.42 2.58c.63-.24 1.35-.41 2.4-.46C8.88 2.01 9.24 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+    <a class="u-social" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.4-.44-5A2.9 2.9 0 0 0 20.5 5C18.9 4.6 12 4.6 12 4.6s-6.9 0-8.5.4A2.9 2.9 0 0 0 1.44 7C1 8.6 1 12 1 12s0 3.4.44 5A2.9 2.9 0 0 0 3.5 19c1.6.4 8.5.4 8.5.4s6.9 0 8.5-.4a2.9 2.9 0 0 0 2.06-2c.44-1.6.44-5 .44-5zM9.8 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -771,49 +871,52 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="grid-overlay"></div>
-  <div class="hero-inner">
+  <div class="hero-inner-v2">
     <div class="hero-content">
       <div class="hero-label" data-en="// Sabush Tech LDA · Matola, Mozambique" data-pt="// Sabush Tech LDA · Matola, Moçambique">// Sabush Tech LDA · Matola, Moçambique</div>
-      <h1 data-en-html="One Brand.<br><span class='accent'>Every Tool</span> Your<br>Business <span class='gold'>Needs.</span>" data-pt-html="Uma Marca.<br><span class='accent'>Tudo o que</span> o Seu<br>Negócio <span class='gold'>Precisa.</span>">Uma Marca.<br><span class='accent'>Tudo o que</span> o Seu<br>Negócio <span class='gold'>Precisa.</span></span> o Seu<br>Negócio <span class="gold">Precisa.</span></h1>
+      <h1 data-en-html="One Brand.<br><span class='accent'>Every Tool</span> Your<br>Business <span class='gold'>Needs.</span>" data-pt-html="Uma Marca.<br><span class='accent'>Tudo o que</span> o Seu<br>Negócio <span class='gold'>Precisa.</span>">Uma Marca.<br><span class="accent">Tudo o que</span> o Seu<br>Negócio <span class="gold">Precisa.</span></h1>
       <p class="hero-sub" data-en="From managing inventory and invoices to selling online, training your team in English, and building your digital presence — Sabush has you covered." data-pt="Desde a gestão de inventário e facturas até vender online, treinar a sua equipa em inglês e construir a sua presença digital — a Sabush tem tudo para si.">Desde a gestão de inventário e facturas até vender online, treinar a sua equipa em inglês e construir a sua presença digital — a Sabush tem tudo para si.</p>
       <div class="hero-btns">
         <a href="#products" class="btn-primary" data-en="Explore Products" data-pt="Ver Produtos">Ver Produtos</a>
         <a href="#contact" class="btn-ghost" data-en="Talk to Us" data-pt="Fale Connosco">Fale Connosco</a>
       </div>
     </div>
-    <div class="orbit-container">
-      <div class="hero-logo-showcase">
-        <div class="hlc-glow"></div>
-        <div class="hlc-rings">
-          <div class="hlc-ring hlc-ring-1"></div>
-          <div class="hlc-ring hlc-ring-2"></div>
+
+    <div class="hero-photo-v2">
+      <img src="hero-photo.jpg" alt="Equipa Sabush Tech">
+    </div>
+
+    <div class="product-panel-v2">
+      <div class="product-item-v2">
+        <div class="product-icon-v2">🧾</div>
+        <div class="product-text-v2">
+          <h3>SABUSH SYSTEM ERP</h3>
+          <p data-en="Full control of your business. Manage finance, stock, purchasing and more, all in one system." data-pt="O controlo total da sua empresa. Gestão, finanças, stock, compras e muito mais, num só sistema.">O controlo total da sua empresa. Gestão, finanças, stock, compras e muito mais, num só sistema.</p>
+          <a class="product-link-v2" href="https://erp.sabushtech.com" target="_blank" rel="noopener">erp.sabushtech.com ›</a>
         </div>
-        <div class="hlc-center">
-          <img src="logo.png" alt="Sabush Tech" class="hlc-logo-img">
+      </div>
+      <div class="product-item-v2">
+        <div class="product-icon-v2">🛒</div>
+        <div class="product-text-v2">
+          <h3>MERCADO SABUSH</h3>
+          <p data-en="Your digital storefront. Buy and sell products on the marketplace connecting Mozambique." data-pt="A sua montra digital. Compre e venda produtos no marketplace que está a ligar Moçambique.">A sua montra digital. Compre e venda produtos no marketplace que está a ligar Moçambique.</p>
+          <a class="product-link-v2" href="https://mercado.sabushtech.com" target="_blank" rel="noopener">mercado.sabushtech.com ›</a>
         </div>
-        <div class="hlc-badge hlc-badge-erp">
-          <span class="hlc-badge-icon">🧾</span>
-          <span class="hlc-badge-label">ERP</span>
+      </div>
+      <div class="product-item-v2">
+        <div class="product-icon-v2">🖥️</div>
+        <div class="product-text-v2">
+          <h3>SABUSH POS</h3>
+          <p data-en="Fast, simple billing and sales — built for shops, retailers and small businesses." data-pt="O sistema de faturação e vendas rápido e fácil, ideal para lojas, retalhos e pequenas empresas.">O sistema de faturação e vendas rápido e fácil, ideal para lojas, retalhos e pequenas empresas.</p>
+          <a class="product-link-v2" href="https://pos.sabushtech.com" target="_blank" rel="noopener">pos.sabushtech.com ›</a>
         </div>
-        <div class="hlc-badge hlc-badge-pos">
-          <span class="hlc-badge-icon">🖥️</span>
-          <span class="hlc-badge-label">POS</span>
-        </div>
-        <div class="hlc-badge hlc-badge-mktpl">
-          <span class="hlc-badge-icon">🛒</span>
-          <span class="hlc-badge-label">Mercado</span>
-        </div>
-        <div class="hlc-badge hlc-badge-eng">
-          <span class="hlc-badge-icon">🎙️</span>
-          <span class="hlc-badge-label">English</span>
-        </div>
-        <div class="hlc-badge hlc-badge-web">
-          <span class="hlc-badge-icon">🌐</span>
-          <span class="hlc-badge-label">Web</span>
-        </div>
-        <div class="hlc-badge hlc-badge-auto">
-          <span class="hlc-badge-icon">⚙️</span>
-          <span class="hlc-badge-label">Auto</span>
+      </div>
+      <div class="product-item-v2">
+        <div class="product-icon-v2">🎙️</div>
+        <div class="product-text-v2">
+          <h3>BUSINESS ENGLISH</h3>
+          <p data-en="Speak the language of global business and open doors to new partnerships." data-pt="Fale a língua dos negócios globais e abra portas para novas parcerias e oportunidades.">Fale a língua dos negócios globais e abra portas para novas parcerias e oportunidades.</p>
+          <a class="product-link-v2" href="https://english.sabushtech.com" target="_blank" rel="noopener">english.sabushtech.com ›</a>
         </div>
       </div>
     </div>
