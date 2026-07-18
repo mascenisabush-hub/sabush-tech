@@ -235,7 +235,7 @@
     --white: #F8FAFB; --muted: #C9D6F0;
   }
   .stat-item:hover { border-color: rgba(0,43,133,0.35); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,43,133,0.15); }
-  .stat-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+  .stat-icon { margin-bottom: 10px; display: flex; justify-content: center; color: var(--gold); }
   .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.6rem; font-weight: 800; color: #B8860B; line-height: 1; }
   .stat-suffix { color: #B8860B; }
   .stat-label { font-size: 0.82rem; color: #C9D6F0; font-weight: 500; margin-top: 6px; opacity: 0.8; }
@@ -274,7 +274,7 @@
   .demo-text .section-sub { margin-bottom: 32px; }
   .demo-features { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
   .demo-features li { display: flex; align-items: flex-start; gap: 14px; }
-  .demo-features li .dicon { width: 36px; height: 36px; border-radius: 10px; background: var(--teal-dim); border: 1px solid rgba(0,43,133,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .demo-features li .dicon { width: 36px; height: 36px; border-radius: 10px; background: var(--teal-dim); border: 1px solid rgba(0,43,133,0.2); display: flex; align-items: center; justify-content: center; color: var(--teal); flex-shrink: 0; }
   .demo-features li .dtxt strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
   .demo-features li .dtxt span { font-size: 0.82rem; color: var(--muted); }
   .demo-screen { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0,43,133,0.2); background: #000020; --white: #F8FAFB; --muted: #C9D6F0; --navy-mid: #142035; --navy: #0F1F3D; box-shadow: 0 32px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,43,133,0.1), 0 0 60px rgba(0,43,133,0.08); }
@@ -1024,8 +1024,8 @@
 <!-- UTILITY BAR -->
 <div class="utility-bar">
   <div class="utility-left">
-    <a href="tel:+258858624086">📞 858624086</a>
-    <a href="mailto:sabushgroup@gmail.com" class="u-email">✉️ sabushgroup@gmail.com</a>
+    <a href="tel:+258858624086"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 858624086</a>
+    <a href="mailto:sabushgroup@gmail.com" class="u-email"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg> sabushgroup@gmail.com</a>
   </div>
   <div class="utility-right">
     <span class="u-label" data-en="Follow us:" data-pt="Siga-nos:">Siga-nos:</span>
@@ -1038,7 +1038,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">
+  <a href="#home" class="logo">
     <img src="logo.png" alt="Sabush Tech Logo" class="logo-img">
     <span>Sabush Tech <span class="logo-sub">LDA · Smart Business Ecosystem</span></span>
   </a>
@@ -1091,7 +1091,7 @@
 
     <div class="product-panel-v2">
       <a class="product-item-v2" href="https://erp.sabushtech.com" target="_blank" rel="noopener">
-        <div class="product-icon-v2">🧾</div>
+        <div class="product-icon-v2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h1"/></svg></div>
         <div class="product-text-v2">
           <h3>SABUSH SYSTEM ERP</h3>
           <p data-en="Full control of your business. Manage finance, stock, purchasing and more, all in one system." data-pt="O controlo total da sua empresa. Gestão, finanças, stock, compras e muito mais, num só sistema.">O controlo total da sua empresa. Gestão, finanças, stock, compras e muito mais, num só sistema.</p>
@@ -1099,7 +1099,7 @@
         </div>
       </a>
       <a class="product-item-v2" href="https://mercado.sabushtech.com" target="_blank" rel="noopener">
-        <div class="product-icon-v2">🛒</div>
+        <div class="product-icon-v2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.4h8.8a2 2 0 0 0 2-1.6L21 8H6"/></svg></div>
         <div class="product-text-v2">
           <h3>MERCADO SABUSH</h3>
           <p data-en="Your digital storefront. Buy and sell products on the marketplace connecting Mozambique." data-pt="A sua montra digital. Compre e venda produtos no marketplace que está a ligar Moçambique.">A sua montra digital. Compre e venda produtos no marketplace que está a ligar Moçambique.</p>
@@ -1107,7 +1107,7 @@
         </div>
       </a>
       <a class="product-item-v2" href="https://pos.sabushtech.com" target="_blank" rel="noopener">
-        <div class="product-icon-v2">🖥️</div>
+        <div class="product-icon-v2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7.5 9h2M12 9h4.5"/></svg></div>
         <div class="product-text-v2">
           <h3>SABUSH POS</h3>
           <p data-en="Fast, simple billing and sales — built for shops, retailers and small businesses." data-pt="O sistema de faturação e vendas rápido e fácil, ideal para lojas, retalhos e pequenas empresas.">O sistema de faturação e vendas rápido e fácil, ideal para lojas, retalhos e pequenas empresas.</p>
@@ -1115,7 +1115,7 @@
         </div>
       </a>
       <a class="product-item-v2" href="https://english.sabushtech.com" target="_blank" rel="noopener">
-        <div class="product-icon-v2">🎙️</div>
+        <div class="product-icon-v2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></div>
         <div class="product-text-v2">
           <h3>BUSINESS ENGLISH</h3>
           <p data-en="Speak the language of global business and open doors to new partnerships." data-pt="Fale a língua dos negócios globais e abra portas para novas parcerias e oportunidades.">Fale a língua dos negócios globais e abra portas para novas parcerias e oportunidades.</p>
@@ -1137,22 +1137,22 @@
 <section id="stats">
   <div class="stats-inner">
     <div class="stat-item reveal">
-      <span class="stat-icon">📦</span>
+      <span class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8L12 2 3 8v13h18z"/><path d="M9 21v-6h6v6"/></svg></span>
       <div class="stat-num"><span class="count-up" data-target="4">0</span><span class="stat-suffix">+</span></div>
       <div class="stat-label" data-en="Products & Platforms" data-pt="Produtos & Plataformas">Produtos & Plataformas</div>
     </div>
     <div class="stat-item reveal">
-      <span class="stat-icon">🏪</span>
+      <span class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-7h6v7"/><path d="M3 10h18"/></svg></span>
       <div class="stat-num"><span class="count-up" data-target="500">0</span><span class="stat-suffix">+</span></div>
       <div class="stat-label" data-en="Businesses Served" data-pt="Empresas Servidas">Empresas Servidas</div>
     </div>
     <div class="stat-item reveal">
-      <span class="stat-icon">🌍</span>
+      <span class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></span>
       <div class="stat-num"><span class="count-up" data-target="3">0</span></div>
       <div class="stat-label" data-en="Countries Reached" data-pt="Países Alcançados">Países Alcançados</div>
     </div>
     <div class="stat-item reveal">
-      <span class="stat-icon">🛟</span>
+      <span class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
       <div class="stat-num" style="font-size:2rem;">24<span class="stat-suffix">/7</span></div>
       <div class="stat-label" data-en="Customer Support" data-pt="Suporte ao Cliente">Suporte ao Cliente</div>
     </div>
@@ -1255,19 +1255,19 @@
   <div class="demo-inner">
     <div class="demo-text reveal">
       <div class="section-label" data-en="// See It In Action" data-pt="// Veja em Acção">// Veja em Acção</div>
-      <h2 class="section-title" data-en-html="Your Entire Business,<br>One <span style='color:var(--teal)'>Dashboard</span>" data-pt-html="Todo o Seu Negócio,<br>Num Só <span style='color:var(--teal)'>Painel</span>">Todo o Seu Negócio,<br>Num Só <span style='color:var(--teal)'>Painel</span></span></h2>
+      <h2 class="section-title" data-en-html="Your Entire Business,<br>One <span style='color:var(--teal)'>Dashboard</span>" data-pt-html="Todo o Seu Negócio,<br>Num Só <span style='color:var(--teal)'>Painel</span>">Todo o Seu Negócio,<br>Num Só <span style='color:var(--teal)'>Painel</span></h2>
       <p class="section-sub" data-en="Sabush System ERP gives you a real-time view of every corner of your business — from the POS floor to your wholesale invoices." data-pt="O Sabush System ERP dá-lhe uma visão em tempo real de cada canto do seu negócio — desde o ponto de venda até às facturas grossistas.">O Sabush System ERP dá-lhe uma visão em tempo real de cada canto do seu negócio — desde o ponto de venda até às facturas grossistas.</p>
       <ul class="demo-features">
         <li>
-          <div class="dicon">📊</div>
+          <div class="dicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
           <div class="dtxt"><strong data-en="Real-time sales dashboard" data-pt="Painel de vendas em tempo real">Painel de vendas em tempo real</strong><span data-en="See retail, wholesale, and cash sales update live as transactions happen." data-pt="Veja vendas a retalho, grossistas e em dinheiro a actualizar em tempo real.">Veja vendas a retalho, grossistas e em dinheiro a actualizar em tempo real.</span></div>
         </li>
         <li>
-          <div class="dicon">🔗</div>
+          <div class="dicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
           <div class="dtxt"><strong data-en="POS + ERP fully connected" data-pt="POS + ERP totalmente integrados">POS + ERP totalmente integrados</strong><span data-en="Every sale at the counter instantly reflects in your inventory and reports." data-pt="Cada venda no balcão reflecte-se imediatamente no inventário e relatórios.">Cada venda no balcão reflecte-se imediatamente no inventário e relatórios.</span></div>
         </li>
         <li>
-          <div class="dicon">📦</div>
+          <div class="dicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
           <div class="dtxt"><strong data-en="Smart inventory alerts" data-pt="Alertas inteligentes de inventário">Alertas inteligentes de inventário</strong><span data-en="Get notified before stock runs out so you never miss a sale." data-pt="Seja notificado antes do stock esgotar para nunca perder uma venda.">Seja notificado antes do stock esgotar para nunca perder uma venda.</span></div>
         </li>
       </ul>
