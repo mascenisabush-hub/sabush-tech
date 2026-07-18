@@ -364,7 +364,67 @@
   .why-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
   /* TESTIMONIALS */
-  #testimonials { background: var(--navy-mid); }
+  #testimonials {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(ellipse 900px 550px at 50% 42%, rgba(8,42,103,0.06), transparent 65%),
+      radial-gradient(ellipse 620px 420px at 88% 10%, rgba(212,160,23,0.09), transparent 70%),
+      radial-gradient(ellipse 520px 380px at 4% 90%, rgba(8,42,103,0.065), transparent 70%),
+      linear-gradient(180deg, #F5F8FC 0%, #EEF2FA 45%, #F5F8FC 100%);
+  }
+  #testimonials::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 28% 32%, rgba(0,65,194,0.05), transparent 55%),
+      radial-gradient(circle at 76% 72%, rgba(212,160,23,0.055), transparent 55%);
+    background-size: 200% 200%;
+    animation: testiMeshShift 26s ease-in-out infinite;
+  }
+  .testi-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .testi-bg-wave { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .testi-center-glow {
+    position: absolute; top: 48%; left: 50%; width: 920px; height: 480px;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(ellipse at center, rgba(8,42,103,0.075), rgba(212,160,23,0.04) 45%, transparent 72%);
+    filter: blur(6px);
+    animation: testiGlowPulse 9s ease-in-out infinite;
+  }
+  .testi-node {
+    position: absolute; width: 6px; height: 6px; border-radius: 50%;
+    background: #D4A017; box-shadow: 0 0 14px 4px rgba(212,160,23,0.4);
+    opacity: 0.45; animation: testiPulse 4.5s ease-in-out infinite;
+  }
+  .testi-node.n2 { background: #0041C2; box-shadow: 0 0 14px 4px rgba(0,65,194,0.32); }
+  .testi-shape {
+    position: absolute; border-radius: 18px; border: 1px solid rgba(8,42,103,0.09);
+    opacity: 0.55; animation: testiFloat 10s ease-in-out infinite;
+  }
+  .testi-shape.round { border-radius: 50%; }
+  @media (max-width: 700px) {
+    .testi-bg { opacity: 0.6; }
+  }
+  @keyframes testiMeshShift {
+    0%, 100% { background-position: 0% 0%, 100% 100%; }
+    50% { background-position: 30% 22%, 68% 78%; }
+  }
+  @keyframes testiGlowPulse {
+    0%, 100% { opacity: 0.65; }
+    50% { opacity: 1; }
+  }
+  @keyframes testiPulse {
+    0%, 100% { opacity: 0.22; transform: scale(1); }
+    50% { opacity: 0.75; transform: scale(1.7); }
+  }
+  @keyframes testiFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
   .testi-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 20px; padding: 32px; position: relative; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; overflow: hidden; }
   .testi-card::after { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: radial-gradient(circle at top right, rgba(0,43,133,0.06), transparent); pointer-events: none; }
@@ -1705,7 +1765,33 @@
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div style="max-width:1100px;margin:0 auto;">
+  <div class="testi-bg" aria-hidden="true">
+    <svg class="testi-bg-wave" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="testiWaveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#082A67" stop-opacity="0.055"/>
+          <stop offset="55%" stop-color="#0041C2" stop-opacity="0.035"/>
+          <stop offset="100%" stop-color="#D4A017" stop-opacity="0.07"/>
+        </linearGradient>
+        <pattern id="testiCircuit" width="130" height="130" patternUnits="userSpaceOnUse">
+          <path d="M0 65 H45 M45 65 V22 H90 M45 65 V108 H130 M90 22 V0 M90 108 V130" stroke="#082A67" stroke-width="1" fill="none"/>
+          <circle cx="45" cy="65" r="2.4" fill="#082A67"/>
+          <circle cx="90" cy="22" r="2.4" fill="#D4A017"/>
+          <circle cx="90" cy="108" r="2.4" fill="#0041C2"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="700" fill="url(#testiCircuit)" opacity="0.04"/>
+      <path d="M-60 640 C 240 540, 380 410, 620 370 C 860 330, 980 170, 1260 30 L1260 700 L-60 700 Z" fill="url(#testiWaveGrad)"/>
+    </svg>
+    <div class="testi-center-glow"></div>
+    <div class="testi-node n1" style="top:13%;left:9%;animation-delay:0s;"></div>
+    <div class="testi-node n2" style="top:68%;left:90%;animation-delay:1.5s;"></div>
+    <div class="testi-node n1" style="top:8%;left:83%;animation-delay:3s;"></div>
+    <div class="testi-shape" style="width:64px;height:64px;top:9%;left:5%;animation-delay:0s;"></div>
+    <div class="testi-shape round" style="width:42px;height:42px;top:76%;left:12%;border-color:rgba(212,160,23,0.2);animation-delay:2s;"></div>
+    <div class="testi-shape round" style="width:86px;height:86px;top:16%;right:7%;border-color:rgba(0,65,194,0.14);animation-delay:4s;"></div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:2;">
     <div class="center reveal">
       <div class="section-label" data-en="// Client Stories" data-pt="// Histórias de Clientes">// Histórias de Clientes</div>
       <h2 class="section-title" data-en-html="Businesses That <span style='color:var(--teal)'>Trust Sabush</span>" data-pt-html="Empresas que <span style='color:var(--teal)'>Confiam na Sabush</span>">Empresas que <span style='color:var(--teal)'>Confiam na Sabush</span></span></h2>
