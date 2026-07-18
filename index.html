@@ -797,6 +797,116 @@
     .hero-content { order: 0; }
     .product-panel-v2 { order: 2; }
   }
+
+  /* ===== PREMIUM BLOG CARDS ===== */
+  .blog-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(11,22,40,0.08);
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.38s cubic-bezier(0.16,1,0.3,1), box-shadow 0.38s cubic-bezier(0.16,1,0.3,1), border-color 0.38s ease;
+    position: relative;
+  }
+  .blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(0,43,133,0.18), 0 0 0 1px rgba(184,134,11,0.12);
+    border-color: rgba(184,134,11,0.25);
+  }
+  .blog-card-media {
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    background: #061A3D;
+  }
+  .blog-card-media svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .blog-card:hover .blog-card-media svg {
+    transform: scale(1.06);
+  }
+  .blog-card-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 60px rgba(0,10,30,0.35);
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .blog-card:hover .blog-card-media::after {
+    opacity: 0.35;
+  }
+  .blog-card-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 40%, rgba(64,140,255,0.35), transparent 65%);
+    mix-blend-mode: screen;
+  }
+  .blog-card:hover .blog-card-glow { opacity: 1; }
+
+  .blog-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px 5px 8px;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  }
+  .blog-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+  }
+  .blog-card-body {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card-body h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+    margin: 16px 0 12px;
+  }
+  .blog-card-body p {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .blog-read-link {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: gap 0.2s;
+  }
+  .blog-read-link:hover { gap: 10px; }
 </style>
 </head>
 <body>
@@ -1288,50 +1398,272 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;" class="reveal">
 
       <!-- Article 1 -->
-      <article style="background:var(--card-bg);border:1px solid rgba(11,22,40,0.08);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(11,22,40,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:180px;background:linear-gradient(135deg,#00002a,#002B85);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;">
-          💬
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(2,192,144,0.2),transparent 60%);pointer-events:none;"></div>
+      <article class="blog-card">
+        <div class="blog-card-media">
+          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="c1bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#020B24"/>
+                <stop offset="55%" stop-color="#00185C"/>
+                <stop offset="100%" stop-color="#002B85"/>
+              </linearGradient>
+              <radialGradient id="c1glow" cx="72%" cy="30%" r="55%">
+                <stop offset="0%" stop-color="rgba(212,160,23,0.35)"/>
+                <stop offset="100%" stop-color="rgba(212,160,23,0)"/>
+              </radialGradient>
+              <radialGradient id="c1glow2" cx="15%" cy="80%" r="50%">
+                <stop offset="0%" stop-color="rgba(64,140,255,0.35)"/>
+                <stop offset="100%" stop-color="rgba(64,140,255,0)"/>
+              </radialGradient>
+              <linearGradient id="c1phone" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#132A55"/>
+                <stop offset="100%" stop-color="#0A1B3D"/>
+              </linearGradient>
+              <linearGradient id="c1screen" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0E2A66"/>
+                <stop offset="100%" stop-color="#081B47"/>
+              </linearGradient>
+              <linearGradient id="c1bubble" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#25D366"/>
+                <stop offset="100%" stop-color="#1AAE55"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="190" fill="url(#c1bg)"/>
+            <rect width="400" height="190" fill="url(#c1glow)"/>
+            <rect width="400" height="190" fill="url(#c1glow2)"/>
+            <g opacity="0.35">
+              <circle cx="40" cy="40" r="1.6" fill="#8FB6FF"/>
+              <circle cx="90" cy="24" r="1.6" fill="#8FB6FF"/>
+              <circle cx="330" cy="150" r="1.6" fill="#D4A017"/>
+              <circle cx="360" cy="110" r="1.6" fill="#D4A017"/>
+              <circle cx="20" cy="150" r="1.6" fill="#8FB6FF"/>
+            </g>
+            <g stroke="rgba(143,182,255,0.35)" stroke-width="1.2" fill="none">
+              <path d="M 260 60 Q 300 40 335 55"/>
+              <path d="M 265 100 Q 305 115 340 100"/>
+              <path d="M 250 140 Q 285 150 320 135"/>
+            </g>
+            <circle cx="335" cy="55" r="4" fill="#D4A017"/>
+            <circle cx="340" cy="100" r="4" fill="#4C8CFF"/>
+            <circle cx="320" cy="135" r="4" fill="#D4A017"/>
+            <g transform="translate(78,28)">
+              <rect x="0" y="0" width="96" height="134" rx="18" fill="url(#c1phone)" stroke="rgba(255,255,255,0.08)"/>
+              <rect x="7" y="10" width="82" height="114" rx="10" fill="url(#c1screen)"/>
+              <rect x="15" y="22" width="46" height="9" rx="4.5" fill="rgba(255,255,255,0.14)"/>
+              <rect x="15" y="38" width="60" height="9" rx="4.5" fill="rgba(37,211,102,0.55)"/>
+              <rect x="24" y="54" width="50" height="9" rx="4.5" fill="rgba(255,255,255,0.14)"/>
+              <rect x="15" y="70" width="40" height="9" rx="4.5" fill="rgba(37,211,102,0.55)"/>
+              <circle cx="66" cy="98" r="14" fill="rgba(212,160,23,0.18)"/>
+              <path d="M66 90 L69 96 L75 98 L69 100 L66 106 L63 100 L57 98 L63 96 Z" fill="#D4A017"/>
+              <rect x="0" y="130" width="96" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+            </g>
+            <g transform="translate(258,30)">
+              <path d="M0 12 C0 5.4 5.4 0 12 0 L44 0 C50.6 0 56 5.4 56 12 L56 26 C56 32.6 50.6 38 44 38 L18 38 L6 48 L9 38 L12 38 C5.4 38 0 32.6 0 26 Z" fill="url(#c1bubble)" opacity="0.95"/>
+              <circle cx="16" cy="19" r="3" fill="#fff"/>
+              <circle cx="28" cy="19" r="3" fill="#fff"/>
+              <circle cx="40" cy="19" r="3" fill="#fff"/>
+            </g>
+            <g transform="translate(288,110)" opacity="0.9">
+              <path d="M0 10 C0 4.5 4.5 0 10 0 L36 0 C41.5 0 46 4.5 46 10 L46 21 C46 26.5 41.5 31 36 31 L15 31 L5 39 L7.5 31 L10 31 C4.5 31 0 26.5 0 21 Z" fill="#0E2A66" stroke="rgba(143,182,255,0.4)" stroke-width="1"/>
+              <rect x="9" y="12" width="28" height="4" rx="2" fill="rgba(255,255,255,0.55)"/>
+              <rect x="9" y="20" width="18" height="4" rx="2" fill="rgba(255,255,255,0.3)"/>
+            </g>
+          </svg>
+          <div class="blog-card-glow"></div>
         </div>
-        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,43,133,0.08);padding:4px 10px;border-radius:20px;" data-en="WhatsApp · 5 min read" data-pt="WhatsApp · 5 min de leitura">WhatsApp · 5 min de leitura</span>
+        <div class="blog-card-body">
+          <div class="blog-badge" style="color:#8FB6FF;">
+            <span class="dot" style="background:#4C8CFF;box-shadow:0 0 6px #4C8CFF;"></span>
+            <span data-en="WhatsApp · 5 min read" data-pt="WhatsApp · 5 min de leitura">WhatsApp · 5 min de leitura</span>
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:12px;" data-en="Why Mozambican Businesses Need WhatsApp Automation in 2026" data-pt="Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026">Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026</h3>
-          <p style="font-size:0.87rem;color:var(--muted);line-height:1.7;flex:1;" data-en="Over 90% of Mozambican businesses already use WhatsApp daily. Learn how automating it transforms customer service, sales, and follow-ups — without extra staff." data-pt="Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.">Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.</p>
-          <button onclick="openBlogModal('whatsapp')" style="margin-top:20px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--teal);transition:gap 0.2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
+          <h3 data-en="Why Mozambican Businesses Need WhatsApp Automation in 2026" data-pt="Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026">Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026</h3>
+          <p data-en="Over 90% of Mozambican businesses already use WhatsApp daily. Learn how automating it transforms customer service, sales, and follow-ups — without extra staff." data-pt="Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.">Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.</p>
+          <button onclick="openBlogModal('whatsapp')" class="blog-read-link" style="color:var(--teal);" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
         </div>
       </article>
 
       <!-- Article 2 -->
-      <article style="background:var(--card-bg);border:1px solid rgba(11,22,40,0.08);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(11,22,40,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:180px;background:linear-gradient(135deg,#002B85,#B8860B);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;">
-          🧾
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(184,134,11,0.2),transparent 60%);pointer-events:none;"></div>
+      <article class="blog-card">
+        <div class="blog-card-media">
+          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="c2bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#020B24"/>
+                <stop offset="50%" stop-color="#0A1F5C"/>
+                <stop offset="100%" stop-color="#3A2408"/>
+              </linearGradient>
+              <radialGradient id="c2glow" cx="80%" cy="20%" r="55%">
+                <stop offset="0%" stop-color="rgba(212,160,23,0.4)"/>
+                <stop offset="100%" stop-color="rgba(212,160,23,0)"/>
+              </radialGradient>
+              <radialGradient id="c2glow2" cx="10%" cy="85%" r="50%">
+                <stop offset="0%" stop-color="rgba(64,140,255,0.3)"/>
+                <stop offset="100%" stop-color="rgba(64,140,255,0)"/>
+              </radialGradient>
+              <linearGradient id="c2panel" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#132A55"/>
+                <stop offset="100%" stop-color="#0A1B3D"/>
+              </linearGradient>
+              <linearGradient id="c2bar" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#D4A017"/>
+                <stop offset="100%" stop-color="#FFDE8A"/>
+              </linearGradient>
+              <linearGradient id="c2bar2" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#0041C2"/>
+                <stop offset="100%" stop-color="#4C8CFF"/>
+              </linearGradient>
+              <linearGradient id="c2cube" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1E3A6E"/>
+                <stop offset="100%" stop-color="#0E2350"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="190" fill="url(#c2bg)"/>
+            <rect width="400" height="190" fill="url(#c2glow)"/>
+            <rect width="400" height="190" fill="url(#c2glow2)"/>
+            <g stroke="rgba(212,160,23,0.4)" stroke-width="1" fill="none">
+              <path d="M310 20 L340 20 L340 45"/>
+              <path d="M320 30 L355 30 L355 55" opacity="0.6"/>
+            </g>
+            <circle cx="340" cy="45" r="3" fill="#D4A017"/>
+            <circle cx="355" cy="55" r="3" fill="#D4A017"/>
+            <g transform="translate(30,118)">
+              <g>
+                <polygon points="0,10 16,0 32,10 16,20" fill="url(#c2cube)"/>
+                <polygon points="0,10 16,20 16,36 0,26" fill="#0A1836"/>
+                <polygon points="32,10 16,20 16,36 32,26" fill="#122B57"/>
+              </g>
+              <g transform="translate(28,-10)">
+                <polygon points="0,10 16,0 32,10 16,20" fill="url(#c2cube)"/>
+                <polygon points="0,10 16,20 16,36 0,26" fill="#0A1836"/>
+                <polygon points="32,10 16,20 16,36 32,26" fill="#122B57"/>
+              </g>
+              <g transform="translate(56,4)">
+                <polygon points="0,10 16,0 32,10 16,20" fill="url(#c2cube)"/>
+                <polygon points="0,10 16,20 16,36 0,26" fill="#0A1836"/>
+                <polygon points="32,10 16,20 16,36 32,26" fill="#122B57"/>
+              </g>
+            </g>
+            <g transform="translate(150,26)">
+              <rect x="0" y="0" width="210" height="130" rx="14" fill="url(#c2panel)" stroke="rgba(255,255,255,0.08)"/>
+              <circle cx="16" cy="16" r="3" fill="#D4A017"/>
+              <circle cx="28" cy="16" r="3" fill="rgba(255,255,255,0.25)"/>
+              <circle cx="40" cy="16" r="3" fill="rgba(255,255,255,0.25)"/>
+              <rect x="150" y="10" width="46" height="12" rx="6" fill="rgba(37,211,102,0.2)" stroke="rgba(37,211,102,0.5)" stroke-width="0.75"/>
+              <text x="173" y="19" text-anchor="middle" font-family="monospace" font-size="7" fill="#25D366">SYNC</text>
+              <g transform="translate(20,40)">
+                <rect x="0" y="46" width="16" height="24" rx="3" fill="url(#c2bar2)"/>
+                <rect x="24" y="30" width="16" height="40" rx="3" fill="url(#c2bar)"/>
+                <rect x="48" y="18" width="16" height="52" rx="3" fill="url(#c2bar2)"/>
+                <rect x="72" y="6" width="16" height="64" rx="3" fill="url(#c2bar)"/>
+                <line x1="0" y1="70" x2="90" y2="70" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              </g>
+              <polyline points="130,96 148,80 166,86 184,58 198,66" fill="none" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="198" cy="66" r="3.5" fill="#FFDE8A"/>
+              <g transform="translate(122,20)" opacity="0.85">
+                <rect x="0" y="0" width="2" height="18" fill="#8FB6FF"/>
+                <rect x="4" y="0" width="1" height="18" fill="#8FB6FF"/>
+                <rect x="7" y="0" width="3" height="18" fill="#8FB6FF"/>
+                <rect x="12" y="0" width="1" height="18" fill="#8FB6FF"/>
+                <rect x="15" y="0" width="2" height="18" fill="#8FB6FF"/>
+                <rect x="19" y="0" width="1" height="18" fill="#8FB6FF"/>
+                <rect x="22" y="0" width="3" height="18" fill="#8FB6FF"/>
+              </g>
+            </g>
+          </svg>
+          <div class="blog-card-glow"></div>
         </div>
-        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#D4A017;letter-spacing:0.1em;text-transform:uppercase;background:rgba(184,134,11,0.08);padding:4px 10px;border-radius:20px;" data-en="ERP · 6 min read" data-pt="ERP · 6 min de leitura">ERP · 6 min de leitura</span>
+        <div class="blog-card-body">
+          <div class="blog-badge" style="color:#D4A017;">
+            <span class="dot" style="background:#D4A017;box-shadow:0 0 6px #D4A017;"></span>
+            <span data-en="ERP · 6 min read" data-pt="ERP · 6 min de leitura">ERP · 6 min de leitura</span>
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:12px;" data-en="How ERP Saves a Retail Shop 10+ Hours Every Week" data-pt="Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista">Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista</h3>
-          <p style="font-size:0.87rem;color:var(--muted);line-height:1.7;flex:1;" data-en="Manual stock counts, handwritten invoices, end-of-day cash reconciliation — these tasks eat your week. Discover how Sabush System ERP eliminates them one by one." data-pt="Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.">Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.</p>
-          <button onclick="openBlogModal('erp')" style="margin-top:20px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:#B8860B;transition:gap 0.2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
+          <h3 data-en="How ERP Saves a Retail Shop 10+ Hours Every Week" data-pt="Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista">Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista</h3>
+          <p data-en="Manual stock counts, handwritten invoices, end-of-day cash reconciliation — these tasks eat your week. Discover how Sabush System ERP eliminates them one by one." data-pt="Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.">Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.</p>
+          <button onclick="openBlogModal('erp')" class="blog-read-link" style="color:#B8860B;" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
         </div>
       </article>
 
       <!-- Article 3 -->
-      <article style="background:var(--card-bg);border:1px solid rgba(11,22,40,0.08);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(11,22,40,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:180px;background:linear-gradient(135deg,#B8860B,#002B85);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;">
-          🚀
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(0,43,133,0.25),transparent 60%);pointer-events:none;"></div>
+      <article class="blog-card">
+        <div class="blog-card-media">
+          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="c3bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3A2408"/>
+                <stop offset="50%" stop-color="#0A1F5C"/>
+                <stop offset="100%" stop-color="#020B24"/>
+              </linearGradient>
+              <radialGradient id="c3glow" cx="25%" cy="25%" r="55%">
+                <stop offset="0%" stop-color="rgba(212,160,23,0.4)"/>
+                <stop offset="100%" stop-color="rgba(212,160,23,0)"/>
+              </radialGradient>
+              <radialGradient id="c3glow2" cx="80%" cy="80%" r="50%">
+                <stop offset="0%" stop-color="rgba(64,140,255,0.35)"/>
+                <stop offset="100%" stop-color="rgba(64,140,255,0)"/>
+              </radialGradient>
+              <linearGradient id="c3rocket" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#EDEFF5"/>
+                <stop offset="100%" stop-color="#B9C4DA"/>
+              </linearGradient>
+              <linearGradient id="c3flame" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFDE8A"/>
+                <stop offset="100%" stop-color="#D4A017" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="c3trail" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="rgba(212,160,23,0)"/>
+                <stop offset="100%" stop-color="rgba(212,160,23,0.55)"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="190" fill="url(#c3bg)"/>
+            <rect width="400" height="190" fill="url(#c3glow)"/>
+            <rect width="400" height="190" fill="url(#c3glow2)"/>
+            <g transform="translate(275,20)" opacity="0.9">
+              <circle cx="55" cy="55" r="52" fill="none" stroke="rgba(143,182,255,0.35)" stroke-width="1"/>
+              <ellipse cx="55" cy="55" rx="52" ry="18" fill="none" stroke="rgba(143,182,255,0.25)" stroke-width="1"/>
+              <ellipse cx="55" cy="55" rx="52" ry="34" fill="none" stroke="rgba(143,182,255,0.2)" stroke-width="1"/>
+              <line x1="3" y1="55" x2="107" y2="55" stroke="rgba(143,182,255,0.25)" stroke-width="1"/>
+              <line x1="55" y1="3" x2="55" y2="107" stroke="rgba(143,182,255,0.2)" stroke-width="1"/>
+              <circle cx="30" cy="35" r="2" fill="#D4A017"/>
+              <circle cx="75" cy="70" r="2" fill="#4C8CFF"/>
+              <circle cx="80" cy="30" r="1.6" fill="#8FB6FF"/>
+            </g>
+            <g transform="translate(30,40)" opacity="0.9">
+              <polyline points="0,120 30,105 55,118 85,80 115,95 150,45 190,10"
+                fill="none" stroke="url(#c3trail)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="55" cy="118" r="3" fill="#4C8CFF"/>
+              <circle cx="115" cy="95" r="3" fill="#4C8CFF"/>
+              <circle cx="190" cy="10" r="4" fill="#FFDE8A"/>
+              <path d="M190 10 l-7 3 M190 10 l3 8" stroke="#FFDE8A" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(150,18)">
+              <path d="M18 92 Q24 122 18 145 Q12 122 18 92 Z" fill="url(#c3flame)"/>
+              <path d="M8 78 L-4 100 L10 92 Z" fill="#0041C2"/>
+              <path d="M28 78 L40 100 L26 92 Z" fill="#0041C2"/>
+              <path d="M18 0 C30 18 34 45 30 78 L6 78 C2 45 6 18 18 0 Z" fill="url(#c3rocket)"/>
+              <circle cx="18" cy="38" r="8" fill="#0A1F5C" stroke="#D4A017" stroke-width="2"/>
+              <circle cx="18" cy="38" r="3" fill="#8FB6FF"/>
+              <path d="M18 0 C24 8 27 16 28 24 L8 24 C9 16 12 8 18 0 Z" fill="#D4A017" opacity="0.85"/>
+            </g>
+            <g fill="#D4A017" opacity="0.6">
+              <circle cx="120" cy="150" r="2"/>
+              <circle cx="105" cy="165" r="1.4"/>
+              <circle cx="135" cy="170" r="1.6"/>
+            </g>
+            <g fill="#8FB6FF" opacity="0.5">
+              <circle cx="230" cy="150" r="1.6"/>
+              <circle cx="250" cy="160" r="1.4"/>
+            </g>
+          </svg>
+          <div class="blog-card-glow"></div>
         </div>
-        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#0041C2;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,43,133,0.08);padding:4px 10px;border-radius:20px;" data-en="Growth · 4 min read" data-pt="Crescimento · 4 min de leitura">Crescimento · 4 min de leitura</span>
+        <div class="blog-card-body">
+          <div class="blog-badge" style="color:#8FB6FF;">
+            <span class="dot" style="background:#D4A017;box-shadow:0 0 6px #D4A017;"></span>
+            <span data-en="Growth · 4 min read" data-pt="Crescimento · 4 min de leitura">Crescimento · 4 min de leitura</span>
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:12px;" data-en="5 Signs Your Business Is Ready to Automate" data-pt="5 Sinais de que o Seu Negócio Está Pronto para Automatizar">5 Sinais de que o Seu Negócio Está Pronto para Automatizar</h3>
-          <p style="font-size:0.87rem;color:var(--muted);line-height:1.7;flex:1;" data-en="Not every business is at the same stage. Here are the 5 clearest indicators that automation will deliver immediate ROI for your Mozambican SME — and how to start." data-pt="Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.">Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.</p>
-          <button onclick="openBlogModal('ready')" style="margin-top:20px;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:#0041C2;transition:gap 0.2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
+          <h3 data-en="5 Signs Your Business Is Ready to Automate" data-pt="5 Sinais de que o Seu Negócio Está Pronto para Automatizar">5 Sinais de que o Seu Negócio Está Pronto para Automatizar</h3>
+          <p data-en="Not every business is at the same stage. Here are the 5 clearest indicators that automation will deliver immediate ROI for your Mozambican SME — and how to start." data-pt="Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.">Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.</p>
+          <button onclick="openBlogModal('ready')" class="blog-read-link" style="color:#0041C2;" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
         </div>
       </article>
 
