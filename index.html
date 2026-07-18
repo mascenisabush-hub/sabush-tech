@@ -753,17 +753,25 @@
   }
   .hero-photo-v2 img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
   .product-panel-v2 {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(184,134,11,0.25);
+    background: #FFFFFF;
+    border: 1px solid rgba(0,43,133,0.08);
     border-radius: 16px;
-    padding: 20px 22px;
+    padding: 12px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    display: flex; flex-direction: column; gap: 8px;
   }
   .product-item-v2 {
-    display: flex; gap: 14px; padding: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; gap: 14px; padding: 14px;
+    border-radius: 12px; border: 1px solid transparent;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
   }
-  .product-item-v2:last-child { border-bottom: none; padding-bottom: 0; }
-  .product-item-v2:first-child { padding-top: 0; }
+  .product-item-v2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,43,133,0.14);
+    border-color: rgba(184,134,11,0.4);
+    background: rgba(184,134,11,0.03);
+  }
   .product-icon-v2 {
     width: 42px; height: 42px; flex-shrink: 0;
     border: 1px solid var(--gold);
@@ -774,15 +782,14 @@
   }
   .product-text-v2 h3 {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.85rem; color: #F5EFE0; font-weight: 800; letter-spacing: 0.3px; margin-bottom: 4px;
+    font-size: 0.85rem; color: var(--teal-light); font-weight: 800; letter-spacing: 0.3px; margin-bottom: 4px;
   }
   .product-text-v2 p {
-    font-size: 0.74rem; color: #A9B8D6; line-height: 1.45; margin-bottom: 5px;
+    font-size: 0.74rem; color: #5C6B85; line-height: 1.45; margin-bottom: 5px;
   }
   .product-link-v2 {
-    font-size: 0.74rem; color: var(--gold); font-weight: 700; text-decoration: none;
+    font-size: 0.74rem; color: var(--gold); font-weight: 700;
   }
-  .product-link-v2:hover { text-decoration: underline; }
   @media (max-width: 1000px) {
     .hero-inner-v2 { grid-template-columns: 1fr; }
     .hero-photo-v2 { height: 320px; order: 1; }
@@ -892,38 +899,38 @@
     </div>
 
     <div class="product-panel-v2">
-      <div class="product-item-v2">
+      <a class="product-item-v2" href="https://erp.sabushtech.com" target="_blank" rel="noopener">
         <div class="product-icon-v2">🧾</div>
         <div class="product-text-v2">
           <h3>SABUSH SYSTEM ERP</h3>
           <p data-en="Full control of your business. Manage finance, stock, purchasing and more, all in one system." data-pt="O controlo total da sua empresa. Gestão, finanças, stock, compras e muito mais, num só sistema.">O controlo total da sua empresa. Gestão, finanças, stock, compras e muito mais, num só sistema.</p>
-          <a class="product-link-v2" href="https://erp.sabushtech.com" target="_blank" rel="noopener">erp.sabushtech.com ›</a>
+          <span class="product-link-v2">erp.sabushtech.com ›</span>
         </div>
-      </div>
-      <div class="product-item-v2">
+      </a>
+      <a class="product-item-v2" href="https://mercado.sabushtech.com" target="_blank" rel="noopener">
         <div class="product-icon-v2">🛒</div>
         <div class="product-text-v2">
           <h3>MERCADO SABUSH</h3>
           <p data-en="Your digital storefront. Buy and sell products on the marketplace connecting Mozambique." data-pt="A sua montra digital. Compre e venda produtos no marketplace que está a ligar Moçambique.">A sua montra digital. Compre e venda produtos no marketplace que está a ligar Moçambique.</p>
-          <a class="product-link-v2" href="https://mercado.sabushtech.com" target="_blank" rel="noopener">mercado.sabushtech.com ›</a>
+          <span class="product-link-v2">mercado.sabushtech.com ›</span>
         </div>
-      </div>
-      <div class="product-item-v2">
+      </a>
+      <a class="product-item-v2" href="https://pos.sabushtech.com" target="_blank" rel="noopener">
         <div class="product-icon-v2">🖥️</div>
         <div class="product-text-v2">
           <h3>SABUSH POS</h3>
           <p data-en="Fast, simple billing and sales — built for shops, retailers and small businesses." data-pt="O sistema de faturação e vendas rápido e fácil, ideal para lojas, retalhos e pequenas empresas.">O sistema de faturação e vendas rápido e fácil, ideal para lojas, retalhos e pequenas empresas.</p>
-          <a class="product-link-v2" href="https://pos.sabushtech.com" target="_blank" rel="noopener">pos.sabushtech.com ›</a>
+          <span class="product-link-v2">pos.sabushtech.com ›</span>
         </div>
-      </div>
-      <div class="product-item-v2">
+      </a>
+      <a class="product-item-v2" href="https://english.sabushtech.com" target="_blank" rel="noopener">
         <div class="product-icon-v2">🎙️</div>
         <div class="product-text-v2">
           <h3>BUSINESS ENGLISH</h3>
           <p data-en="Speak the language of global business and open doors to new partnerships." data-pt="Fale a língua dos negócios globais e abra portas para novas parcerias e oportunidades.">Fale a língua dos negócios globais e abra portas para novas parcerias e oportunidades.</p>
-          <a class="product-link-v2" href="https://english.sabushtech.com" target="_blank" rel="noopener">english.sabushtech.com ›</a>
+          <span class="product-link-v2">english.sabushtech.com ›</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
