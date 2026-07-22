@@ -241,7 +241,6 @@
   .stat-label { font-size: 0.82rem; color: #C9D6F0; font-weight: 500; margin-top: 6px; opacity: 0.8; }
 
   /* PRODUCTS */
-  #products { background: var(--navy-mid); }
   .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
   .product-card { background: var(--card-bg); border: 1px solid rgba(11,22,40,0.08); box-shadow: 0 2px 16px rgba(11,22,40,0.06); border-radius: 20px; padding: 32px; padding-top: 130px; padding-bottom: 68px; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: block; }
   .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--c1), var(--c2), var(--c1)); background-size: 200%; opacity: 0; transition: opacity 0.3s; animation: cardBorderShimmer 3s linear infinite; z-index: 2; }
@@ -1089,7 +1088,6 @@
     <li><a href="#demo" data-en="Demo" data-pt="Demo">Demo</a></li>
     <li><a href="#services" data-en="Services" data-pt="Serviços">Serviços</a></li>
     <li><a href="#testimonials" data-en="Clients" data-pt="Clientes">Clientes</a></li>
-    <li><a href="#blog" data-en="Blog" data-pt="Blog">Blog</a></li>
     <li><a href="#faq" data-en="FAQ" data-pt="FAQ">FAQ</a></li>
     <li><a href="#contact" data-en="Contact" data-pt="Contacto">Contacto</a></li>
   </ul>
@@ -1107,7 +1105,6 @@
   <a href="#demo" onclick="closeMobileMenu()" data-en="Demo" data-pt="Demo">Demo</a>
   <a href="#services" onclick="closeMobileMenu()" data-en="Services" data-pt="Serviços">Serviços</a>
   <a href="#testimonials" onclick="closeMobileMenu()" data-en="Clients" data-pt="Clientes">Clientes</a>
-  <a href="#blog" onclick="closeMobileMenu()" data-en="Blog" data-pt="Blog">Blog</a>
   <a href="#faq" onclick="closeMobileMenu()" data-en="FAQ" data-pt="FAQ">FAQ</a>
   <a href="#contact" class="mob-cta" onclick="closeMobileMenu()" data-en="Get Started" data-pt="Começar">Começar</a>
 </div>
@@ -1131,7 +1128,7 @@
       <img src="hero-photo.jpg" alt="Equipa Sabush Tech">
     </div>
 
-    <div class="product-panel-v2">
+    <div class="product-panel-v2" id="products">
       <a class="product-item-v2" href="https://erp.sabushtech.com" target="_blank" rel="noopener">
         <div class="product-icon-v2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h1"/></svg></div>
         <div class="product-text-v2">
@@ -1201,96 +1198,13 @@
   </div>
 </section>
 
-<!-- WAVE DIVIDER: stats → products -->
-<div style="background:#EAF0FA;margin-top:-2px;">
+<!-- WAVE DIVIDER: stats -> demo -->
+<div style="background:#000F0A;margin-top:-2px;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,40 C480,0 960,60 1440,20 L1440,0 L0,0 Z" fill="#060d1a"/>
+    <path d="M0,20 C480,60 960,0 1440,30 L1440,0 L0,0 Z" fill="#F5F8FC"/>
   </svg>
 </div>
 
-<!-- PRODUCTS -->
-<section id="products">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="center reveal">
-      <div class="section-label" data-en="// Our Products" data-pt="// Os Nossos Produtos">// Os Nossos Produtos</div>
-      <h2 class="section-title" data-en="Built for Business Growth" data-pt="Construído para o Crescimento do Negócio">Construído para o Crescimento do Negócio</h2>
-      <p class="section-sub" data-en="Four powerful platforms, one ecosystem — each solving a real problem for businesses like yours." data-pt="Quatro plataformas poderosas, um ecossistema — cada uma resolvendo um problema real para negócios como o seu.">Quatro plataformas poderosas, um ecossistema — cada uma resolvendo um problema real para negócios como o seu.</p>
-    </div>
-    <div class="products-grid">
-      <a class="product-card p-erp reveal" href="https://erp.sabushtech.com" target="_blank">
-        <div class="card-icon" style="color:#145A32;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M15 2v5h5M8 12h8M8 16h8M8 8h3"/></svg>
-        </div>
-        <div class="card-tag" data-en="ERP Software" data-pt="Software ERP">Software ERP</div>
-        <div class="card-title">Sabush System ERP</div>
-        <p class="card-desc" data-en="The all-in-one business management system for wholesale and retail — inventory, invoicing, and reporting under one roof." data-pt="O sistema completo de gestão empresarial para comércio grossista e retalhista — inventário, facturação e relatórios num só lugar.">O sistema completo de gestão empresarial para comércio grossista e retalhista — inventário, facturação e relatórios num só lugar.</p>
-        <ul class="card-features">
-          <li data-en="Inventory tracking &amp; stock alerts" data-pt="Controlo de inventário e alertas de stock">Controlo de inventário e alertas de stock</li>
-          <li data-en="Wholesale &amp; retail invoicing" data-pt="Facturação grossista e retalhista">Facturação grossista e retalhista</li>
-          <li data-en="POS integration built in" data-pt="Integração POS incluída">Integração POS incluída</li>
-          <li data-en="Sales reports &amp; analytics" data-pt="Relatórios de vendas e análises">Relatórios de vendas e análises</li>
-        </ul>
-        <span class="card-url">erp.sabushtech.com</span>
-        <span class="card-link" data-en="Open ERP →" data-pt="Abrir ERP →">Abrir ERP →</span>
-      </a>
-      <a class="product-card p-pos reveal" href="https://pos.sabushtech.com" target="_blank">
-        <div class="card-icon" style="color:#B8860B;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7.5 9h2M12 9h4.5"/></svg>
-        </div>
-        <div class="card-tag">Point of Sale</div>
-        <div class="card-title">Sabush POS</div>
-        <p class="card-desc">A fast, reliable POS system designed for retail businesses — streamline checkouts, track sales, and serve customers without delays.</p>
-        <ul class="card-features">
-          <li>Fast & intuitive checkout flow</li>
-          <li>Receipt printing & digital receipts</li>
-          <li>Daily sales summaries</li>
-          <li>Works offline when needed</li>
-        </ul>
-        <span class="card-url">pos.sabushtech.com</span>
-        <span class="card-link">Open POS →</span>
-      </a>
-      <a class="product-card p-mercado reveal" href="https://mercado.sabushtech.com" target="_blank">
-        <div class="card-icon" style="color:#145A32;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12.5a1.5 1.5 0 0 1-1.5 1.5H6.5A1.5 1.5 0 0 1 5 20.5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-        </div>
-        <div class="card-tag">Digital Marketplace</div>
-        <div class="card-title">Mercado Sabush</div>
-        <p class="card-desc">Upload your shop to Mozambique's growing digital marketplace. Customers discover your products and services online — no tech skills needed.</p>
-        <ul class="card-features">
-          <li>List products & services instantly</li>
-          <li>Customers find you by category</li>
-          <li>Built-in shop profile page</li>
-          <li>Reach buyers beyond your location</li>
-        </ul>
-        <span class="card-url">mercado.sabushtech.com</span>
-        <span class="card-link" data-en="Open Mercado →" data-pt="Abrir Mercado →">Abrir Mercado →</span>
-      </a>
-      <a class="product-card p-english reveal" href="https://english.sabushtech.com" target="_blank">
-        <div class="card-icon" style="color:#B8860B;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M9 22h6"/></svg>
-        </div>
-        <div class="card-tag" data-en="Online Training" data-pt="Formação Online">Formação Online</div>
-        <div class="card-title">Sabush English Club</div>
-        <p class="card-desc" data-en="Master business and conversational English online. Practical fluency training focused on what matters for professionals and entrepreneurs." data-pt="Domine o inglês empresarial e de conversação online. Formação prática focada no que importa para profissionais e empreendedores.">Domine o inglês empresarial e de conversação online. Formação prática focada no que importa para profissionais e empreendedores.</p>
-        <ul class="card-features">
-          <li data-en="Business English for professionals" data-pt="Inglês empresarial para profissionais">Inglês empresarial para profissionais</li>
-          <li data-en="Daily conversation confidence" data-pt="Confiança na conversação diária">Confiança na conversação diária</li>
-          <li data-en="Speaking fluency focus" data-pt="Foco na fluência oral">Foco na fluência oral</li>
-          <li data-en="Flexible online sessions" data-pt="Sessões online flexíveis">Sessões online flexíveis</li>
-        </ul>
-        <span class="card-url">english.sabushtech.com</span>
-        <span class="card-link" data-en="Open English Club →" data-pt="Abrir English Club →">Abrir English Club →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WAVE DIVIDER: products → demo -->
-<div style="background:#F5F8FC;margin-top:-2px;">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,20 C360,60 1080,0 1440,40 L1440,0 L0,0 Z" fill="#EAF0FA"/>
-  </svg>
-</div>
 
 <!-- DEMO SECTION -->
 <section id="demo">
@@ -1299,20 +1213,6 @@
       <div class="section-label" data-en="// See It In Action" data-pt="// Veja em Acção">// Veja em Acção</div>
       <h2 class="section-title" data-en-html="Your Entire Business,<br>One <span style='color:var(--teal)'>Dashboard</span>" data-pt-html="Todo o Seu Negócio,<br>Num Só <span style='color:var(--teal)'>Painel</span>">Todo o Seu Negócio,<br>Num Só <span style='color:var(--teal)'>Painel</span></h2>
       <p class="section-sub" data-en="Sabush System ERP gives you a real-time view of every corner of your business — from the POS floor to your wholesale invoices." data-pt="O Sabush System ERP dá-lhe uma visão em tempo real de cada canto do seu negócio — desde o ponto de venda até às facturas grossistas.">O Sabush System ERP dá-lhe uma visão em tempo real de cada canto do seu negócio — desde o ponto de venda até às facturas grossistas.</p>
-      <ul class="demo-features">
-        <li>
-          <div class="dicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
-          <div class="dtxt"><strong data-en="Real-time sales dashboard" data-pt="Painel de vendas em tempo real">Painel de vendas em tempo real</strong><span data-en="See retail, wholesale, and cash sales update live as transactions happen." data-pt="Veja vendas a retalho, grossistas e em dinheiro a actualizar em tempo real.">Veja vendas a retalho, grossistas e em dinheiro a actualizar em tempo real.</span></div>
-        </li>
-        <li>
-          <div class="dicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-          <div class="dtxt"><strong data-en="POS + ERP fully connected" data-pt="POS + ERP totalmente integrados">POS + ERP totalmente integrados</strong><span data-en="Every sale at the counter instantly reflects in your inventory and reports." data-pt="Cada venda no balcão reflecte-se imediatamente no inventário e relatórios.">Cada venda no balcão reflecte-se imediatamente no inventário e relatórios.</span></div>
-        </li>
-        <li>
-          <div class="dicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
-          <div class="dtxt"><strong data-en="Smart inventory alerts" data-pt="Alertas inteligentes de inventário">Alertas inteligentes de inventário</strong><span data-en="Get notified before stock runs out so you never miss a sale." data-pt="Seja notificado antes do stock esgotar para nunca perder uma venda.">Seja notificado antes do stock esgotar para nunca perder uma venda.</span></div>
-        </li>
-      </ul>
       <a href="https://erp.sabushtech.com" target="_blank" class="btn-primary" data-en="Try the ERP Free" data-pt="Experimente o ERP Grátis">Experimente o ERP Grátis</a>
     </div>
     <div class="demo-screen reveal">
@@ -1400,101 +1300,32 @@
       </div>
     </div>
 
-    <!-- Automation Services Label -->
-    <div class="center reveal" style="margin:48px 0 28px;">
+    <!-- Automation Services (compact strip) -->
+    <div class="center reveal" style="margin:40px 0 24px;">
       <div class="section-label" data-en="// Automation Services" data-pt="// Serviços de Automatização">// Serviços de Automatização</div>
-      <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:800;color:var(--white);margin-bottom:10px;" data-en="5 Automations Built for Mozambican Businesses" data-pt="5 Automatizações Criadas para Negócios Moçambicanos">5 Automatizações Criadas para Negócios Moçambicanos</h3>
       <p style="font-size:0.95rem;color:var(--muted);max-width:540px;margin:0 auto;" data-en="Connect your tools. Eliminate manual work. Grow without hiring more staff." data-pt="Conecte as suas ferramentas. Elimine o trabalho manual. Cresça sem contratar mais pessoal.">Conecte as suas ferramentas. Elimine o trabalho manual. Cresça sem contratar mais pessoal.</p>
     </div>
-
-    <!-- 5 Automation Cards -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;" class="reveal">
-
-      <!-- 01 Marketing Automation -->
-      <div class="service-card" style="position:relative;overflow:hidden;--accent:#145A32;--accent-shadow:rgba(20,90,50,0.28);--accent-wash-solid:rgba(20,90,50,0.14);">
-        <div class="service-num">01</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(20,90,50,0.22),rgba(20,90,50,0.07));border-color:rgba(20,90,50,0.35);color:#145A32;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a2 2 0 0 0 2 2h1l3 5V4l-3 5H5a2 2 0 0 0-2 2Z"/><path d="M13 8a4 4 0 0 1 0 8M17 5.5a8 8 0 0 1 0 13"/></svg>
-        </div>
-        <div class="service-title" data-en="Marketing Automation" data-pt="Automatização de Marketing">Automatização de Marketing</div>
-        <p class="service-desc" data-en="Reach customers automatically — promotions, follow-ups, and campaigns sent via WhatsApp or email on a schedule you set." data-pt="Alcance clientes automaticamente — promoções, follow-ups e campanhas enviadas via WhatsApp ou email no horário que definir.">Alcance clientes automaticamente — promoções, follow-ups e campanhas enviadas via WhatsApp ou email no horário que definir.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--teal);flex-shrink:0;">→</span> <span data-en="Scheduled WhatsApp &amp; email campaigns" data-pt="Campanhas agendadas no WhatsApp e email">Campanhas agendadas no WhatsApp e email</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--teal);flex-shrink:0;">→</span> <span data-en="Birthday &amp; loyalty messages" data-pt="Mensagens de aniversário e fidelidade">Mensagens de aniversário e fidelidade</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--teal);flex-shrink:0;">→</span> <span data-en="Automated customer follow-up sequences" data-pt="Sequências automáticas de follow-up">Sequências automáticas de follow-up</span></li>
-        </ul>
-        <span class="service-tag" style="color:var(--teal);background:rgba(20,90,50,0.08);" data-en="Retail, restaurants, salons, schools" data-pt="Retalho, restaurantes, salões, escolas">Retalho, restaurantes, salões, escolas</span>
-        <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">Make.com · WhatsApp API · Firebase</div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;text-align:center;">
+      <div style="padding:18px 10px;border:1px solid rgba(20,90,50,0.2);border-radius:14px;">
+        <div style="font-size:1.6rem;margin-bottom:6px;">📣</div>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--white);" data-en="Marketing" data-pt="Marketing">Marketing</div>
       </div>
-
-      <!-- 02 Booking Automation -->
-      <div class="service-card" style="position:relative;overflow:hidden;--accent:#B8860B;--accent-shadow:rgba(184,134,11,0.28);--accent-wash-solid:rgba(184,134,11,0.16);">
-        <div class="service-num">02</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(184,134,11,0.22),rgba(184,134,11,0.07));border-color:rgba(184,134,11,0.35);color:#B8860B;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="16" rx="2.2"/><path d="M3.5 9.5h17M8 3v3.5M16 3v3.5"/><path d="M8 13.5h2M14 13.5h2M8 17h2M14 17h2"/></svg>
-        </div>
-        <div class="service-title" data-en="Booking &amp; Appointment Automation" data-pt="Automatização de Reservas e Marcações">Automatização de Reservas e Marcações</div>
-        <p class="service-desc" data-en="Never miss a booking — confirmations, reminders, and waitlists handled automatically so you can focus on serving clients." data-pt="Nunca perca uma reserva — confirmações, lembretes e listas de espera geridos automaticamente para que se foque em servir clientes.">Nunca perca uma reserva — confirmações, lembretes e listas de espera geridos automaticamente para que se foque em servir clientes.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> <span data-en="Auto-confirm appointments via WhatsApp" data-pt="Confirmação automática via WhatsApp">Confirmação automática via WhatsApp</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> <span data-en="Reminder notifications 24h &amp; 1h before" data-pt="Notificações de lembrete 24h e 1h antes">Notificações de lembrete 24h e 1h antes</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> <span data-en="Cancellation &amp; rescheduling workflows" data-pt="Fluxos de cancelamento e remarcação">Fluxos de cancelamento e remarcação</span></li>
-        </ul>
-        <span class="service-tag" data-en="Clinics, tutors, salons, guest houses" data-pt="Clínicas, explicadores, salões, pensões">Clínicas, explicadores, salões, pensões</span>
-        <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">Make.com · Google Calendar · WhatsApp</div>
+      <div style="padding:18px 10px;border:1px solid rgba(184,134,11,0.2);border-radius:14px;">
+        <div style="font-size:1.6rem;margin-bottom:6px;">📅</div>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--white);" data-en="Bookings" data-pt="Reservas">Reservas</div>
       </div>
-
-      <!-- 03 E-commerce Automation -->
-      <div class="service-card" style="position:relative;overflow:hidden;--accent:#145A32;--accent-shadow:rgba(20,90,50,0.28);--accent-wash-solid:rgba(20,90,50,0.16);">
-        <div class="service-num">03</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(20,90,50,0.22),rgba(20,90,50,0.07));border-color:rgba(20,90,50,0.35);color:#145A32;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/><path d="M2.5 3h2l2.3 11.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L20.5 7H6"/></svg>
-        </div>
-        <div class="service-title" data-en="E-commerce Order Automation" data-pt="Automatização de Pedidos E-commerce">Automatização de Pedidos E-commerce</div>
-        <p class="service-desc" data-en="Sell more with less effort — orders, stock updates, and buyer notifications all automated from your online store." data-pt="Venda mais com menos esforço — pedidos, actualizações de stock e notificações de compradores totalmente automatizados.">Venda mais com menos esforço — pedidos, actualizações de stock e notificações de compradores totalmente automatizados.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#145A32;flex-shrink:0;">→</span> <span data-en="Auto-process orders &amp; notify sellers" data-pt="Processamento automático de pedidos">Processamento automático de pedidos</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#145A32;flex-shrink:0;">→</span> <span data-en="Real-time inventory sync &amp; stock deduction" data-pt="Sincronização de inventário em tempo real">Sincronização de inventário em tempo real</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#145A32;flex-shrink:0;">→</span> <span data-en="Buyer confirmation messages via WhatsApp" data-pt="Mensagens de confirmação para compradores">Mensagens de confirmação para compradores</span></li>
-        </ul>
-        <span class="service-tag" style="color:#145A32;background:rgba(20,90,50,0.08);" data-en="Online sellers, wholesalers, distributors" data-pt="Vendedores online, grossistas, distribuidores">Vendedores online, grossistas, distribuidores</span>
-        <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">Firebase · Mercado Sabush · Make.com</div>
+      <div style="padding:18px 10px;border:1px solid rgba(20,90,50,0.2);border-radius:14px;">
+        <div style="font-size:1.6rem;margin-bottom:6px;">🛒</div>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--white);" data-en="E-commerce" data-pt="E-commerce">E-commerce</div>
       </div>
-
-      <!-- 04 Reporting Automation -->
-      <div class="service-card" style="position:relative;overflow:hidden;--accent:#B8860B;--accent-shadow:rgba(184,134,11,0.28);--accent-wash-solid:rgba(184,134,11,0.16);">
-        <div class="service-num">04</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(184,134,11,0.22),rgba(184,134,11,0.07));border-color:rgba(184,134,11,0.35);color:#B8860B;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M20 20V13"/><path d="M4 20h16"/></svg>
-        </div>
-        <div class="service-title" data-en="Reporting &amp; Dashboard Automation" data-pt="Automatização de Relatórios e Painéis">Automatização de Relatórios e Painéis</div>
-        <p class="service-desc" data-en="Business insights delivered to your phone — daily, weekly, and monthly reports generated and sent automatically. No login required." data-pt="Insights do negócio entregues no seu telemóvel — relatórios diários, semanais e mensais gerados e enviados automaticamente.">Insights do negócio entregues no seu telemóvel — relatórios diários, semanais e mensais gerados e enviados automaticamente.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#B8860B;flex-shrink:0;">→</span> <span data-en="Scheduled sales &amp; stock reports" data-pt="Relatórios agendados de vendas e stock">Relatórios agendados de vendas e stock</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#B8860B;flex-shrink:0;">→</span> <span data-en="Low-inventory &amp; expense alerts" data-pt="Alertas de stock baixo e despesas">Alertas de stock baixo e despesas</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#B8860B;flex-shrink:0;">→</span> <span data-en="Delivered via WhatsApp or email" data-pt="Entregues via WhatsApp ou email">Entregues via WhatsApp ou email</span></li>
-        </ul>
-        <span class="service-tag" style="color:#B8860B;background:rgba(184,134,11,0.08);" data-en="Shop owners, managers, accountants" data-pt="Donos de lojas, gestores, contabilistas">Donos de lojas, gestores, contabilistas</span>
-        <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">Sabush ERP · Firebase · Google Sheets</div>
+      <div style="padding:18px 10px;border:1px solid rgba(184,134,11,0.2);border-radius:14px;">
+        <div style="font-size:1.6rem;margin-bottom:6px;">📊</div>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--white);" data-en="Reporting" data-pt="Relatórios">Relatórios</div>
       </div>
-
-      <!-- 05 WhatsApp Automation -->
-      <div class="service-card" style="position:relative;overflow:hidden;--accent:#25D366;--accent-shadow:rgba(37,211,102,0.28);--accent-wash-solid:rgba(37,211,102,0.16);">
-        <div class="service-num">05</div>
-        <div class="service-icon" style="background:linear-gradient(135deg,rgba(37,211,102,0.22),rgba(37,211,102,0.07));border-color:rgba(37,211,102,0.35);color:#25D366;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.3 7.6L4 20l1-4.1a8.5 8.5 0 1 1 15.5-4.4Z"/><path d="M8.7 9.4c-.2.5-.2 1.6.7 2.7 1 1.3 2 2 3.3 2.5 1 .4 1.6.1 1.9-.4l.4-.7"/></svg>
-        </div>
-        <div class="service-title" data-en="WhatsApp Business Automation" data-pt="Automatização do WhatsApp Business">Automatização do WhatsApp Business</div>
-        <p class="service-desc" data-en="Turn WhatsApp into a 24/7 business assistant — instant replies to FAQs, auto-send invoices, payment reminders, and seamless handover to a human agent when needed." data-pt="Transforme o WhatsApp num assistente comercial 24/7 — respostas instantâneas a perguntas, envio automático de facturas, lembretes de pagamento.">Transforme o WhatsApp num assistente comercial 24/7 — respostas instantâneas a perguntas, envio automático de facturas, lembretes de pagamento.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#25D366;flex-shrink:0;">→</span> <span data-en="Smart chatbot for FAQs &amp; product info" data-pt="Chatbot inteligente para perguntas e info de produtos">Chatbot inteligente para perguntas e info de produtos</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#25D366;flex-shrink:0;">→</span> <span data-en="Auto-send invoices, receipts &amp; order updates" data-pt="Envio automático de facturas e actualizações de pedidos">Envio automático de facturas e actualizações de pedidos</span></li>
-          <li style="font-size:0.82rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start;"><span style="color:#25D366;flex-shrink:0;">→</span> <span data-en="Payment reminder sequences" data-pt="Sequências de lembrete de pagamento">Sequências de lembrete de pagamento</span></li>
-        </ul>
-        <span class="service-tag" style="color:#25D366;background:rgba(37,211,102,0.08);" data-en="Any business using WhatsApp to communicate" data-pt="Qualquer negócio que use WhatsApp para comunicar">Qualquer negócio que use WhatsApp para comunicar</span>
-        <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">WhatsApp Business API · Make.com · Firebase</div>
+      <div style="padding:18px 10px;border:1px solid rgba(37,211,102,0.2);border-radius:14px;">
+        <div style="font-size:1.6rem;margin-bottom:6px;">💬</div>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--white);" data-en="WhatsApp" data-pt="WhatsApp">WhatsApp</div>
       </div>
-
     </div>
 
     <!-- CTA Strip -->
@@ -1510,303 +1341,6 @@
 </section>
 
 
-<!-- BLOG / INSIGHTS -->
-<section id="blog" style="background:var(--navy);">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="center reveal">
-      <div class="section-label" data-en="// Insights &amp; Tips" data-pt="// Insights e Dicas">// Insights e Dicas</div>
-      <h2 class="section-title" data-en="Smart Business Reads" data-pt="Leituras para Negócios Inteligentes">Leituras para Negócios Inteligentes</h2>
-      <p class="section-sub" data-en="Practical guides and real stories to help Mozambican businesses grow faster with technology." data-pt="Guias práticos e histórias reais para ajudar negócios moçambicanos a crescer mais rápido com tecnologia.">Guias práticos e histórias reais para ajudar negócios moçambicanos a crescer mais rápido com tecnologia.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;" class="reveal">
-
-      <!-- Article 1 -->
-      <article class="blog-card">
-        <div class="blog-card-media">
-          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="c1bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#020B24"/>
-                <stop offset="55%" stop-color="#00185C"/>
-                <stop offset="100%" stop-color="#145A32"/>
-              </linearGradient>
-              <radialGradient id="c1glow" cx="72%" cy="30%" r="55%">
-                <stop offset="0%" stop-color="rgba(212,160,23,0.35)"/>
-                <stop offset="100%" stop-color="rgba(212,160,23,0)"/>
-              </radialGradient>
-              <radialGradient id="c1glow2" cx="15%" cy="80%" r="50%">
-                <stop offset="0%" stop-color="rgba(64,140,255,0.35)"/>
-                <stop offset="100%" stop-color="rgba(64,140,255,0)"/>
-              </radialGradient>
-              <linearGradient id="c1phone" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#132A55"/>
-                <stop offset="100%" stop-color="#0A1B3D"/>
-              </linearGradient>
-              <linearGradient id="c1screen" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0E2A66"/>
-                <stop offset="100%" stop-color="#081B47"/>
-              </linearGradient>
-              <linearGradient id="c1bubble" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#25D366"/>
-                <stop offset="100%" stop-color="#1AAE55"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="190" fill="url(#c1bg)"/>
-            <rect width="400" height="190" fill="url(#c1glow)"/>
-            <rect width="400" height="190" fill="url(#c1glow2)"/>
-            <g opacity="0.35">
-              <circle cx="40" cy="40" r="1.6" fill="#8FB6FF"/>
-              <circle cx="90" cy="24" r="1.6" fill="#8FB6FF"/>
-              <circle cx="330" cy="150" r="1.6" fill="#D4A017"/>
-              <circle cx="360" cy="110" r="1.6" fill="#D4A017"/>
-              <circle cx="20" cy="150" r="1.6" fill="#8FB6FF"/>
-            </g>
-            <g stroke="rgba(143,182,255,0.35)" stroke-width="1.2" fill="none">
-              <path d="M 260 60 Q 300 40 335 55"/>
-              <path d="M 265 100 Q 305 115 340 100"/>
-              <path d="M 250 140 Q 285 150 320 135"/>
-            </g>
-            <circle cx="335" cy="55" r="4" fill="#D4A017"/>
-            <circle cx="340" cy="100" r="4" fill="#4C8CFF"/>
-            <circle cx="320" cy="135" r="4" fill="#D4A017"/>
-            <g transform="translate(78,28)">
-              <rect x="0" y="0" width="96" height="134" rx="18" fill="url(#c1phone)" stroke="rgba(255,255,255,0.08)"/>
-              <rect x="7" y="10" width="82" height="114" rx="10" fill="url(#c1screen)"/>
-              <rect x="15" y="22" width="46" height="9" rx="4.5" fill="rgba(255,255,255,0.14)"/>
-              <rect x="15" y="38" width="60" height="9" rx="4.5" fill="rgba(37,211,102,0.55)"/>
-              <rect x="24" y="54" width="50" height="9" rx="4.5" fill="rgba(255,255,255,0.14)"/>
-              <rect x="15" y="70" width="40" height="9" rx="4.5" fill="rgba(37,211,102,0.55)"/>
-              <circle cx="66" cy="98" r="14" fill="rgba(212,160,23,0.18)"/>
-              <path d="M66 90 L69 96 L75 98 L69 100 L66 106 L63 100 L57 98 L63 96 Z" fill="#D4A017"/>
-              <rect x="0" y="130" width="96" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
-            </g>
-            <g transform="translate(258,30)">
-              <path d="M0 12 C0 5.4 5.4 0 12 0 L44 0 C50.6 0 56 5.4 56 12 L56 26 C56 32.6 50.6 38 44 38 L18 38 L6 48 L9 38 L12 38 C5.4 38 0 32.6 0 26 Z" fill="url(#c1bubble)" opacity="0.95"/>
-              <circle cx="16" cy="19" r="3" fill="#fff"/>
-              <circle cx="28" cy="19" r="3" fill="#fff"/>
-              <circle cx="40" cy="19" r="3" fill="#fff"/>
-            </g>
-            <g transform="translate(288,110)" opacity="0.9">
-              <path d="M0 10 C0 4.5 4.5 0 10 0 L36 0 C41.5 0 46 4.5 46 10 L46 21 C46 26.5 41.5 31 36 31 L15 31 L5 39 L7.5 31 L10 31 C4.5 31 0 26.5 0 21 Z" fill="#0E2A66" stroke="rgba(143,182,255,0.4)" stroke-width="1"/>
-              <rect x="9" y="12" width="28" height="4" rx="2" fill="rgba(255,255,255,0.55)"/>
-              <rect x="9" y="20" width="18" height="4" rx="2" fill="rgba(255,255,255,0.3)"/>
-            </g>
-          </svg>
-          <div class="blog-card-glow"></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-badge" style="color:#8FB6FF;">
-            <span class="dot" style="background:#4C8CFF;box-shadow:0 0 6px #4C8CFF;"></span>
-            <span data-en="WhatsApp · 5 min read" data-pt="WhatsApp · 5 min de leitura">WhatsApp · 5 min de leitura</span>
-          </div>
-          <h3 data-en="Why Mozambican Businesses Need WhatsApp Automation in 2026" data-pt="Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026">Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026</h3>
-          <p data-en="Over 90% of Mozambican businesses already use WhatsApp daily. Learn how automating it transforms customer service, sales, and follow-ups — without extra staff." data-pt="Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.">Mais de 90% dos negócios moçambicanos já usam o WhatsApp diariamente. Saiba como a sua automatização transforma o atendimento ao cliente, as vendas e os follow-ups — sem pessoal extra.</p>
-          <button onclick="openBlogModal('whatsapp')" class="blog-read-link" style="color:var(--teal);" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
-        </div>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="blog-card">
-        <div class="blog-card-media">
-          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="c2bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#020B24"/>
-                <stop offset="50%" stop-color="#0A1F5C"/>
-                <stop offset="100%" stop-color="#3A2408"/>
-              </linearGradient>
-              <radialGradient id="c2glow" cx="80%" cy="20%" r="55%">
-                <stop offset="0%" stop-color="rgba(212,160,23,0.4)"/>
-                <stop offset="100%" stop-color="rgba(212,160,23,0)"/>
-              </radialGradient>
-              <radialGradient id="c2glow2" cx="10%" cy="85%" r="50%">
-                <stop offset="0%" stop-color="rgba(64,140,255,0.3)"/>
-                <stop offset="100%" stop-color="rgba(64,140,255,0)"/>
-              </radialGradient>
-              <linearGradient id="c2panel" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#132A55"/>
-                <stop offset="100%" stop-color="#0A1B3D"/>
-              </linearGradient>
-              <linearGradient id="c2bar" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#D4A017"/>
-                <stop offset="100%" stop-color="#FFDE8A"/>
-              </linearGradient>
-              <linearGradient id="c2bar2" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#1F9D55"/>
-                <stop offset="100%" stop-color="#4C8CFF"/>
-              </linearGradient>
-              <linearGradient id="c2cube" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1E3A6E"/>
-                <stop offset="100%" stop-color="#0E2350"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="190" fill="url(#c2bg)"/>
-            <rect width="400" height="190" fill="url(#c2glow)"/>
-            <rect width="400" height="190" fill="url(#c2glow2)"/>
-            <g stroke="rgba(212,160,23,0.4)" stroke-width="1" fill="none">
-              <path d="M310 20 L340 20 L340 45"/>
-              <path d="M320 30 L355 30 L355 55" opacity="0.6"/>
-            </g>
-            <circle cx="340" cy="45" r="3" fill="#D4A017"/>
-            <circle cx="355" cy="55" r="3" fill="#D4A017"/>
-            <g transform="translate(30,118)">
-              <g>
-                <polygon points="0,10 16,0 32,10 16,20" fill="url(#c2cube)"/>
-                <polygon points="0,10 16,20 16,36 0,26" fill="#0A1836"/>
-                <polygon points="32,10 16,20 16,36 32,26" fill="#122B57"/>
-              </g>
-              <g transform="translate(28,-10)">
-                <polygon points="0,10 16,0 32,10 16,20" fill="url(#c2cube)"/>
-                <polygon points="0,10 16,20 16,36 0,26" fill="#0A1836"/>
-                <polygon points="32,10 16,20 16,36 32,26" fill="#122B57"/>
-              </g>
-              <g transform="translate(56,4)">
-                <polygon points="0,10 16,0 32,10 16,20" fill="url(#c2cube)"/>
-                <polygon points="0,10 16,20 16,36 0,26" fill="#0A1836"/>
-                <polygon points="32,10 16,20 16,36 32,26" fill="#122B57"/>
-              </g>
-            </g>
-            <g transform="translate(150,26)">
-              <rect x="0" y="0" width="210" height="130" rx="14" fill="url(#c2panel)" stroke="rgba(255,255,255,0.08)"/>
-              <circle cx="16" cy="16" r="3" fill="#D4A017"/>
-              <circle cx="28" cy="16" r="3" fill="rgba(255,255,255,0.25)"/>
-              <circle cx="40" cy="16" r="3" fill="rgba(255,255,255,0.25)"/>
-              <rect x="150" y="10" width="46" height="12" rx="6" fill="rgba(37,211,102,0.2)" stroke="rgba(37,211,102,0.5)" stroke-width="0.75"/>
-              <text x="173" y="19" text-anchor="middle" font-family="monospace" font-size="7" fill="#25D366">SYNC</text>
-              <g transform="translate(20,40)">
-                <rect x="0" y="46" width="16" height="24" rx="3" fill="url(#c2bar2)"/>
-                <rect x="24" y="30" width="16" height="40" rx="3" fill="url(#c2bar)"/>
-                <rect x="48" y="18" width="16" height="52" rx="3" fill="url(#c2bar2)"/>
-                <rect x="72" y="6" width="16" height="64" rx="3" fill="url(#c2bar)"/>
-                <line x1="0" y1="70" x2="90" y2="70" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-              </g>
-              <polyline points="130,96 148,80 166,86 184,58 198,66" fill="none" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="198" cy="66" r="3.5" fill="#FFDE8A"/>
-              <g transform="translate(122,20)" opacity="0.85">
-                <rect x="0" y="0" width="2" height="18" fill="#8FB6FF"/>
-                <rect x="4" y="0" width="1" height="18" fill="#8FB6FF"/>
-                <rect x="7" y="0" width="3" height="18" fill="#8FB6FF"/>
-                <rect x="12" y="0" width="1" height="18" fill="#8FB6FF"/>
-                <rect x="15" y="0" width="2" height="18" fill="#8FB6FF"/>
-                <rect x="19" y="0" width="1" height="18" fill="#8FB6FF"/>
-                <rect x="22" y="0" width="3" height="18" fill="#8FB6FF"/>
-              </g>
-            </g>
-          </svg>
-          <div class="blog-card-glow"></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-badge" style="color:#D4A017;">
-            <span class="dot" style="background:#D4A017;box-shadow:0 0 6px #D4A017;"></span>
-            <span data-en="ERP · 6 min read" data-pt="ERP · 6 min de leitura">ERP · 6 min de leitura</span>
-          </div>
-          <h3 data-en="How ERP Saves a Retail Shop 10+ Hours Every Week" data-pt="Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista">Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista</h3>
-          <p data-en="Manual stock counts, handwritten invoices, end-of-day cash reconciliation — these tasks eat your week. Discover how Sabush System ERP eliminates them one by one." data-pt="Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.">Contagens manuais de stock, facturas manuscritas, reconciliação de caixa — estas tarefas consomem a sua semana. Descubra como o Sabush System ERP as elimina uma a uma.</p>
-          <button onclick="openBlogModal('erp')" class="blog-read-link" style="color:#B8860B;" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
-        </div>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="blog-card">
-        <div class="blog-card-media">
-          <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="c3bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#3A2408"/>
-                <stop offset="50%" stop-color="#0A1F5C"/>
-                <stop offset="100%" stop-color="#020B24"/>
-              </linearGradient>
-              <radialGradient id="c3glow" cx="25%" cy="25%" r="55%">
-                <stop offset="0%" stop-color="rgba(212,160,23,0.4)"/>
-                <stop offset="100%" stop-color="rgba(212,160,23,0)"/>
-              </radialGradient>
-              <radialGradient id="c3glow2" cx="80%" cy="80%" r="50%">
-                <stop offset="0%" stop-color="rgba(64,140,255,0.35)"/>
-                <stop offset="100%" stop-color="rgba(64,140,255,0)"/>
-              </radialGradient>
-              <linearGradient id="c3rocket" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#EDEFF5"/>
-                <stop offset="100%" stop-color="#B9C4DA"/>
-              </linearGradient>
-              <linearGradient id="c3flame" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#FFDE8A"/>
-                <stop offset="100%" stop-color="#D4A017" stop-opacity="0"/>
-              </linearGradient>
-              <linearGradient id="c3trail" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="rgba(212,160,23,0)"/>
-                <stop offset="100%" stop-color="rgba(212,160,23,0.55)"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="190" fill="url(#c3bg)"/>
-            <rect width="400" height="190" fill="url(#c3glow)"/>
-            <rect width="400" height="190" fill="url(#c3glow2)"/>
-            <g transform="translate(275,20)" opacity="0.9">
-              <circle cx="55" cy="55" r="52" fill="none" stroke="rgba(143,182,255,0.35)" stroke-width="1"/>
-              <ellipse cx="55" cy="55" rx="52" ry="18" fill="none" stroke="rgba(143,182,255,0.25)" stroke-width="1"/>
-              <ellipse cx="55" cy="55" rx="52" ry="34" fill="none" stroke="rgba(143,182,255,0.2)" stroke-width="1"/>
-              <line x1="3" y1="55" x2="107" y2="55" stroke="rgba(143,182,255,0.25)" stroke-width="1"/>
-              <line x1="55" y1="3" x2="55" y2="107" stroke="rgba(143,182,255,0.2)" stroke-width="1"/>
-              <circle cx="30" cy="35" r="2" fill="#D4A017"/>
-              <circle cx="75" cy="70" r="2" fill="#4C8CFF"/>
-              <circle cx="80" cy="30" r="1.6" fill="#8FB6FF"/>
-            </g>
-            <g transform="translate(30,40)" opacity="0.9">
-              <polyline points="0,120 30,105 55,118 85,80 115,95 150,45 190,10"
-                fill="none" stroke="url(#c3trail)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="55" cy="118" r="3" fill="#4C8CFF"/>
-              <circle cx="115" cy="95" r="3" fill="#4C8CFF"/>
-              <circle cx="190" cy="10" r="4" fill="#FFDE8A"/>
-              <path d="M190 10 l-7 3 M190 10 l3 8" stroke="#FFDE8A" stroke-width="3" fill="none" stroke-linecap="round"/>
-            </g>
-            <g transform="translate(150,18)">
-              <path d="M18 92 Q24 122 18 145 Q12 122 18 92 Z" fill="url(#c3flame)"/>
-              <path d="M8 78 L-4 100 L10 92 Z" fill="#1F9D55"/>
-              <path d="M28 78 L40 100 L26 92 Z" fill="#1F9D55"/>
-              <path d="M18 0 C30 18 34 45 30 78 L6 78 C2 45 6 18 18 0 Z" fill="url(#c3rocket)"/>
-              <circle cx="18" cy="38" r="8" fill="#0A1F5C" stroke="#D4A017" stroke-width="2"/>
-              <circle cx="18" cy="38" r="3" fill="#8FB6FF"/>
-              <path d="M18 0 C24 8 27 16 28 24 L8 24 C9 16 12 8 18 0 Z" fill="#D4A017" opacity="0.85"/>
-            </g>
-            <g fill="#D4A017" opacity="0.6">
-              <circle cx="120" cy="150" r="2"/>
-              <circle cx="105" cy="165" r="1.4"/>
-              <circle cx="135" cy="170" r="1.6"/>
-            </g>
-            <g fill="#8FB6FF" opacity="0.5">
-              <circle cx="230" cy="150" r="1.6"/>
-              <circle cx="250" cy="160" r="1.4"/>
-            </g>
-          </svg>
-          <div class="blog-card-glow"></div>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-badge" style="color:#8FB6FF;">
-            <span class="dot" style="background:#D4A017;box-shadow:0 0 6px #D4A017;"></span>
-            <span data-en="Growth · 4 min read" data-pt="Crescimento · 4 min de leitura">Crescimento · 4 min de leitura</span>
-          </div>
-          <h3 data-en="5 Signs Your Business Is Ready to Automate" data-pt="5 Sinais de que o Seu Negócio Está Pronto para Automatizar">5 Sinais de que o Seu Negócio Está Pronto para Automatizar</h3>
-          <p data-en="Not every business is at the same stage. Here are the 5 clearest indicators that automation will deliver immediate ROI for your Mozambican SME — and how to start." data-pt="Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.">Nem todos os negócios estão na mesma fase. Aqui estão os 5 indicadores mais claros de que a automatização vai gerar ROI imediato para a sua PME moçambicana — e como começar.</p>
-          <button onclick="openBlogModal('ready')" class="blog-read-link" style="color:#1F9D55;" data-en="Read article →" data-pt="Ler artigo →">Ler artigo →</button>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- View all hint -->
-    <div class="center reveal" style="margin-top:36px;">
-      <p style="font-size:0.88rem;color:var(--muted);" data-en="More articles coming soon — follow us on WhatsApp to get notified." data-pt="Mais artigos em breve — siga-nos no WhatsApp para ser notificado.">Mais artigos em breve — siga-nos no WhatsApp para ser notificado.</p>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG ARTICLE MODALS -->
-<div class="modal-overlay" id="blogModal" onclick="closeBlogModal(event)">
-  <div id="blogModalBox" style="background:#0F2A1E;border:1px solid rgba(20,90,50,0.2);border-radius:20px;padding:0;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform 0.35s ease;box-shadow:0 24px 80px rgba(0,0,0,0.5);">
-    <button onclick="closeBlogModal(null,true)" style="position:sticky;top:16px;left:100%;margin-right:16px;z-index:10;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;color:#C9D6F0;font-size:1.1rem;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);">✕</button>
-    <div id="blogModalContent" style="padding:0 36px 36px;margin-top:-20px;"></div>
-  </div>
-</div>
-
 <!-- WHY SABUSH -->
 <section id="why">
   <div class="why-inner">
@@ -1819,9 +1353,6 @@
       <div class="why-item reveal"><div class="why-num">🧩</div><div class="why-title" data-en="Products & Services Under One Roof" data-pt="Produtos e Serviços Num Só Lugar">Produtos e Serviços Num Só Lugar</div><p class="why-desc" data-en="ERP, POS, marketplace, English training, website design, automation — no need to juggle multiple vendors." data-pt="ERP, POS, mercado, formação em inglês, design de websites, automatização — sem necessidade de vários fornecedores.">ERP, POS, mercado, formação em inglês, design de websites, automatização — sem necessidade de vários fornecedores.</p></div>
       <div class="why-item reveal"><div class="why-num">🌍</div><div class="why-title" data-en="Built for African Businesses" data-pt="Construído para Negócios Africanos">Construído para Negócios Africanos</div><p class="why-desc" data-en="Designed with the realities of local markets in mind — simple, affordable, and ready to scale as you grow." data-pt="Desenhado tendo em conta as realidades dos mercados locais — simples, acessível e pronto para crescer consigo.">Desenhado tendo em conta as realidades dos mercados locais — simples, acessível e pronto para crescer consigo.</p></div>
       <div class="why-item reveal"><div class="why-num">🛟</div><div class="why-title" data-en="Ongoing Support" data-pt="Suporte Contínuo">Suporte Contínuo</div><p class="why-desc" data-en="We don't disappear after setup. Our team is here to help you get the most out of every Sabush product." data-pt="Não desaparecemos após a instalação. A nossa equipa está aqui para o ajudar a tirar o máximo partido de cada produto Sabush.">Não desaparecemos após a instalação. A nossa equipa está aqui para o ajudar a tirar o máximo partido de cada produto Sabush.</p></div>
-      <div class="why-item reveal"><div class="why-num">🔗</div><div class="why-title" data-en="Integrated Ecosystem" data-pt="Ecossistema Integrado">Ecossistema Integrado</div><p class="why-desc" data-en="Your ERP, POS, and marketplace all speak to each other, giving you a unified view of your business." data-pt="O seu ERP, POS e mercado comunicam entre si, dando-lhe uma visão unificada do seu negócio.">O seu ERP, POS e mercado comunicam entre si, dando-lhe uma visão unificada do seu negócio.</p></div>
-      <div class="why-item reveal"><div class="why-num">🚀</div><div class="why-title" data-en="Quick to Deploy" data-pt="Rápido de Implementar">Rápido de Implementar</div><p class="why-desc" data-en="Get up and running fast. No months-long implementation — our tools are designed for quick setup and real-world use." data-pt="Comece rapidamente. Sem implementações de meses — as nossas ferramentas são desenhadas para configuração rápida e uso real.">Comece rapidamente. Sem implementações de meses — as nossas ferramentas são desenhadas para configuração rápida e uso real.</p></div>
-      <div class="why-item reveal"><div class="why-num">📈</div><div class="why-title" data-en="Grow at Your Own Pace" data-pt="Cresça ao Seu Ritmo">Cresça ao Seu Ritmo</div><p class="why-desc" data-en="Start with what you need today and add more as your business expands. Sabush scales with you." data-pt="Comece com o que precisa hoje e adicione mais à medida que o seu negócio cresce. Sabush escala consigo.">Comece com o que precisa hoje e adicione mais à medida que o seu negócio cresce. Sabush escala consigo.</p></div>
     </div>
   </div>
 </section>
@@ -1876,7 +1407,7 @@
       </div>
       <div class="testi-card reveal">
         <div class="testi-quote">"</div>
-        <p class="testi-text" data-en="The POS system is incredibly fast. My cashiers love it. Checkouts are smooth, we never lose a sale, and end-of-day reports are generated automatically. Game changer." data-pt="O sistema POS é incrivelmente rápido. Os meus caixas adoram. As vendas correm sem problemas, nunca perdemos uma venda e os relatórios do fim do dia são gerados automaticamente. Uma revolução.">O sistema POS é incrivelmente rápido. Os meus caixas adoram. As vendas correm sem problemas, nunca perdemos uma venda e os relatórios do fim do dia são gerados automaticamente. Uma revolução.</p>
+        <p class="testi-text" data-en="The POS is incredibly fast. Checkouts are smooth and reports are automatic. A game changer." data-pt="O POS é incrivelmente rápido. As vendas correm bem e os relatórios são automáticos. Uma revolução.">O POS é incrivelmente rápido. As vendas correm bem e os relatórios são automáticos. Uma revolução.</p>
         <div class="testi-stars">★★★★★</div>
         <div class="testi-author">
           <div class="testi-avatar" style="background:rgba(184,134,11,0.15);color:var(--gold)">FA</div>
@@ -1889,7 +1420,7 @@
       </div>
       <div class="testi-card reveal">
         <div class="testi-quote">"</div>
-        <p class="testi-text" data-en="The English Club transformed how I communicate with international clients. My confidence in business conversations has improved dramatically in just two months of training." data-pt="O English Club transformou a forma como comunico com clientes internacionais. A minha confiança em conversas de negócios melhorou dramaticamente em apenas dois meses de formação.">O English Club transformou a forma como comunico com clientes internacionais. A minha confiança em conversas de negócios melhorou dramaticamente em apenas dois meses de formação.</p>
+        <p class="testi-text" data-en="Sabush English Club transformed how I speak with international clients — in just two months." data-pt="O English Club transformou a forma como falo com clientes internacionais — em apenas dois meses.">O English Club transformou a forma como falo com clientes internacionais — em apenas dois meses.</p>
         <div class="testi-stars">★★★★★</div>
         <div class="testi-author">
           <div class="testi-avatar" style="background:rgba(31,157,85,0.15);color:#1F9D55">JN</div>
@@ -1914,20 +1445,6 @@
     </div>
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-en="Is Sabush System ERP available in Portuguese?" data-pt="O Sabush System ERP está disponível em Português?">O Sabush System ERP está disponível em Português?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p data-en="Yes — Sabush System ERP is fully available in Portuguese, making it ideal for businesses in Mozambique and other Portuguese-speaking African markets. The interface, invoices, and reports are all in Portuguese." data-pt="Sim — o Sabush System ERP está totalmente disponível em Português, tornando-o ideal para empresas em Moçambique e outros mercados africanos de língua portuguesa. A interface, facturas e relatórios estão todos em Português.">Sim — o Sabush System ERP está totalmente disponível em Português, tornando-o ideal para empresas em Moçambique e outros mercados africanos de língua portuguesa. A interface, facturas e relatórios estão todos em Português.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-en="Does the POS system work without internet?" data-pt="O sistema POS funciona sem internet?">O sistema POS funciona sem internet?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p data-en="Sabush POS is designed to handle connectivity challenges common in Mozambique. It can continue processing sales during internet outages and syncs automatically once the connection is restored — so your business never stops." data-pt="O Sabush POS é desenhado para lidar com desafios de conectividade comuns em Moçambique. Pode continuar a processar vendas durante falhas de internet e sincroniza automaticamente quando a ligação é restaurada — para o seu negócio nunca parar.">O Sabush POS é desenhado para lidar com desafios de conectividade comuns em Moçambique. Pode continuar a processar vendas durante falhas de internet e sincroniza automaticamente quando a ligação é restaurada — para o seu negócio nunca parar.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-q" onclick="toggleFaq(this)">
         <span data-en="Who is Sabush built for?" data-pt="Para quem é a Sabush?">Para quem é a Sabush?</span>
         <span class="faq-icon">+</span>
       </button>
@@ -1935,24 +1452,10 @@
     </div>
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-en="How long does it take to set up?" data-pt="Quanto tempo demora a configuração?">Quanto tempo demora a configuração?</span>
+        <span data-en="Does the POS system work without internet?" data-pt="O sistema POS funciona sem internet?">O sistema POS funciona sem internet?</span>
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a"><p data-en="Most businesses are up and running within a day. Our team guides you through the setup process — from creating your account and configuring products to training your staff. We stay close during the onboarding period." data-pt="A maioria das empresas está operacional num dia. A nossa equipa guia-o pelo processo de configuração — desde a criação da conta e configuração de produtos até à formação do pessoal. Permanecemos próximos durante o período de integração.">A maioria das empresas está operacional num dia. A nossa equipa guia-o pelo processo de configuração — desde a criação da conta e configuração de produtos até à formação do pessoal. Permanecemos próximos durante o período de integração.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-en="When does Mercado Sabush launch?" data-pt="Quando é que o Mercado Sabush lança?">Quando é que o Mercado Sabush lança?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p data-en="Mercado Sabush is currently in development and will be available at mercado.sabushtech.com. Contact us at sabushgroup@gmail.com or call +258 858 624 086 to be notified as soon as it goes live and to secure an early spot for your business." data-pt="O Mercado Sabush está actualmente em desenvolvimento e estará disponível em mercado.sabushtech.com. Contacte-nos em sabushgroup@gmail.com ou ligue +258 858 624 086 para ser notificado assim que estiver disponível e garantir um lugar antecipado para o seu negócio.">O Mercado Sabush está actualmente em desenvolvimento e estará disponível em mercado.sabushtech.com. Contacte-nos em sabushgroup@gmail.com ou ligue +258 858 624 086 para ser notificado assim que estiver disponível e garantir um lugar antecipado para o seu negócio.</p></div>
-    </div>
-    <div class="faq-item reveal">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-en="Can I get a website designed by Sabush Tech?" data-pt="Posso ter um website desenhado pela Sabush Tech?">Posso ter um website desenhado pela Sabush Tech?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><p data-en="Absolutely. We offer professional website design services for small businesses who want a strong online presence. Reach out via email at sabushgroup@gmail.com or WhatsApp us on +258 858 624 086 to discuss your project and get a quote." data-pt="Absolutamente. Oferecemos serviços profissionais de design de websites para pequenas empresas que querem uma forte presença online. Contacte-nos por email em sabushgroup@gmail.com ou WhatsApp no +258 858 624 086 para discutir o seu projecto e obter um orçamento.">Absolutamente. Oferecemos serviços profissionais de design de websites para pequenas empresas que querem uma forte presença online. Contacte-nos por email em sabushgroup@gmail.com ou WhatsApp no +258 858 624 086 para discutir o seu projecto e obter um orçamento.</p></div>
+      <div class="faq-a"><p data-en="Sabush POS is designed to handle connectivity challenges common in Mozambique. It can continue processing sales during internet outages and syncs automatically once the connection is restored — so your business never stops." data-pt="O Sabush POS é desenhado para lidar com desafios de conectividade comuns em Moçambique. Pode continuar a processar vendas durante falhas de internet e sincroniza automaticamente quando a ligação é restaurada — para o seu negócio nunca parar.">O Sabush POS é desenhado para lidar com desafios de conectividade comuns em Moçambique. Pode continuar a processar vendas durante falhas de internet e sincroniza automaticamente quando a ligação é restaurada — para o seu negócio nunca parar.</p></div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -2055,104 +1558,6 @@
     const banner = document.getElementById('cookieBanner');
     banner.style.transition = 'transform 0.35s ease';
     banner.classList.remove('visible');
-  }
-
-  // English Club Notify Modal
-  function openEnglishModal(e) {
-    if (e) e.preventDefault();
-    document.getElementById('englishModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeEnglishModal(e, force) {
-    if (!force && e && e.target !== document.getElementById('englishModal')) return;
-    document.getElementById('englishModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeEnglishModal(null, true);
-      closeNotifyModal(null, true);
-    }
-  });
-  function submitEnglish() {
-    const name  = document.getElementById('englishName').value.trim();
-    const email = document.getElementById('englishEmail').value.trim();
-    if (!name)  { document.getElementById('englishName').focus(); return; }
-    if (!email || !email.includes('@')) { document.getElementById('englishEmail').focus(); return; }
-
-    const btn = document.getElementById('englishBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    const role  = document.getElementById('englishRole').value.trim();
-    const phone = document.getElementById('englishPhone').value.trim();
-    const subject = encodeURIComponent('Sabush English Club — Notify Me');
-    const body    = encodeURIComponent(
-      'Name: ' + name +
-      '\nRole: ' + (role || 'N/A') +
-      '\nEmail: ' + email +
-      '\nWhatsApp: ' + (phone || 'N/A')
-    );
-    window.open('mailto:sabushgroup@gmail.com?subject=' + subject + '&body=' + body);
-
-    const leads = JSON.parse(localStorage.getItem('english-leads') || '[]');
-    leads.push({ name, email, role, phone, date: new Date().toISOString() });
-    localStorage.setItem('english-leads', JSON.stringify(leads));
-
-    setTimeout(function() {
-      document.getElementById('englishFormWrap').style.display = 'none';
-      document.getElementById('englishEmailConfirm').textContent = email;
-      document.getElementById('englishSuccess').style.display = 'block';
-    }, 600);
-  }
-
-  // Notify Me Modal
-  function openNotifyModal(e) {
-    if (e) e.preventDefault();
-    document.getElementById('notifyModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNotifyModal(e, force) {
-    if (!force && e && e.target !== document.getElementById('notifyModal')) return;
-    document.getElementById('notifyModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeNotifyModal(null, true);
-  });
-  function submitNotify() {
-    const name  = document.getElementById('notifyName').value.trim();
-    const email = document.getElementById('notifyEmail').value.trim();
-    if (!name)  { document.getElementById('notifyName').focus(); return; }
-    if (!email || !email.includes('@')) { document.getElementById('notifyEmail').focus(); return; }
-
-    const btn = document.getElementById('notifyBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    // Send via mailto as fallback (no backend needed)
-    const business = document.getElementById('notifyBusiness').value.trim();
-    const phone    = document.getElementById('notifyPhone').value.trim();
-    const subject  = encodeURIComponent('Mercado Sabush — Notify Me');
-    const body     = encodeURIComponent(
-      'Name: ' + name +
-      '\nBusiness: ' + (business || 'N/A') +
-      '\nEmail: ' + email +
-      '\nWhatsApp: ' + (phone || 'N/A')
-    );
-    window.open('mailto:sabushgroup@gmail.com?subject=' + subject + '&body=' + body);
-
-    // Store locally too
-    const leads = JSON.parse(localStorage.getItem('mercado-leads') || '[]');
-    leads.push({ name, email, business, phone, date: new Date().toISOString() });
-    localStorage.setItem('mercado-leads', JSON.stringify(leads));
-
-    // Show success
-    setTimeout(function() {
-      document.getElementById('notifyFormWrap').style.display = 'none';
-      document.getElementById('notifyEmailConfirm').textContent = email;
-      document.getElementById('notifySuccess').style.display = 'block';
-    }, 600);
   }
 
   // Request a Demo — form
@@ -2379,166 +1784,6 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-item').forEach(el => countObserver.observe(el));
 
-  // ── BLOG ARTICLE CONTENT ─────────────────────────────────────────────────
-  const blogArticles = {
-    whatsapp: {
-      color: '#145A32',
-      emoji: '💬',
-      tag: 'WhatsApp · 5 min read',
-      titleEn: 'Why Mozambican Businesses Need WhatsApp Automation in 2026',
-      titlePt: 'Por que os Negócios Moçambicanos Precisam de Automatização WhatsApp em 2026',
-      bodyEn: `
-        <p>WhatsApp is not just a messaging app in Mozambique — it is the <strong>primary communication channel</strong> for business. Whether you run a shop in Matola, a clinic in Maputo, or a wholesale operation in Beira, your customers already expect to reach you on WhatsApp.</p>
-        <p>The problem? Responding manually to every message, sending invoices one by one, and following up on unpaid orders by hand takes enormous time — time better spent on growing your business.</p>
-        <h4>What WhatsApp Automation Actually Does</h4>
-        <p>A properly set-up WhatsApp automation system handles:</p>
-        <ul>
-          <li><strong>Instant replies</strong> — customers get a response in seconds, even at 2 AM</li>
-          <li><strong>Order confirmations</strong> — automatically sent when a purchase is made</li>
-          <li><strong>Invoice delivery</strong> — PDF receipts sent directly to the client's phone</li>
-          <li><strong>Payment reminders</strong> — polite follow-ups sent automatically on day 3, 7, and 14</li>
-          <li><strong>Appointment confirmations</strong> — booking confirmations with reminders 24h before</li>
-        </ul>
-        <h4>The Numbers Don't Lie</h4>
-        <p>Businesses that implement WhatsApp automation report <strong>40–60% faster response times</strong>, <strong>30% fewer missed follow-ups</strong>, and customers who feel better served — all without adding staff.</p>
-        <h4>Getting Started</h4>
-        <p>Sabush Tech builds and manages WhatsApp automation systems for businesses across Mozambique. Starting from 3,000 MZN/month, we handle the setup, the chatbot logic, and the ongoing maintenance. You focus on your business — we handle the messages.</p>
-      `,
-      bodyPt: `
-        <p>O WhatsApp não é apenas uma aplicação de mensagens em Moçambique — é o <strong>canal de comunicação principal</strong> para negócios. Se tem uma loja na Matola, uma clínica em Maputo ou uma operação grossista na Beira, os seus clientes já esperam contactá-lo pelo WhatsApp.</p>
-        <p>O problema? Responder manualmente a cada mensagem, enviar facturas uma a uma e fazer follow-up de pagamentos em atraso à mão consome muito tempo — tempo melhor investido no crescimento do seu negócio.</p>
-        <h4>O que a Automatização do WhatsApp Realmente Faz</h4>
-        <ul>
-          <li><strong>Respostas instantâneas</strong> — os clientes recebem resposta em segundos, mesmo às 2 da manhã</li>
-          <li><strong>Confirmações de pedidos</strong> — enviadas automaticamente quando uma compra é efectuada</li>
-          <li><strong>Entrega de facturas</strong> — recibos PDF enviados directamente para o telemóvel do cliente</li>
-          <li><strong>Lembretes de pagamento</strong> — follow-ups automáticos nos dias 3, 7 e 14</li>
-          <li><strong>Confirmações de marcações</strong> — confirmações de reservas com lembretes 24h antes</li>
-        </ul>
-        <h4>Os Números Não Mentem</h4>
-        <p>Negócios que implementam automatização do WhatsApp reportam <strong>40–60% de tempo de resposta mais rápido</strong> e <strong>30% menos follow-ups perdidos</strong> — sem contratar mais pessoal.</p>
-        <h4>Como Começar</h4>
-        <p>A Sabush Tech constrói e gere sistemas de automatização do WhatsApp para negócios em todo Moçambique. A partir de 3.000 MZN/mês, tratamos da configuração, da lógica do chatbot e da manutenção contínua.</p>
-      `
-    },
-    erp: {
-      color: '#B8860B',
-      emoji: '🧾',
-      tag: 'ERP · 6 min read',
-      titleEn: 'How ERP Saves a Retail Shop 10+ Hours Every Week',
-      titlePt: 'Como um ERP Poupa 10+ Horas por Semana a uma Loja Retalhista',
-      bodyEn: `
-        <p>If you run a retail or wholesale business in Mozambique, there's a good chance you're losing <strong>10 to 15 hours every week</strong> to tasks that software could handle in seconds. Here's how.</p>
-        <h4>The Hidden Time Drains</h4>
-        <ul>
-          <li><strong>Manual stock counting</strong> — walking the floor, writing numbers, comparing to last month's sheet</li>
-          <li><strong>Handwritten invoices</strong> — copying product names, calculating totals, finding the right price</li>
-          <li><strong>End-of-day reconciliation</strong> — matching cash to sales, finding where it doesn't add up</li>
-          <li><strong>Supplier follow-ups</strong> — checking what needs reordering before stock runs out</li>
-          <li><strong>Monthly reporting</strong> — compiling figures from notebooks, receipts, and memory</li>
-        </ul>
-        <h4>What Sabush System ERP Changes</h4>
-        <p>Every product scanned at the POS <strong>automatically updates inventory</strong>. Every sale generates an invoice. At the end of the day, your report is already done. Stock alerts fire before you run out. Supplier orders are triggered automatically.</p>
-        <p>Our clients report saving <strong>2–3 hours daily</strong> within the first week of switching to Sabush System ERP.</p>
-        <h4>Real Example</h4>
-        <p>A wholesale shop in Matola with 3 staff members used to spend every Friday afternoon on manual stock counts. After implementing Sabush ERP, that process takes 20 minutes — and the numbers are more accurate.</p>
-        <h4>Try It Today</h4>
-        <p>Sabush System ERP is live at <strong>erp.sabushtech.com</strong>. Get in touch and our team will walk you through setup — most businesses are fully running within 24 hours.</p>
-      `,
-      bodyPt: `
-        <p>Se gere uma loja retalhista ou grossista em Moçambique, há uma boa hipótese de estar a perder <strong>10 a 15 horas por semana</strong> em tarefas que o software poderia tratar em segundos.</p>
-        <h4>Os Drenos de Tempo Ocultos</h4>
-        <ul>
-          <li><strong>Contagem manual de stock</strong> — percorrer o armazém, escrever números, comparar com a folha do mês passado</li>
-          <li><strong>Facturas manuscritas</strong> — copiar nomes de produtos, calcular totais, encontrar o preço certo</li>
-          <li><strong>Reconciliação de fim de dia</strong> — comparar dinheiro com vendas, encontrar onde não bate certo</li>
-          <li><strong>Follow-up de fornecedores</strong> — verificar o que precisa de ser reabastecido</li>
-          <li><strong>Relatórios mensais</strong> — compilar números de cadernos, recibos e memória</li>
-        </ul>
-        <h4>O que o Sabush System ERP Muda</h4>
-        <p>Cada produto lido no POS <strong>actualiza automaticamente o inventário</strong>. Cada venda gera uma factura. No fim do dia, o relatório já está feito. Os alertas de stock disparam antes de esgotar.</p>
-        <p>Os nossos clientes reportam poupar <strong>2–3 horas diárias</strong> na primeira semana após a mudança para o Sabush System ERP.</p>
-        <h4>Experimente Hoje</h4>
-        <p>O Sabush System ERP está disponível em <strong>erp.sabushtech.com</strong>. Entre em contacto e a nossa equipa orienta-o na configuração — a maioria das empresas está totalmente operacional em 24 horas.</p>
-      `
-    },
-    ready: {
-      color: '#1F9D55',
-      emoji: '🚀',
-      tag: 'Growth · 4 min read',
-      titleEn: '5 Signs Your Business Is Ready to Automate',
-      titlePt: '5 Sinais de que o Seu Negócio Está Pronto para Automatizar',
-      bodyEn: `
-        <p>Automation isn't for every business at every stage — but if any of these 5 signs sound familiar, you're leaving significant time and money on the table.</p>
-        <h4>Sign 1: You Repeat the Same Tasks Every Day</h4>
-        <p>If someone on your team does the same thing every morning — sending a report, updating a spreadsheet, confirming appointments — that task can be automated. Repetition is the clearest signal.</p>
-        <h4>Sign 2: Customers Wait Too Long for Replies</h4>
-        <p>If customers message you and wait more than 2 hours for a response, you're losing sales. An automated WhatsApp chatbot replies in 3 seconds — even when you're asleep.</p>
-        <h4>Sign 3: You've Made Costly Mistakes from Manual Data Entry</h4>
-        <p>Wrong prices on invoices, incorrect stock numbers, missed orders — these are symptoms of manual processes. Automation eliminates the human error layer entirely.</p>
-        <h4>Sign 4: You Can't See Your Business in Real Time</h4>
-        <p>If you don't know your sales figures from yesterday without digging through notebooks, you need a reporting automation. Real-time dashboards delivered to your phone every morning change decision-making completely.</p>
-        <h4>Sign 5: Growth Is Creating Chaos Instead of Profit</h4>
-        <p>When more customers means more stress (not more revenue), you've hit the manual ceiling. Automation lets you scale without proportionally scaling your headcount or your working hours.</p>
-        <h4>Ready to Start?</h4>
-        <p>Sabush Tech offers a <strong>free workflow audit</strong> — we map your current operations and identify exactly which automations would save you the most time and money. No commitment required.</p>
-      `,
-      bodyPt: `
-        <p>A automatização não é para todos os negócios em todas as fases — mas se algum destes 5 sinais lhe soa familiar, está a deixar tempo e dinheiro significativos na mesa.</p>
-        <h4>Sinal 1: Repete as Mesmas Tarefas Todos os Dias</h4>
-        <p>Se alguém na sua equipa faz a mesma coisa todas as manhãs — enviar um relatório, actualizar uma folha de cálculo, confirmar marcações — essa tarefa pode ser automatizada.</p>
-        <h4>Sinal 2: Os Clientes Esperam Demasiado pelas Respostas</h4>
-        <p>Se os clientes lhe enviam mensagem e esperam mais de 2 horas por uma resposta, está a perder vendas. Um chatbot WhatsApp automatizado responde em 3 segundos — mesmo quando está a dormir.</p>
-        <h4>Sinal 3: Já Cometeu Erros Custosos por Entrada Manual de Dados</h4>
-        <p>Preços errados em facturas, números de stock incorrectos, pedidos perdidos — estes são sintomas de processos manuais. A automatização elimina completamente a camada de erro humano.</p>
-        <h4>Sinal 4: Não Consegue Ver o Seu Negócio em Tempo Real</h4>
-        <p>Se não sabe as suas vendas de ontem sem procurar em cadernos, precisa de automatização de relatórios. Painéis em tempo real entregues no seu telemóvel todas as manhãs mudam completamente a tomada de decisão.</p>
-        <h4>Sinal 5: O Crescimento Está a Criar Caos em vez de Lucro</h4>
-        <p>Quando mais clientes significa mais stress (não mais receita), atingiu o tecto do manual. A automatização permite crescer sem aumentar proporcionalmente a equipa ou as horas de trabalho.</p>
-        <h4>Pronto para Começar?</h4>
-        <p>A Sabush Tech oferece uma <strong>auditoria gratuita do fluxo de trabalho</strong> — mapeamos as suas operações actuais e identificamos exactamente quais as automatizações que lhe poupariam mais tempo e dinheiro.</p>
-      `
-    }
-  };
-
-  function openBlogModal(key) {
-    const lang = localStorage.getItem('sabush-lang') || 'en';
-    const art = blogArticles[key];
-    const overlay = document.getElementById('blogModal');
-    const box = document.getElementById('blogModalBox');
-    const content = document.getElementById('blogModalContent');
-    content.innerHTML = `
-      <div style="margin-bottom:20px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:${art.color};letter-spacing:0.1em;text-transform:uppercase;background:${art.color}18;padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;">${art.tag}</div>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:800;color:#F8FAFB;line-height:1.3;margin-bottom:0;">${lang === 'pt' ? art.titlePt : art.titleEn}</h2>
-      </div>
-      <div style="font-size:0.9rem;color:#C9D6F0;line-height:1.8;" class="blog-body">${lang === 'pt' ? art.bodyPt : art.bodyEn}</div>
-      <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
-        <a href="https://wa.me/258858624086?text=Olá%20Sabush%20Tech!%20Li%20o%20vosso%20artigo%20e%20gostaria%20de%20saber%20mais." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 24px;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;text-decoration:none;">💬 ${lang === 'pt' ? 'Fale Connosco' : 'Talk to Us on WhatsApp'}</a>
-      </div>
-    `;
-    // Style the blog body inner elements
-    content.querySelectorAll('.blog-body h4').forEach(h => { h.style.cssText = 'font-family:Plus Jakarta Sans,sans-serif;font-size:1rem;font-weight:700;color:#F8FAFB;margin:20px 0 8px;'; });
-    content.querySelectorAll('.blog-body ul').forEach(ul => { ul.style.cssText = 'padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin:8px 0 16px;'; });
-    content.querySelectorAll('.blog-body li').forEach(li => { li.style.cssText = 'display:flex;gap:8px;align-items:flex-start;'; li.innerHTML = '<span style="color:' + art.color + ';flex-shrink:0;margin-top:2px;">→</span>' + li.innerHTML; });
-    content.querySelectorAll('.blog-body p').forEach(p => { p.style.marginBottom = '12px'; });
-    overlay.classList.add('open');
-    setTimeout(() => { box.style.transform = 'translateY(0)'; }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-  function closeBlogModal(e, force) {
-    if (!force && e && e.target !== document.getElementById('blogModal')) return;
-    const box = document.getElementById('blogModalBox');
-    box.style.transform = 'translateY(20px)';
-    setTimeout(() => {
-      document.getElementById('blogModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }, 300);
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeBlogModal(null, true);
-  });
-
   // ── STICKY MOBILE CTA ─────────────────────────────────────────────────────
   (function() {
     const cta = document.getElementById('mobileCta');
@@ -2574,101 +1819,6 @@
   })();
 
 </script>
-
-<!-- MERCADO NOTIFY MODAL -->
-<div class="modal-overlay" id="notifyModal" onclick="closeNotifyModal(event)">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeNotifyModal(null, true)">✕</button>
-    <div class="modal-badge" data-en="🛒 Coming Soon" data-pt="🛒 Em Breve">🛒 Em Breve</div>
-    <h3 data-en-html="Be First on <span>Mercado Sabush</span>" data-pt-html="Seja o Primeiro no <span>Mercado Sabush</span>">Seja o Primeiro no <span>Mercado Sabush</span></span></h3>
-    <p data-en="Mozambique's digital marketplace is launching soon. Leave your details and we'll notify you the moment it goes live — plus give you early access." data-pt="O mercado digital de Moçambique está prestes a lançar. Deixe os seus dados e notificamo-lo assim que estiver disponível — mais acesso antecipado.">O mercado digital de Moçambique está prestes a lançar. Deixe os seus dados e notificamo-lo assim que estiver disponível — mais acesso antecipado.</p>
-    <div class="modal-perks">
-      <div class="modal-perk" data-en="Free early access before public launch" data-pt="Acesso antecipado gratuito antes do lançamento público">Acesso antecipado gratuito antes do lançamento público</div>
-      <div class="modal-perk" data-en="Priority listing for your business" data-pt="Listagem prioritária para o seu negócio">Listagem prioritária para o seu negócio</div>
-      <div class="modal-perk" data-en="No spam — one email when we launch" data-pt="Sem spam — um email quando lançarmos">Sem spam — um email quando lançarmos</div>
-    </div>
-    <div id="notifyFormWrap">
-      <div class="notify-form">
-        <input type="text" id="notifyName" data-placeholder-en="Your name" data-placeholder-pt="O seu nome" placeholder="Your name" autocomplete="name"/>
-        <input type="text" id="notifyBusiness" data-placeholder-en="Business name (optional)" data-placeholder-pt="Nome da empresa (opcional)" placeholder="Business name (optional)"/>
-        <input type="email" id="notifyEmail" data-placeholder-en="Email address" data-placeholder-pt="Endereço de email" placeholder="Email address" autocomplete="email"/>
-        <input type="tel" id="notifyPhone" data-placeholder-en="WhatsApp number (optional)" data-placeholder-pt="Número WhatsApp (opcional)" placeholder="WhatsApp number (optional)" autocomplete="tel"/>
-        <button class="notify-btn" id="notifyBtn" onclick="submitNotify()" data-en="Notify Me When Live →" data-pt="Notifique-me Quando Lançar →">Notifique-me Quando Lançar →</button>
-      </div>
-    </div>
-    <div class="notify-success" id="notifySuccess">
-      <div class="ns-icon">🎉</div>
-      <h4 data-en="You're on the list!" data-pt="Está na lista!">Está na lista!</h4>
-      <p data-en="We'll reach out to" data-pt="Entraremos em contacto com">Entraremos em contacto com</p><p><span id="notifyEmailConfirm" style="color:#B8860B"></span></p><p data-en="the moment Mercado Sabush goes live. Spread the word!" data-pt="assim que o Mercado Sabush estiver disponível. Partilhe com os seus contactos!">assim que o Mercado Sabush estiver disponível. Partilhe com os seus contactos!</p>
-    </div>
-  </div>
-</div>
-
-
-<!-- ENGLISH CLUB NOTIFY MODAL -->
-<div class="modal-overlay" id="englishModal" onclick="closeEnglishModal(event)">
-  <div class="modal-box" style="border-color:rgba(34,211,238,0.25);">
-    <button class="modal-close" onclick="closeEnglishModal(null, true)">✕</button>
-    <div class="modal-badge" style="background:rgba(184,134,11,0.12);border-color:rgba(184,134,11,0.25);color:#B8860B;" data-en="🎙️ Coming Soon" data-pt="🎙️ Em Breve">🎙️ Em Breve</div>
-    <h3 data-en-html="Join <span style='color:#B8860B;'>Sabush English Club</span>" data-pt-html="Junte-se ao <span style='color:#B8860B;'>Sabush English Club</span>">Junte-se ao <span style='color:#B8860B;'>Sabush English Club</span></span></h3>
-    <p data-en="We're putting the finishing touches on Mozambique's best online English training platform for business professionals. Be the first to know when we open enrolment." data-pt="Estamos a dar os últimos retoques na melhor plataforma de formação em inglês online de Moçambique para profissionais de negócios. Seja o primeiro a saber quando abrirmos as inscrições.">Estamos a dar os últimos retoques na melhor plataforma de formação em inglês online de Moçambique para profissionais de negócios. Seja o primeiro a saber quando abrirmos as inscrições.</p>
-    <div class="modal-perks">
-      <div class="modal-perk" style="--perk-color:#B8860B;" data-en="Early enrolment access before public launch" data-pt="Acesso antecipado às inscrições antes do lançamento público">Acesso antecipado às inscrições antes do lançamento público</div>
-      <div class="modal-perk" style="--perk-color:#B8860B;" data-en="Discounted founding member rate" data-pt="Taxa de membro fundador com desconto">Taxa de membro fundador com desconto</div>
-      <div class="modal-perk" style="--perk-color:#B8860B;" data-en="One email when we open — no spam" data-pt="Um email quando abrirmos — sem spam">Um email quando abrirmos — sem spam</div>
-    </div>
-    <div id="englishFormWrap">
-      <div class="notify-form">
-        <input type="text" id="englishName" data-placeholder-en="Your name" data-placeholder-pt="O seu nome" placeholder="Your name" autocomplete="name"/>
-        <input type="text" id="englishRole" data-placeholder-en="Your role or profession (optional)" data-placeholder-pt="O seu cargo ou profissão (opcional)" placeholder="Your role or profession (optional)"/>
-        <input type="email" id="englishEmail" data-placeholder-en="Email address" data-placeholder-pt="Endereço de email" placeholder="Email address" autocomplete="email"/>
-        <input type="tel" id="englishPhone" data-placeholder-en="WhatsApp number (optional)" data-placeholder-pt="Número WhatsApp (opcional)" placeholder="WhatsApp number (optional)" autocomplete="tel"/>
-        <button class="notify-btn" id="englishBtn" onclick="submitEnglish()"
-          style="background:linear-gradient(135deg,#B8860B,#D4A017);box-shadow:0 4px 20px rgba(184,134,11,0.3);">
-          Notify Me When We Open →
-        </button>
-      </div>
-    </div>
-    <div class="notify-success" id="englishSuccess">
-      <div class="ns-icon">🎉</div>
-      <h4 data-en="You're on the list!" data-pt="Está na lista!">Está na lista!</h4>
-      <p><span data-en="We'll contact" data-pt="Entraremos em contacto com">Entraremos em contacto com</span> <span id="englishEmailConfirm" style="color:#B8860B;"></span> <span data-en="as soon as enrolment opens. Get ready to level up your English!" data-pt="assim que as inscrições abrirem. Prepare-se para elevar o seu inglês!">assim que as inscrições abrirem. Prepare-se para elevar o seu inglês!</span></p>
-    </div>
-  </div>
-</div>
-
-
-<!-- WHATSAPP FLOATING BUTTON -->
-<div class="wa-float">
-  <div class="wa-tooltip">
-    <strong>WhatsApp</strong><span data-en="Chat with us now" data-pt="Fale connosco agora">Fale connosco agora</span>
-  </div>
-  <a class="wa-btn"
-     href="https://wa.me/258858624086?text=Olá%20Sabush%20Tech!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20produtos."
-     target="_blank" rel="noopener noreferrer" aria-label="Chat with Sabush Tech on WhatsApp">
-    <div class="wa-pulse"></div>
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.46.664 4.76 1.82 6.74L2 30l7.46-1.8A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="white"/>
-      <path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z" fill="#25D366"/>
-    </svg>
-  </a>
-</div>
-
-
-<!-- COOKIE CONSENT BANNER -->
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
-  <div class="cookie-text">
-    <div class="cookie-icon">🍪</div>
-    <p>
-      <strong data-en="We use cookies" data-pt="Usamos cookies">Usamos cookies</strong><span data-en=" to improve your experience on sabushtech.com. By continuing to browse, you agree to our use of cookies. " data-pt=" para melhorar a sua experiência em sabushtech.com. Ao continuar a navegar, concorda com o uso de cookies. "> para melhorar a sua experiência em sabushtech.com. Ao continuar a navegar, concorda com o uso de cookies. </span><a href="privacy.html" data-en="Learn more" data-pt="Saiba mais">Saiba mais</a>
-    </p>
-  </div>
-  <div class="cookie-actions">
-    <button class="cookie-decline" onclick="declineCookies()" data-en="Decline" data-pt="Recusar">Recusar</button>
-    <button class="cookie-accept" onclick="acceptCookies()" data-en="Accept All" data-pt="Aceitar Tudo">Aceitar Tudo</button>
-  </div>
-</div>
-
 
 <!-- STICKY MOBILE CTA -->
 <div id="mobileCta" style="
