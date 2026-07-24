@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sabush Tech LDA — Business systems built for how Africa trades</title>
+<title id="page-title" data-pt="Sabush Tech LDA — Sistemas empresariais feitos para a forma como África faz negócios">Sabush Tech LDA — Business systems built for how Africa trades</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -68,6 +68,66 @@
   }
 
   /* ---------- NAV ---------- */
+  /* ---------- top contact bar ---------- */
+  .topbar{
+    background:var(--paper);
+    color:var(--ink-2);
+    font-size:0.8rem;
+  }
+  .topbar-inner{
+    max-width:1180px;margin:0 auto;padding:9px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    flex-wrap:wrap;
+  }
+  .topbar-contact{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .topbar-contact a{
+    display:inline-flex;align-items:center;gap:7px;
+    color:var(--ink-2);opacity:0.92;transition:opacity .15s ease;
+    font-size:0.8rem;white-space:nowrap;
+  }
+  .topbar-contact a:hover{opacity:1;color:var(--marigold-2);}
+  .topbar-contact svg{width:14px;height:14px;flex:none;}
+  .topbar-right{display:flex;align-items:center;gap:16px;}
+  .topbar-social{display:flex;align-items:center;gap:10px;}
+  .topbar-social a{
+    position:relative;
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(255,255,255,0.08);color:var(--ink-2);
+    transition:background .15s ease,color .15s ease,transform .15s ease;
+  }
+  .topbar-social a:hover{background:var(--marigold-2);color:#22190A;transform:translateY(-1px);}
+  .topbar-social svg{width:13px;height:13px;}
+  .topbar-social .soon-tip{
+    position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);
+    background:var(--ink-3);color:var(--ink);
+    font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:600;
+    padding:5px 9px;border-radius:6px;white-space:nowrap;
+    opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s ease;
+  }
+  .topbar-social .soon-tip::after{
+    content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    border:5px solid transparent;border-top-color:var(--ink-3);
+  }
+  .topbar-social a.show-tip .soon-tip{opacity:1;transform:translateX(-50%) translateY(0);}
+  .lang-toggle{
+    display:flex;align-items:center;border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;overflow:hidden;
+  }
+  .lang-toggle button{
+    background:transparent;border:none;color:var(--ink-2);
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;
+    letter-spacing:0.04em;padding:5px 12px;transition:background .15s ease,color .15s ease;
+  }
+  .lang-toggle button.active{background:var(--marigold-2);color:#22190A;}
+  @media(max-width:660px){
+    .topbar-contact a span.label{display:none;}
+  }
+  @media(max-width:520px){
+    .topbar-inner{padding:8px 20px;gap:10px;}
+    .topbar-contact{gap:12px;}
+  }
+
   header.nav{
     position:sticky; top:0; z-index:50;
     background:rgba(255,255,255,0.92);
@@ -307,19 +367,41 @@
 </head>
 <body>
 
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-contact">
+      <a href="tel:+258858624086"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="label">+258 858 624 086</span></a>
+      <a href="mailto:admin@sabushtech.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg><span class="label">admin@sabushtech.com</span></a>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-social">
+        <a href="https://wa.me/258858624086" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.31-1.93 1.35-.5.05-1.05.24-3.51-.73-2.98-1.18-4.85-4.14-5-4.34-.15-.2-1.19-1.58-1.19-3.02s.75-2.14 1.02-2.44c.26-.3.57-.37.76-.37s.38.002.55.01c.18.008.42-.07.65.5.24.58.82 2.01.9 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.45.52-.15.15-.3.31-.13.6.17.3.77 1.26 1.65 2.04 1.13 1 2.09 1.32 2.39 1.47.3.15.47.13.65-.08.17-.2.74-.86.94-1.16.2-.3.4-.24.66-.14.27.1 1.7.8 1.99.95.3.15.49.22.56.35.07.13.07.75-.17 1.43z"/></svg><span class="soon-tip" data-en="Chat on WhatsApp" data-pt="Falar no WhatsApp"></span></a>
+        <a href="#" data-soon aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+        <a href="#" data-soon aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+        <a href="#" data-soon aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.3 8.75h3.28V21H3.3zm6.02 0h3.14v1.68h.05c.44-.83 1.5-1.7 3.1-1.7 3.31 0 3.92 2.18 3.92 5.02V21h-3.28v-5.6c0-1.34-.02-3.05-1.86-3.05-1.87 0-2.16 1.46-2.16 2.96V21H9.32z"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+        <a href="#" data-soon aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12z"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-pt" class="active">PT</button>
+        <button type="button" id="lang-en">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <header class="nav">
   <div class="nav-inner">
     <a class="logo" href="#top">
       <span class="dot"></span>
-      <span>SABUSH TECH<br><small>LDA · REMOTE BUSINESS SYSTEMS</small></span>
+      <span>SABUSH TECH<br><small data-pt="LDA · SISTEMAS DE GESTÃO À DISTÂNCIA">LDA · REMOTE BUSINESS SYSTEMS</small></span>
     </a>
     <nav class="links">
-      <a href="#products">Products</a>
-      <a href="#services">Services</a>
-      <a href="#training">Training</a>
-      <a href="#contact">Contact</a>
+      <a href="#products" data-pt="Produtos">Products</a>
+      <a href="#services" data-pt="Serviços">Services</a>
+      <a href="#training" data-pt="Formação">Training</a>
+      <a href="#contact" data-pt="Contacto">Contact</a>
     </nav>
-    <a class="btn btn-primary nav-cta" href="#contact">Request a demo</a>
+    <a class="btn btn-primary nav-cta" href="#contact" data-pt="Solicitar uma demonstração">Request a demo</a>
   </div>
 </header>
 
@@ -327,38 +409,38 @@
 
   <section class="hero wrap">
     <div>
-      <p class="eyebrow">Business systems for Africa</p>
-      <h1>Every sale, every invoice, every unit of stock — accounted for.</h1>
-      <p class="lede">Sabush Tech LDA builds the websites, POS, ERP, and automation your business runs on — plus the marketplace to be found in, and the remote training to run it in English. Everything installed, connected, and supported from a distance.</p>
+      <p class="eyebrow" data-pt="Sistemas empresariais para África">Business systems for Africa</p>
+      <h1 data-pt="Cada venda, cada factura, cada unidade em stock — contabilizada.">Every sale, every invoice, every unit of stock — accounted for.</h1>
+      <p class="lede" data-pt="A Sabush Tech LDA cria os sites, o POS, o ERP e a automação que fazem o seu negócio funcionar — além do mercado onde ser encontrado, e a formação à distância para trabalhar em inglês. Tudo instalado, ligado e apoiado à distância.">Sabush Tech LDA builds the websites, POS, ERP, and automation your business runs on — plus the marketplace to be found in, and the remote training to run it in English. Everything installed, connected, and supported from a distance.</p>
       <div class="ctas">
-        <a class="btn btn-primary" href="#contact">Request a demo</a>
-        <a class="btn btn-ghost" href="#products">See what we build</a>
+        <a class="btn btn-primary" href="#contact" data-pt="Solicitar uma demonstração">Request a demo</a>
+        <a class="btn btn-ghost" href="#products" data-pt="Veja o que construímos">See what we build</a>
       </div>
       <div class="stamp-row">
-        <div class="stamp"><b>4</b>platforms, one login</div>
-        <div class="stamp"><b>100%</b>remote setup &amp; support</div>
-        <div class="stamp"><b>1</b>profit ledger, always current</div>
+        <div class="stamp" data-pt-html="<b>4</b>plataformas, um único acesso"><b>4</b>platforms, one login</div>
+        <div class="stamp" data-pt-html="<b>100%</b>de instalação e suporte à distância"><b>100%</b>remote setup &amp; support</div>
+        <div class="stamp" data-pt-html="<b>1</b>livro de lucros, sempre actualizado"><b>1</b>profit ledger, always current</div>
       </div>
     </div>
 
     <div class="receipt" id="receipt">
       <div class="receipt-head">
-        <div class="r-name">SABUSH BPT · STOCK LEDGER</div>
-        <div class="r-sub">AUTO-LOGGED ON ENTRY</div>
-        <div class="receipt-live"><span class="blip"></span>LIVE PROFIT TRACKING</div>
+        <div class="r-name" data-pt="SABUSH BPT · LIVRO DE STOCK">SABUSH BPT · STOCK LEDGER</div>
+        <div class="r-sub" data-pt="REGISTO AUTOMÁTICO NA ENTRADA">AUTO-LOGGED ON ENTRY</div>
+        <div class="receipt-live"><span class="blip"></span><span data-pt="ACOMPANHAMENTO DE LUCRO AO VIVO">LIVE PROFIT TRACKING</span></div>
       </div>
 
-      <div class="r-line"><span class="r-label">Item entered to stock</span><span class="r-val">Rice 25kg × 40</span></div>
-      <div class="r-line"><span class="r-label">Cost price</span><span class="r-val" data-count="18400" data-prefix="MZN ">MZN 0</span></div>
-      <div class="r-line"><span class="r-label">Sale price set</span><span class="r-val" data-count="24000" data-prefix="MZN ">MZN 0</span></div>
-      <div class="r-line"><span class="r-label">Units sold today</span><span class="r-val" data-count="27" data-suffix=" units">0 units</span></div>
-      <div class="r-line"><span class="r-label">Reminder sent</span><span class="r-val">Restock in 3 days</span></div>
+      <div class="r-line"><span class="r-label" data-pt="Artigo registado em stock">Item entered to stock</span><span class="r-val" data-pt="Arroz 25kg × 40">Rice 25kg × 40</span></div>
+      <div class="r-line"><span class="r-label" data-pt="Preço de custo">Cost price</span><span class="r-val" data-count="18400" data-prefix="MZN ">MZN 0</span></div>
+      <div class="r-line"><span class="r-label" data-pt="Preço de venda definido">Sale price set</span><span class="r-val" data-count="24000" data-prefix="MZN ">MZN 0</span></div>
+      <div class="r-line"><span class="r-label" data-pt="Unidades vendidas hoje">Units sold today</span><span class="r-val" data-count="27" data-suffix=" units" data-suffix-pt=" unidades">0 units</span></div>
+      <div class="r-line"><span class="r-label" data-pt="Lembrete enviado">Reminder sent</span><span class="r-val" data-pt="Repor stock em 3 dias">Restock in 3 days</span></div>
 
       <div class="r-total">
-        <span class="r-tlabel">Profit logged today</span>
+        <span class="r-tlabel" data-pt="Lucro registado hoje">Profit logged today</span>
         <span class="r-tval"><span data-count="5600" data-prefix="+MZN ">+MZN 0</span></span>
       </div>
-      <div class="r-foot">RECORDED THE MOMENT STOCK WAS ENTERED — NO SPREADSHEET NEEDED</div>
+      <div class="r-foot" data-pt="REGISTADO NO MOMENTO EM QUE O STOCK ENTRA — SEM PRECISAR DE FOLHA DE CÁLCULO">RECORDED THE MOMENT STOCK WAS ENTERED — NO SPREADSHEET NEEDED</div>
     </div>
   </section>
 
@@ -366,9 +448,9 @@
 
   <section class="wrap" id="products">
     <div class="sec-head">
-      <p class="sec-eyebrow">Our platforms</p>
-      <h2>Four systems. One way of running your business.</h2>
-      <p>Each one solves a specific problem — use one, or connect them all under a single Sabush login.</p>
+      <p class="sec-eyebrow" data-pt="As nossas plataformas">Our platforms</p>
+      <h2 data-pt="Quatro sistemas. Uma única forma de gerir o seu negócio.">Four systems. One way of running your business.</h2>
+      <p data-pt="Cada um resolve um problema específico — use um só, ou ligue-os todos com um único acesso Sabush.">Each one solves a specific problem — use one, or connect them all under a single Sabush login.</p>
     </div>
 
     <div class="ledger">
@@ -376,77 +458,77 @@
         <div class="code">01 / ERP</div>
         <div>
           <h3>Sabush ERP</h3>
-          <span class="tag">Core system</span>
+          <span class="tag" data-pt="Sistema principal">Core system</span>
         </div>
-        <div class="desc"><strong>Runs the back office.</strong> Inventory, invoicing, and POS in one place, with automatic reminders for restocking and payments, and a customer portal so clients can check orders and invoices themselves.</div>
-        <a class="arrow" href="https://erp.sabushtech.com" target="_blank" rel="noopener">Visit erp.sabushtech.com →</a>
+        <div class="desc" data-pt-html="<strong>Gere o back office.</strong> Inventário, facturação e POS num só lugar, com lembretes automáticos de reposição de stock e pagamentos, e um portal de cliente para que consultem pedidos e facturas sozinhos."><strong>Runs the back office.</strong> Inventory, invoicing, and POS in one place, with automatic reminders for restocking and payments, and a customer portal so clients can check orders and invoices themselves.</div>
+        <a class="arrow" href="https://erp.sabushtech.com" target="_blank" rel="noopener" data-pt="Visitar erp.sabushtech.com →">Visit erp.sabushtech.com →</a>
       </div>
 
       <div class="ledger-row">
         <div class="code">02 / POS</div>
         <div>
           <h3>Sabush POS</h3>
-          <span class="tag">For the counter</span>
+          <span class="tag" data-pt="Para o balcão">For the counter</span>
         </div>
-        <div class="desc"><strong>Built for small retail shops and bars.</strong> Fast checkout, simple stock counts, and daily totals — no training manual required, just an easy screen your staff can use from day one.</div>
-        <a class="arrow" href="https://pos.sabushtech.com" target="_blank" rel="noopener">Visit pos.sabushtech.com →</a>
+        <div class="desc" data-pt-html="<strong>Feito para pequenas lojas de retalho e bares.</strong> Checkout rápido, contagens de stock simples e totais diários — sem precisar de manual, apenas um ecrã fácil que a sua equipa usa desde o primeiro dia."><strong>Built for small retail shops and bars.</strong> Fast checkout, simple stock counts, and daily totals — no training manual required, just an easy screen your staff can use from day one.</div>
+        <a class="arrow" href="https://pos.sabushtech.com" target="_blank" rel="noopener" data-pt="Visitar pos.sabushtech.com →">Visit pos.sabushtech.com →</a>
       </div>
 
       <div class="ledger-row">
         <div class="code">03 / MARKET</div>
         <div>
           <h3>Mercado Sabush</h3>
-          <span class="tag">Get found</span>
+          <span class="tag" data-pt="Seja encontrado">Get found</span>
         </div>
-        <div class="desc"><strong>A digital marketplace for your business.</strong> Business owners and service providers sign up, list what they sell, and let nearby clients find and reach them directly — no separate website needed to be visible.</div>
-        <a class="arrow" href="https://mercado.sabushtech.com" target="_blank" rel="noopener">Visit mercado.sabushtech.com →</a>
+        <div class="desc" data-pt-html="<strong>Um mercado digital para o seu negócio.</strong> Empresários e prestadores de serviços registam-se, listam o que vendem, e deixam que clientes próximos os encontrem e contactem directamente — sem precisar de um site separado para serem visíveis."><strong>A digital marketplace for your business.</strong> Business owners and service providers sign up, list what they sell, and let nearby clients find and reach them directly — no separate website needed to be visible.</div>
+        <a class="arrow" href="https://mercado.sabushtech.com" target="_blank" rel="noopener" data-pt="Visitar mercado.sabushtech.com →">Visit mercado.sabushtech.com →</a>
       </div>
 
       <div class="ledger-row">
         <div class="code">04 / BPT</div>
         <div>
           <h3>Sabush BPT</h3>
-          <span class="tag">Profit tracker</span>
+          <span class="tag" data-pt="Rastreador de lucro">Profit tracker</span>
         </div>
-        <div class="desc"><strong>Profit, calculated the moment stock arrives.</strong> Every time a product is entered into stock, Sabush BPT logs the cost and the sale price and tells you exactly what you stand to earn — before it's even sold.</div>
-        <a class="arrow" href="https://bpt.sabushtech.com" target="_blank" rel="noopener">Visit bpt.sabushtech.com →</a>
+        <div class="desc" data-pt-html="<strong>Lucro, calculado no momento em que o stock chega.</strong> Sempre que um produto é registado em stock, o Sabush BPT regista o custo e o preço de venda e mostra exactamente quanto vai ganhar — antes mesmo de ser vendido."><strong>Profit, calculated the moment stock arrives.</strong> Every time a product is entered into stock, Sabush BPT logs the cost and the sale price and tells you exactly what you stand to earn — before it's even sold.</div>
+        <a class="arrow" href="https://bpt.sabushtech.com" target="_blank" rel="noopener" data-pt="Visitar bpt.sabushtech.com →">Visit bpt.sabushtech.com →</a>
       </div>
     </div>
   </section>
 
   <section class="wrap" id="services">
     <div class="sec-head">
-      <p class="sec-eyebrow">What we do</p>
-      <h2>Beyond software — we build and train, too.</h2>
-      <p>Sabush Tech is a studio as much as a systems company. If it helps your business run, sell, or grow, we can build it, teach it, or design it from scratch around exactly what you need — remotely.</p>
+      <p class="sec-eyebrow" data-pt="O que fazemos">What we do</p>
+      <h2 data-pt="Além do software — também construímos e formamos.">Beyond software — we build and train, too.</h2>
+      <p data-pt="A Sabush Tech é tanto um estúdio criativo como uma empresa de sistemas. Se ajuda o seu negócio a funcionar, vender ou crescer, nós construímos, ensinamos ou desenhamos de raiz, exactamente à medida do que precisa — à distância.">Sabush Tech is a studio as much as a systems company. If it helps your business run, sell, or grow, we can build it, teach it, or design it from scratch around exactly what you need — remotely.</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card">
         <div class="num">SERVICE / 01</div>
-        <h3>Website design</h3>
-        <p>Websites built for businesses — clear, fast, and made to turn visitors into customers, not just look good.</p>
+        <h3 data-pt="Design de sites">Website design</h3>
+        <p data-pt="Sites feitos para empresas — claros, rápidos e criados para transformar visitantes em clientes, não só para parecerem bonitos.">Websites built for businesses — clear, fast, and made to turn visitors into customers, not just look good.</p>
       </div>
       <div class="service-card">
         <div class="num">SERVICE / 02</div>
-        <h3>Sales systems</h3>
-        <p>Custom-built POS and ERP systems for businesses whose needs don't fit an off-the-shelf tool.</p>
+        <h3 data-pt="Sistemas de vendas">Sales systems</h3>
+        <p data-pt="Sistemas de POS e ERP à medida para empresas cujas necessidades não cabem numa ferramenta pronta.">Custom-built POS and ERP systems for businesses whose needs don't fit an off-the-shelf tool.</p>
       </div>
       <div class="service-card">
         <div class="num">SERVICE / 03</div>
-        <h3>Remote automation</h3>
-        <p>We find the tasks your team repeats every day and automate them — freeing up hours, remotely, without new hires.</p>
+        <h3 data-pt="Automação à distância">Remote automation</h3>
+        <p data-pt="Encontramos as tarefas que a sua equipa repete todos os dias e automatizamo-las — libertando horas, à distância, sem novas contratações.">We find the tasks your team repeats every day and automate them — freeing up hours, remotely, without new hires.</p>
       </div>
       <div class="service-card">
         <div class="num">SERVICE / 04</div>
-        <h3>Business English training</h3>
-        <p>Remote English coaching focused on the business your team actually does — calls, emails, and clients. Delivered through SABUSH ENGLISH CLUB.</p>
+        <h3 data-pt="Formação de inglês empresarial">Business English training</h3>
+        <p data-pt="Coaching de inglês à distância focado no trabalho real da sua equipa — chamadas, emails e clientes. Fornecido através do SABUSH ENGLISH CLUB.">Remote English coaching focused on the business your team actually does — calls, emails, and clients. Delivered through SABUSH ENGLISH CLUB.</p>
       </div>
       <div class="service-card">
         <div class="num">SERVICE / 05</div>
-        <h3>Custom-built systems</h3>
-        <p>Need something none of our platforms cover? Tell us what your business needs, and we'll design and build a tailored system around it — from scratch.</p>
-        <a class="arrow" style="display:inline-flex;margin-top:16px;" href="#contact">Tell us what you need →</a>
+        <h3 data-pt="Sistemas feitos à medida">Custom-built systems</h3>
+        <p data-pt="Precisa de algo que nenhuma das nossas plataformas cobre? Diga-nos o que o seu negócio precisa, e nós desenhamos e construímos um sistema à medida — de raiz.">Need something none of our platforms cover? Tell us what your business needs, and we'll design and build a tailored system around it — from scratch.</p>
+        <a class="arrow" style="display:inline-flex;margin-top:16px;" href="#contact" data-pt="Diga-nos o que precisa →">Tell us what you need →</a>
       </div>
     </div>
   </section>
@@ -455,29 +537,29 @@
     <div class="panel-paper">
       <div>
         <p class="sec-eyebrow">SABUSH ENGLISH CLUB</p>
-        <h2>Business English, taught for the work you do.</h2>
-        <p>No generic textbook lessons. Our remote training platform, SABUSH ENGLISH CLUB, is built around real business situations — so your team can sound confident with clients, suppliers, and partners who speak English.</p>
+        <h2 data-pt="Inglês empresarial, ensinado para o trabalho que faz.">Business English, taught for the work you do.</h2>
+        <p data-pt="Nada de lições genéricas de manual. A nossa plataforma de formação à distância, SABUSH ENGLISH CLUB, é construída à volta de situações reais de negócio — para que a sua equipa fale com confiança com clientes, fornecedores e parceiros que falam inglês.">No generic textbook lessons. Our remote training platform, SABUSH ENGLISH CLUB, is built around real business situations — so your team can sound confident with clients, suppliers, and partners who speak English.</p>
         <div class="train-list">
-          <div class="item"><span class="mk">→</span>Live, remote sessions — no travel required</div>
-          <div class="item"><span class="mk">→</span>Vocabulary drawn from sales, invoicing, and customer service</div>
-          <div class="item"><span class="mk">→</span>Practice built around calls, emails, and client meetings</div>
+          <div class="item"><span class="mk">→</span><span data-pt="Sessões ao vivo e à distância — sem necessidade de viajar">Live, remote sessions — no travel required</span></div>
+          <div class="item"><span class="mk">→</span><span data-pt="Vocabulário retirado de vendas, facturação e apoio ao cliente">Vocabulary drawn from sales, invoicing, and customer service</span></div>
+          <div class="item"><span class="mk">→</span><span data-pt="Prática construída à volta de chamadas, emails e reuniões com clientes">Practice built around calls, emails, and client meetings</span></div>
         </div>
-        <a class="btn btn-primary" style="margin-top:26px;" href="https://english.sabushtech.com" target="_blank" rel="noopener">Visit english.sabushtech.com</a>
+        <a class="btn btn-primary" style="margin-top:26px;" href="https://english.sabushtech.com" target="_blank" rel="noopener" data-pt="Visitar english.sabushtech.com">Visit english.sabushtech.com</a>
       </div>
       <div class="train-card">
-        <div class="lbl">Who it's for</div>
-        <h3>Teams that talk to clients daily</h3>
-        <p>Shop staff, sales teams, and business owners who need to move between local languages and English without losing a deal in translation.</p>
+        <div class="lbl" data-pt="Para quem é">Who it's for</div>
+        <h3 data-pt="Equipas que falam com clientes diariamente">Teams that talk to clients daily</h3>
+        <p data-pt="Funcionários de loja, equipas de vendas e empresários que precisam de alternar entre línguas locais e inglês sem perder um negócio na tradução.">Shop staff, sales teams, and business owners who need to move between local languages and English without losing a deal in translation.</p>
       </div>
     </div>
   </section>
 
   <section class="wrap">
     <div class="cta-band">
-      <h2>Put your business on one system — and one ledger.</h2>
+      <h2 data-pt="Coloque o seu negócio num único sistema — e um único livro de contas.">Put your business on one system — and one ledger.</h2>
       <div class="ctas">
-        <a class="btn btn-primary" href="#contact">Request a demo</a>
-        <a class="btn btn-ghost" href="#products">Compare platforms</a>
+        <a class="btn btn-primary" href="#contact" data-pt="Solicitar uma demonstração">Request a demo</a>
+        <a class="btn btn-ghost" href="#products" data-pt="Comparar plataformas">Compare platforms</a>
       </div>
     </div>
   </section>
@@ -492,12 +574,12 @@
       <div class="foot-brand">
         <a class="logo" href="#top">
           <span class="dot"></span>
-          <span>SABUSH TECH<br><small>LDA · REMOTE BUSINESS SYSTEMS</small></span>
+          <span>SABUSH TECH<br><small data-pt="LDA · SISTEMAS DE GESTÃO À DISTÂNCIA">LDA · REMOTE BUSINESS SYSTEMS</small></span>
         </a>
-        <p>Websites, POS, ERP, marketplace, profit tracking, and automation — designed and supported remotely for growing businesses.</p>
+        <p data-pt="Sites, POS, ERP, mercado, controlo de lucro e automação — concebidos e apoiados à distância para negócios em crescimento.">Websites, POS, ERP, marketplace, profit tracking, and automation — designed and supported remotely for growing businesses.</p>
       </div>
       <div class="foot-col">
-        <h4>Platforms</h4>
+        <h4 data-pt="Plataformas">Platforms</h4>
         <a href="https://erp.sabushtech.com" target="_blank" rel="noopener">Sabush ERP</a>
         <a href="https://pos.sabushtech.com" target="_blank" rel="noopener">Sabush POS</a>
         <a href="https://mercado.sabushtech.com" target="_blank" rel="noopener">Mercado Sabush</a>
@@ -505,22 +587,22 @@
         <a href="https://english.sabushtech.com" target="_blank" rel="noopener">Sabush English Club</a>
       </div>
       <div class="foot-col">
-        <h4>Company</h4>
-        <a href="#services">Services</a>
-        <a href="#training">Training</a>
-        <a href="#contact">Contact</a>
+        <h4 data-pt="Empresa">Company</h4>
+        <a href="#services" data-pt="Serviços">Services</a>
+        <a href="#training" data-pt="Formação">Training</a>
+        <a href="#contact" data-pt="Contacto">Contact</a>
       </div>
       <div class="foot-col">
-        <h4>Get in touch</h4>
+        <h4 data-pt="Contacte-nos">Get in touch</h4>
         <a href="mailto:admin@sabushtech.com">admin@sabushtech.com</a>
         <a href="tel:+258858624086">+258 858 624 086</a>
-        <p>Provincia de Maputo<br>Cidade de Matola, 1114</p>
+        <p>Província de Maputo<br>Cidade de Matola, 1114</p>
       </div>
     </div>
     <div class="tear on-paper" style="margin-bottom:24px;"></div>
     <div class="foot-bottom">
-      <span>© 2026 SABUSH TECH LDA. ALL RIGHTS RESERVED.</span>
-      <span>BUILT REMOTELY, RUN EVERYWHERE.</span>
+      <span data-pt="© 2026 SABUSH TECH LDA. TODOS OS DIREITOS RESERVADOS.">© 2026 SABUSH TECH LDA. ALL RIGHTS RESERVED.</span>
+      <span data-pt="CONSTRUÍDO À DISTÂNCIA, A FUNCIONAR EM TODO O LADO.">BUILT REMOTELY, RUN EVERYWHERE.</span>
     </div>
   </div>
 </footer>
@@ -565,6 +647,66 @@
     }, {threshold:0.4});
     observer.observe(receipt);
   }
+
+  // ---------- PT/EN language toggle (site always lands in Portuguese) ----------
+  (function(){
+    var CURRENT_LANG = 'pt';
+
+    function applyLang(lang){
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-pt]').forEach(function(el){
+        if(!('en' in el.dataset)){ el.dataset.en = el.textContent; }
+        el.textContent = lang === 'pt' ? el.dataset.pt : el.dataset.en;
+      });
+
+      document.querySelectorAll('[data-pt-html]').forEach(function(el){
+        if(!('enHtml' in el.dataset)){ el.dataset.enHtml = el.innerHTML; }
+        el.innerHTML = lang === 'pt' ? el.dataset.ptHtml : el.dataset.enHtml;
+      });
+
+      // Counter suffix (e.g. "27 units" -> "27 unidades") without re-triggering the count animation
+      document.querySelectorAll('[data-suffix-pt]').forEach(function(el){
+        var target = parseFloat(el.dataset.count);
+        var prefix = el.dataset.prefix || '';
+        var suffix = lang === 'pt' ? el.dataset.suffixPt : el.dataset.suffix;
+        el.textContent = prefix + formatNumber(target) + suffix;
+      });
+
+      document.getElementById('lang-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      CURRENT_LANG = lang;
+    }
+
+    document.getElementById('lang-pt').addEventListener('click', function(){ applyLang('pt'); });
+    document.getElementById('lang-en').addEventListener('click', function(){ applyLang('en'); });
+
+    // Always land in Portuguese on every fresh page load, regardless of browser/visitor language.
+    applyLang('pt');
+  })();
+
+  // ---------- "Coming soon" tooltip for social icons not yet live ----------
+  document.querySelectorAll('.topbar-social a[data-soon]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var tip = a.querySelector('.soon-tip');
+      var lang = document.documentElement.lang === 'pt' ? 'pt' : 'en';
+      if(tip){ tip.textContent = tip.dataset[lang]; }
+      a.classList.add('show-tip');
+      clearTimeout(a._soonTimer);
+      a._soonTimer = setTimeout(function(){ a.classList.remove('show-tip'); }, 1600);
+    });
+  });
+
+  // WhatsApp tooltip label (link is real, just show the label on hover/tap for touch devices)
+  document.querySelectorAll('.topbar-social a[href^="https://wa.me"]').forEach(function(a){
+    a.addEventListener('mouseenter', function(){
+      var tip = a.querySelector('.soon-tip');
+      var lang = document.documentElement.lang === 'pt' ? 'pt' : 'en';
+      if(tip){ tip.textContent = tip.dataset[lang]; a.classList.add('show-tip'); }
+    });
+    a.addEventListener('mouseleave', function(){ a.classList.remove('show-tip'); });
+  });
 </script>
 
 </body>
