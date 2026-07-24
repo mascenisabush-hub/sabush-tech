@@ -225,13 +225,20 @@
   .stamp{font-family:'Inter',sans-serif;font-weight:500;font-size:0.78rem;color:var(--text-soft);}
   .stamp b{display:block;color:var(--text);font-size:1.05rem;margin-bottom:2px;font-weight:700;}
 
+  /* ---------- SHARED CARD STYLE ---------- */
+  .card{
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  }
+
   /* ---------- HERO DASHBOARD PREVIEW ---------- */
   .dash-preview{
-    background:var(--bg);
+    background:#fff;
     border:1px solid var(--border);
-    border-radius:var(--radius);
+    border-radius:14px;
     padding:24px;
-    box-shadow:0 30px 60px -20px rgba(15,23,42,0.14), 0 2px 0 rgba(15,23,42,0.04);
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
   }
   .dash-head{
     display:flex;align-items:center;justify-content:space-between;
@@ -284,12 +291,13 @@
     display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;
   }
   .product-card{
-    background:var(--bg);border:1px solid var(--border);border-radius:12px;
+    background:#fff;border:1px solid var(--border);border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
     padding:32px 28px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
   .product-card:hover{
     transform:translateY(-3px);
-    box-shadow:0 20px 40px -24px rgba(15,23,42,0.18);
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.1);
     border-color:rgba(37,99,235,0.25);
   }
   .product-icon{
@@ -307,8 +315,8 @@
 
   /* ---------- PRODUCT PREVIEW (dashboard mockup) ---------- */
   .preview-frame{
-    background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;
-    box-shadow:0 30px 60px -30px rgba(15,23,42,0.16);
+    background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
   }
   .preview-toolbar{
     display:flex;align-items:center;gap:8px;padding:14px 18px;
@@ -370,10 +378,11 @@
     display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;
   }
   .benefit-card{
-    background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;
+    background:#fff;border:1px solid var(--border);border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
     padding:28px;transition:transform .2s ease, box-shadow .2s ease;
   }
-  .benefit-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -22px rgba(15,23,42,0.16);}
+  .benefit-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -18px rgba(0,0,0,0.1);}
   .benefit-icon{
     width:40px;height:40px;border-radius:10px;background:var(--blue-soft);color:var(--blue);
     display:flex;align-items:center;justify-content:center;margin-bottom:16px;
