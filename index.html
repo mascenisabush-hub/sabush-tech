@@ -359,15 +359,17 @@
   .preview-table{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:0.85rem;}
   .preview-table th{
     text-align:left;color:var(--text-soft);font-weight:500;font-size:0.75rem;
-    padding-bottom:10px;border-bottom:1px solid var(--border);
+    padding:0 8px 10px;border-bottom:1px solid var(--border);
   }
-  .preview-table td{padding:10px 0;border-bottom:1px solid var(--border);color:var(--text);}
+  .preview-table td{padding:10px 8px;border-bottom:1px solid var(--border);color:var(--text);}
   .preview-table tr:last-child td{border-bottom:none;}
+  .preview-table tbody tr{transition:background .15s ease;}
+  .preview-table tbody tr:hover{background:#f5f8ff;}
   .status-pill{
     font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:20px;
   }
-  .status-paid{background:rgba(22,163,74,0.12);color:var(--success);}
-  .status-pending{background:var(--blue-soft);color:var(--blue);}
+  .status-paid{background:#e6f7ee;color:#16a34a;}
+  .status-pending{background:#eef2ff;color:#2563eb;}
   @media(max-width:700px){
     .preview-body{grid-template-columns:1fr;}
     .preview-sidebar{flex-direction:row;justify-content:center;border-right:none;border-bottom:1px solid var(--border);}
