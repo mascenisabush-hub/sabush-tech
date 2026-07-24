@@ -183,8 +183,15 @@
     transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
   }
   .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--orange);color:#FFFFFF;}
-  .btn-primary:hover{background:var(--orange-dark);}
+  .btn-primary{
+    background:linear-gradient(135deg, #ff7a18, #ff9f43);
+    color:#FFFFFF;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:600;
+    box-shadow:0 4px 14px rgba(255,122,24,0.3);
+  }
+  .btn-primary:hover{background:linear-gradient(135deg, #f2670a, #ff8f2b);box-shadow:0 8px 22px rgba(255,122,24,0.4);}
   .btn-ghost{border-color:var(--border);color:var(--text);}
   .btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
   .btn-secondary{border-color:var(--blue);color:var(--blue);background:var(--bg);}
