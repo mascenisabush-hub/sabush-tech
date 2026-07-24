@@ -9,15 +9,17 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --navy: #F5F8FC; --navy-mid: #EAF0FA;
-    --teal: #002B85; --gold: #B8860B;
-    --white: #16243E; --muted: #5C6B85;
+    --bg: #FFFFFF; --bg-soft: #F8FAFC;
+    --text: #0F172A; --muted: #475569;
+    --blue: #2563EB; --blue-soft: rgba(37,99,235,0.12);
+    --orange: #F97316; --orange-dark: #EA580C;
+    --border: #E2E8F0;
   }
   body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    background: var(--navy);
-    color: var(--white);
+    background: var(--bg);
+    color: var(--text);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,13 +31,13 @@
   }
   .bg {
     position: fixed; inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,0,128,0.07) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(37,99,235,0.05) 0%, transparent 70%);
     pointer-events: none;
   }
   .grid {
     position: fixed; inset: 0;
-    background-image: linear-gradient(rgba(0,0,128,0.04) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,0,128,0.04) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
   }
@@ -44,7 +46,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 0.75rem;
-    color: var(--teal);
+    color: var(--blue);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 24px;
@@ -55,7 +57,7 @@
     font-weight: 700;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 2px rgba(0,0,128,0.25);
+    -webkit-text-stroke: 2px rgba(15,23,42,0.15);
     margin-bottom: 24px;
     position: relative;
   }
@@ -67,10 +69,10 @@
     align-items: center;
     justify-content: center;
     font-size: inherit;
-    color: var(--navy-mid);
+    color: var(--bg-soft);
     -webkit-text-stroke: 0;
     filter: blur(24px);
-    opacity: 0.5;
+    opacity: 0.6;
   }
   h1 {
     font-family: 'Poppins', sans-serif;
@@ -87,31 +89,31 @@
   }
   .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--teal); color: var(--navy);
+    background: var(--orange); color: #FFFFFF;
     padding: 12px 26px; border-radius: 10px;
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(0,0,128,0.3);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 20px rgba(249,115,22,0.25);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,128,0.4); }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.32); }
   .btn-ghost {
-    border: 1.5px solid rgba(0,0,128,0.35); color: var(--teal);
+    border: 1.5px solid var(--border); color: var(--blue);
     padding: 12px 26px; border-radius: 10px;
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.2s, border-color 0.2s;
   }
-  .btn-ghost:hover { background: rgba(0,0,128,0.1); }
+  .btn-ghost:hover { background: var(--blue-soft); border-color: var(--blue); }
   .logo {
     position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
     font-family: 'Poppins', sans-serif;
     font-weight: 700; font-size: 1.1rem;
-    color: var(--white); text-decoration: none;
+    color: var(--text); text-decoration: none;
     display: flex; align-items: center; gap: 8px;
     z-index: 10;
   }
-  .logo-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); }
+  .logo-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--blue); }
 </style>
 </head>
 <body>
