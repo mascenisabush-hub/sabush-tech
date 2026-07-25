@@ -5,6 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title" data-pt="Sabush Tech — Gira todo o seu negócio numa única plataforma">Sabush Tech — Manage your entire business in one platform</title>
+<meta name="description" content="Sabush Tech: ERP, POS, a digital marketplace, and Sabush BPT — a Business Capital & Profitability Management System — all in one platform to run and grow your business.">
+<link rel="canonical" href="https://sabushtech.com/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -409,6 +412,46 @@
   }
   .stat-item span{font-family:'Inter',sans-serif;font-size:0.9rem;color:#6b7280;}
 
+  /* ---------- FLAGSHIP SPOTLIGHT (Sabush BPT) ---------- */
+  .flagship-band{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    border-radius:20px;overflow:hidden;position:relative;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:0;align-items:stretch;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .flagship-copy{padding:52px 48px;color:#e2e8f0;}
+  .flagship-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(245,158,11,0.14);color:#FBBF24;
+    font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    padding:6px 14px;border-radius:20px;margin-bottom:20px;
+  }
+  .flagship-copy h2{color:#fff;font-size:clamp(1.6rem,3vw,2.15rem);max-width:16ch;}
+  .flagship-copy p{margin-top:16px;color:#cbd5f5;font-size:1rem;line-height:1.65;max-width:44ch;}
+  .flagship-list{margin-top:22px;display:flex;flex-direction:column;gap:10px;}
+  .flagship-list span{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:#e2e8f0;}
+  .flagship-list svg{width:16px;height:16px;color:#34D399;flex:none;}
+  .flagship-ctas{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+  .flagship-visual{
+    background:rgba(255,255,255,0.03);border-left:1px solid rgba(255,255,255,0.06);
+    display:flex;align-items:center;justify-content:center;padding:40px;
+  }
+  .flagship-worth{
+    background:#fff;border-radius:14px;padding:26px;width:100%;max-width:280px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  }
+  .flagship-worth-label{font-family:'Inter',sans-serif;font-size:0.7rem;color:var(--text-soft);margin-bottom:8px;}
+  .flagship-worth-val{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.7rem;color:var(--text);font-variant-numeric:tabular-nums;}
+  .flagship-worth-delta{margin-top:6px;font-family:'Inter',sans-serif;font-size:0.76rem;font-weight:600;color:var(--success);}
+  .flagship-worth-row{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--border);margin-top:16px;font-family:'Inter',sans-serif;font-size:0.82rem;}
+  .flagship-worth-row span{color:var(--text-soft);}
+  .flagship-worth-row b{color:var(--text);}
+  @media(max-width:900px){
+    .flagship-band{grid-template-columns:1fr;}
+    .flagship-copy{padding:40px 28px;}
+    .flagship-visual{padding:32px 28px;border-left:none;border-top:1px solid rgba(255,255,255,0.06);}
+  }
+
   /* ---------- CTA ---------- */
   .cta-band{
     background:linear-gradient(135deg, #2563eb, #1d4ed8);
@@ -487,6 +530,7 @@
     </a>
     <nav class="links">
       <a href="#products" data-pt="Produtos">Products</a>
+      <a href="bpt.html">Sabush BPT</a>
       <a href="#preview" data-pt="Como funciona">How it works</a>
       <a href="#benefits" data-pt="Benefícios">Benefits</a>
       <a href="#contact" data-pt="Contacto">Contact</a>
@@ -543,10 +587,38 @@
 
   <div class="tear wrap"></div>
 
+  <section class="wrap" id="bpt-spotlight">
+    <div class="flagship-band">
+      <div class="flagship-copy">
+        <span class="flagship-tag" data-pt="NOVO · PRODUTO EM DESTAQUE">NEW · FLAGSHIP PRODUCT</span>
+        <h2 data-pt="Conheça o valor real do seu negócio com o Sabush BPT.">Know the true value of your business with Sabush BPT.</h2>
+        <p data-pt="Não é um POS. Não é um simples inventário. O Sabush BPT é um sistema de gestão de capital e rentabilidade empresarial — construído para responder à pergunta mais importante do seu negócio: quanto vale, realmente?">Not a POS. Not just inventory software. Sabush BPT is a Business Capital &amp; Profitability Management System — built to answer your business's most important question: what is it really worth?</p>
+        <div class="flagship-list">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-pt="Veja o lucro embutido no seu stock">See the profit embedded in your stock</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-pt="Proteja o capital do seu negócio">Protect your business capital</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-pt="Acompanhe o crescimento do negócio ao longo do tempo">Track business growth over time</span></span>
+        </div>
+        <div class="flagship-ctas">
+          <a class="btn btn-primary" href="bpt.html" data-pt="Explorar o Sabush BPT →">Explore Sabush BPT →</a>
+          <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.3);color:#fff;" href="bpt.html#how-it-works" data-pt="Como funciona">How it works</a>
+        </div>
+      </div>
+      <div class="flagship-visual">
+        <div class="flagship-worth">
+          <div class="flagship-worth-label" data-pt="Valor total do negócio">Total business worth</div>
+          <div class="flagship-worth-val" data-count="1284500" data-prefix="MZN ">MZN 0</div>
+          <div class="flagship-worth-delta">▲ 18% <span data-pt="este trimestre">this quarter</span></div>
+          <div class="flagship-worth-row"><span data-pt="Capital em stock">Capital in stock</span><b>MZN 342,000</b></div>
+          <div class="flagship-worth-row"><span data-pt="Lucro embutido">Embedded profit</span><b>MZN 96,700</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap" id="products">
     <div class="sec-head">
       <p class="sec-eyebrow" data-pt="Os nossos produtos">Our products</p>
-      <h2 data-pt="Três produtos. Uma forma de gerir o seu negócio.">Three products. One way to run your business.</h2>
+      <h2 data-pt="Quatro produtos. Uma forma de gerir o seu negócio.">Four products. One way to run your business.</h2>
       <p data-pt="Cada um resolve um problema específico — use um só, ou ligue-os todos com um único acesso Sabush.">Each one solves a specific problem — use one, or connect them all under a single Sabush login.</p>
     </div>
 
@@ -576,6 +648,15 @@
         <h3>Mercado Sabush</h3>
         <p data-pt="Venda online e alcance mais clientes — o seu negócio visível num mercado digital.">Sell online and reach more customers — your business visible in a digital marketplace.</p>
         <a class="arrow" href="https://mercado.sabushtech.com" target="_blank" rel="noopener" data-pt="Explorar Mercado Sabush →">Explore Mercado Sabush →</a>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Sabush BPT</h3>
+        <p data-pt="Saiba quanto vale o seu negócio — capital, valor de stock e rentabilidade, sempre actualizados.">Know what your business is worth — capital, stock value, and profitability, always up to date.</p>
+        <a class="arrow" href="bpt.html" data-pt="Explorar Sabush BPT →">Explore Sabush BPT →</a>
       </div>
     </div>
   </section>
@@ -691,7 +772,7 @@
         <a href="https://erp.sabushtech.com" target="_blank" rel="noopener">Sabush ERP</a>
         <a href="https://pos.sabushtech.com" target="_blank" rel="noopener">Sabush POS</a>
         <a href="https://mercado.sabushtech.com" target="_blank" rel="noopener">Mercado Sabush</a>
-        <a href="https://bpt.sabushtech.com" target="_blank" rel="noopener">Sabush BPT</a>
+        <a href="bpt.html">Sabush BPT</a>
         <a href="https://english.sabushtech.com" target="_blank" rel="noopener">Sabush English Club</a>
       </div>
       <div class="foot-col">

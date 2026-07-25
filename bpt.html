@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title" data-pt="Sabush BPT — Conheça o Valor Real do Seu Negócio">Sabush BPT — Know the True Value of Your Business</title>
+<meta name="description" id="meta-desc" data-pt="O Sabush BPT é um sistema de gestão de capital e rentabilidade empresarial. Monitorize o valor do seu stock, o lucro embutido e o crescimento do seu negócio — sem precisar de um POS tradicional." content="Sabush BPT is a Business Capital & Profitability Management System. Monitor inventory value, embedded profit, and business growth without needing a traditional POS system.">
+<link rel="canonical" href="https://sabushtech.com/bpt.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sabush Tech">
+<meta property="og:title" id="og-title" data-pt="Sabush BPT — Conheça o Valor Real do Seu Negócio" content="Sabush BPT — Know the True Value of Your Business">
+<meta property="og:description" id="og-desc" data-pt="Monitorize capital, valor de stock, rentabilidade e crescimento do seu negócio com o Sabush BPT — o sistema de gestão de capital e rentabilidade empresarial." content="Monitor capital, inventory value, profitability, and business growth with Sabush BPT — the Business Capital & Profitability Management System.">
+<meta property="og:image" content="https://sabushtech.com/erp-dashboard.jpg">
+<meta property="og:url" content="https://sabushtech.com/bpt.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" data-pt="Sabush BPT — Conheça o Valor Real do Seu Negócio" content="Sabush BPT — Know the True Value of Your Business">
+<meta name="twitter:description" id="tw-desc" data-pt="Monitorize capital, valor de stock, rentabilidade e crescimento do seu negócio com o Sabush BPT." content="Monitor capital, inventory value, profitability, and business growth with Sabush BPT.">
+<meta name="twitter:image" content="https://sabushtech.com/erp-dashboard.jpg">
+<meta name="keywords" content="Business Capital Management, Inventory Management, Stock Management, Profitability Software, Business Worth, Inventory Valuation, SME Management Software, Small Business Software, Inventory Profit Tracking, Capital Preservation">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Sabush BPT",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Sabush BPT is a Business Capital & Profitability Management System that helps business owners track inventory value, embedded profit, capital preservation, and business growth.",
+  "url": "https://sabushtech.com/bpt.html",
+  "brand": {
+    "@type": "Organization",
+    "name": "Sabush Tech LDA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gray-light:#f9fafb;
+    --gray-border:#e5e7eb;
+    --bg:var(--gray-light);
+    --bg-soft:#F8FAFC;
+    --text:#0F172A;
+    --text-soft:#475569;
+    --blue:#2563EB;
+    --blue-dark:#1D4ED8;
+    --blue-soft:#EFF6FF;
+    --orange:#F97316;
+    --orange-dark:#EA580C;
+    --border:#E2E8F0;
+    --success:#16A34A;
+    --live:#DC2626;
+    --radius:14px;
+    --gold:#B45309;
+    --gold-soft:#FFFBEB;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    margin:0;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  h3{font-weight:600;}
+  h2{font-size:42px;line-height:1.2;}
+  @media(max-width:640px){ h2{font-size:28px;} }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+  .tear{
+    position:relative;height:1px;
+    background-image:linear-gradient(to right, var(--border) 60%, transparent 0%);
+    background-size:14px 1px;background-repeat:repeat-x;
+  }
+  .tear.on-paper{background-image:linear-gradient(to right, rgba(255,255,255,0.14) 60%, transparent 0%);}
+
+  /* ---------- top contact bar ---------- */
+  .topbar{background:#0f172a;color:#cbd5f5;font-size:0.8rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .topbar-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .topbar-contact{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .topbar-contact a{display:inline-flex;align-items:center;gap:7px;color:#cbd5f5;opacity:0.92;transition:color .15s ease,opacity .15s ease;font-size:0.8rem;white-space:nowrap;}
+  .topbar-contact a:hover{opacity:1;color:#93c5fd;}
+  .topbar-contact svg{width:14px;height:14px;flex:none;}
+  .topbar-right{display:flex;align-items:center;gap:16px;}
+  .topbar-social{display:flex;align-items:center;gap:10px;}
+  .topbar-social a{position:relative;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.08);color:#cbd5f5;transition:background .15s ease,color .15s ease,transform .15s ease;}
+  .topbar-social a:hover{transform:translateY(-1px);}
+  .topbar-social svg{width:13px;height:13px;}
+  .topbar-social a.ic-whatsapp{background:rgba(37,211,102,0.14);color:#25D366;}
+  .topbar-social a.ic-whatsapp:hover{background:#25D366;color:#fff;}
+  .topbar-social a.ic-facebook{background:rgba(24,119,242,0.14);color:#1877F2;}
+  .topbar-social a.ic-facebook:hover{background:#1877F2;color:#fff;}
+  .topbar-social a.ic-instagram{background:rgba(221,42,123,0.14);color:#DD2A7B;}
+  .topbar-social a.ic-instagram:hover{background:linear-gradient(45deg,#FEDA75,#D62976,#4F5BD5);color:#fff;}
+  .topbar-social a.ic-linkedin{background:rgba(10,102,194,0.14);color:#0A66C2;}
+  .topbar-social a.ic-linkedin:hover{background:#0A66C2;color:#fff;}
+  .topbar-social a.ic-youtube{background:rgba(255,0,0,0.14);color:#FF0000;}
+  .topbar-social a.ic-youtube:hover{background:#FF0000;color:#fff;}
+  .topbar-social .soon-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--gray-light);color:#0f172a;font-size:0.68rem;font-weight:600;padding:5px 9px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s ease;}
+  .topbar-social .soon-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--gray-light);}
+  .topbar-social a.show-tip .soon-tip{opacity:1;transform:translateX(-50%) translateY(0);}
+  .lang-toggle{display:flex;align-items:center;border:1px solid rgba(255,255,255,0.2);border-radius:20px;overflow:hidden;}
+  .lang-toggle button{background:transparent;border:none;color:#cbd5f5;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;padding:5px 12px;transition:background .15s ease,color .15s ease;}
+  .lang-toggle button.active{background:var(--blue);color:#fff;}
+  @media(max-width:660px){.topbar-contact a span.label{display:none;}}
+  @media(max-width:600px){.topbar-inner{flex-direction:column;align-items:center;gap:9px;padding:10px 16px;}.topbar-contact{justify-content:center;gap:22px;}.topbar-right{justify-content:center;width:100%;gap:14px;}}
+  @media(max-width:520px){.topbar-inner{padding:9px 14px;gap:8px;}.topbar-contact{gap:16px;}.topbar-social{gap:8px;}}
+
+  header.nav{position:sticky;top:0;z-index:50;background:#f8fafc;border-bottom:1px solid var(--gray-border);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1180px;margin:0 auto;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px;}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.18);}
+  .logo small{display:block;font-size:0.6rem;letter-spacing:0.1em;color:var(--text-soft);font-weight:600;margin-top:2px;}
+  nav.links{display:flex;gap:32px;align-items:center;}
+  nav.links a{font-size:0.92rem;color:var(--text-soft);transition:color .15s ease;}
+  nav.links a:hover{color:var(--blue);}
+  nav.links a.current{color:var(--blue);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:8px;border:1px solid transparent;font-size:0.9rem;font-weight:600;white-space:nowrap;transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:linear-gradient(135deg, #ff7a18, #ff9f43);color:#FFFFFF;padding:12px 22px;border-radius:10px;font-weight:600;box-shadow:0 4px 14px rgba(255,122,24,0.3);}
+  .btn-primary:hover{background:linear-gradient(135deg, #f2670a, #ff8f2b);box-shadow:0 8px 22px rgba(255,122,24,0.4);}
+  .btn-ghost{border-color:var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
+  .btn-secondary{border-color:var(--blue);background:#2563eb;color:#fff;}
+  .btn-secondary:hover{background:var(--blue-dark);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){.nav-cta{display:inline-flex;}}
+  @media(max-width:660px){nav.links{display:none;}}
+  @media(max-width:520px){.nav-inner nav.links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero.wrap{padding-top:74px;padding-bottom:60px;display:grid;grid-template-columns:1.15fr 0.95fr;gap:56px;align-items:center;}
+  .eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;color:var(--blue);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--blue);display:inline-block;}
+  .eyebrow.gold{color:var(--gold);}
+  .eyebrow.gold::before{background:var(--gold);}
+  .hero h1{font-size:clamp(2.1rem,4.4vw,3.35rem);color:var(--text);max-width:16ch;}
+  .hero .lede{margin-top:22px;font-size:1.08rem;line-height:1.6;color:var(--text-soft);max-width:46ch;}
+  .hero .ctas{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .stamp-row{margin-top:44px;display:flex;gap:28px;flex-wrap:wrap;}
+  .stamp{font-weight:500;font-size:0.78rem;color:var(--text-soft);}
+  .stamp b{display:block;color:var(--text);font-size:1.05rem;margin-bottom:2px;font-weight:700;}
+
+  .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+
+  /* ---------- HERO WORTH PREVIEW ---------- */
+  .dash-preview{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+  .dash-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--border);}
+  .dash-title{font-weight:600;font-size:0.92rem;color:var(--text);}
+  .dash-live{display:flex;align-items:center;gap:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;color:var(--success);}
+  .dash-live .blip{width:6px;height:6px;border-radius:50%;background:var(--success);animation:blip 1.6s infinite;}
+  @keyframes blip{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  .worth-hero{padding:22px 0;text-align:center;border-bottom:1px solid var(--border);}
+  .worth-hero-label{font-size:0.72rem;color:var(--text-soft);margin-bottom:8px;}
+  .worth-hero-val{font-weight:700;font-size:2rem;color:var(--text);font-variant-numeric:tabular-nums;}
+  .worth-hero-delta{margin-top:6px;font-size:0.78rem;font-weight:600;color:var(--success);}
+  .dash-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:20px 0;}
+  .dash-stat{display:flex;flex-direction:column;gap:4px;}
+  .dash-stat-label{font-size:0.7rem;color:var(--text-soft);}
+  .dash-stat-val{font-weight:700;font-size:1.05rem;color:var(--text);font-variant-numeric:tabular-nums;}
+  .dash-stat-delta{font-size:0.7rem;font-weight:600;color:var(--success);}
+  .dash-stat-delta-warn{color:var(--orange);}
+
+  section.wrap{padding-top:80px;padding-bottom:80px;}
+  .section-soft{background:var(--gray-light);}
+  .section-dark{background:#0f172a;color:#cbd5f5;}
+  @media(max-width:900px){
+    .hero.wrap{grid-template-columns:1fr;padding-top:48px;}
+    .dash-preview{max-width:420px;margin:0 auto;}
+    section.wrap{padding-top:64px;padding-bottom:64px;}
+    .sec-head{margin-bottom:40px;}
+  }
+
+  .sec-head{max-width:640px;margin-bottom:56px;}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .sec-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+  .sec-head.center .sec-eyebrow{justify-content:center;display:flex;}
+  .sec-head h2{color:var(--text);}
+  .sec-head p{margin-top:16px;color:var(--text-soft);font-size:1.02rem;line-height:1.65;}
+  .section-dark .sec-head h2, .section-dark .sec-head p{color:#fff;}
+  .section-dark .sec-head p{color:#cbd5f5;}
+
+  /* ---------- PROBLEM ---------- */
+  .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+  .problem-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px 24px;box-shadow:0 10px 30px rgba(0,0,0,0.04);position:relative;}
+  .problem-card .qmark{font-family:'Poppins',sans-serif;font-size:2.4rem;color:var(--blue-soft);line-height:1;margin-bottom:8px;font-weight:700;}
+  .problem-card p{color:var(--text);font-size:1rem;line-height:1.55;font-style:italic;}
+
+  /* ---------- SOLUTION ---------- */
+  .solution-wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:start;}
+  @media(max-width:900px){.solution-wrap{grid-template-columns:1fr;}}
+  .check-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px;}
+  .check-item{display:flex;gap:14px;align-items:flex-start;}
+  .check-ico{flex:none;width:26px;height:26px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .check-ico svg{width:14px;height:14px;}
+  .check-item b{display:block;color:var(--text);font-size:1rem;margin-bottom:3px;}
+  .check-item span{display:block;color:var(--text-soft);font-size:0.92rem;line-height:1.55;}
+
+  .batch-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,0.06);}
+  .batch-card-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:18px;}
+  .batch-card-head b{font-family:'Poppins',sans-serif;font-size:0.95rem;color:var(--text);}
+  .batch-tag{background:var(--gold-soft);color:var(--gold);font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:20px;}
+  .batch-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+  .batch-row:last-child{border-bottom:none;}
+  .batch-row span{color:var(--text-soft);}
+  .batch-row b{color:var(--text);font-weight:600;}
+  .batch-profit{margin-top:16px;background:#e6f7ee;border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;}
+  .batch-profit span{color:#166534;font-size:0.85rem;font-weight:600;}
+  .batch-profit b{color:#16a34a;font-family:'Poppins',sans-serif;font-size:1.15rem;}
+
+  /* ---------- BENEFITS ---------- */
+  .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+  .benefit-card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.05);padding:28px;transition:transform .2s ease, box-shadow .2s ease;}
+  .benefit-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -18px rgba(0,0,0,0.1);}
+  .benefit-icon{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .benefit-icon svg{width:20px;height:20px;}
+  .benefit-card h3{color:var(--text);font-size:1.05rem;margin-bottom:8px;}
+  .benefit-card p{color:var(--text-soft);font-size:0.92rem;line-height:1.6;}
+
+  /* ---------- FEATURES ---------- */
+  .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+  .feature-card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.05);padding:30px 26px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;}
+  .feature-card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -20px rgba(0,0,0,0.1);border-color:rgba(37,99,235,0.25);}
+  .feature-icon{width:44px;height:44px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .feature-icon svg{width:22px;height:22px;}
+  .feature-card h3{color:var(--text);font-size:1.08rem;margin-bottom:9px;}
+  .feature-card p{color:var(--text-soft);line-height:1.6;font-size:0.92rem;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .workflow{position:relative;max-width:640px;margin:0 auto;}
+  .workflow-step{display:flex;gap:22px;position:relative;padding-bottom:40px;}
+  .workflow-step:last-child{padding-bottom:0;}
+  .workflow-step::before{content:"";position:absolute;left:19px;top:44px;bottom:-4px;width:2px;background:var(--border);}
+  .workflow-step:last-child::before{display:none;}
+  .wf-num{flex:none;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;z-index:1;}
+  .wf-body{padding-top:6px;}
+  .wf-body h3{color:var(--text);font-size:1.05rem;margin-bottom:6px;}
+  .wf-body p{color:var(--text-soft);font-size:0.92rem;line-height:1.6;}
+
+  /* ---------- SCREENSHOTS ---------- */
+  .screens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+  .screen-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+  .screen-toolbar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--bg-soft);border-bottom:1px solid var(--border);}
+  .pt-dot{width:9px;height:9px;border-radius:50%;}
+  .pt-red{background:#F87171;} .pt-yellow{background:#FBBF24;} .pt-green{background:#34D399;}
+  .screen-label{margin-left:8px;font-size:0.74rem;color:var(--text-soft);}
+  .screen-body{height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:repeating-linear-gradient(135deg, var(--bg-soft), var(--bg-soft) 10px, #ffffff 10px, #ffffff 20px);color:var(--text-soft);}
+  .screen-body svg{width:28px;height:28px;color:var(--blue);opacity:0.6;}
+  .screen-body span{font-size:0.76rem;font-weight:600;}
+  .screen-name{padding:14px 16px;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.92rem;color:var(--text);border-top:1px solid var(--border);}
+
+  /* ---------- WHO IS IT FOR ---------- */
+  .audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .audience-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+  .audience-ico{flex:none;width:36px;height:36px;border-radius:9px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;}
+  .audience-ico svg{width:18px;height:18px;}
+  .audience-card span{font-weight:600;font-size:0.94rem;color:var(--text);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-note{font-size:0.78rem;color:var(--text-soft);font-style:italic;margin-top:-36px;margin-bottom:36px;}
+  .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+  .testi-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,0.05);display:flex;flex-direction:column;gap:16px;}
+  .testi-stars{color:#F59E0B;font-size:0.9rem;letter-spacing:2px;}
+  .testi-card p.quote{color:var(--text);font-size:0.96rem;line-height:1.65;font-style:italic;}
+  .testi-person{display:flex;align-items:center;gap:12px;padding-top:8px;border-top:1px solid var(--border);}
+  .testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;flex:none;}
+  .testi-person b{display:block;font-size:0.88rem;color:var(--text);}
+  .testi-person span{display:block;font-size:0.78rem;color:var(--text-soft);}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  .faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:600;color:var(--text);font-size:0.98rem;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .chev{flex:none;width:20px;height:20px;color:var(--blue);transition:transform .2s ease;}
+  .faq-item[open] summary .chev{transform:rotate(180deg);}
+  .faq-item .faq-a{padding:0 24px 20px;color:var(--text-soft);font-size:0.92rem;line-height:1.65;}
+
+  /* ---------- CTA ---------- */
+  .cta-band{background:linear-gradient(135deg, #2563eb, #1d4ed8);color:#fff;border-radius:16px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
+  .cta-band h2{color:#fff;max-width:20ch;}
+  .cta-band .ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0f172a;color:#cbd5f5;padding:64px 0 44px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-bottom:40px;}
+  .foot-brand .logo{margin-bottom:14px;color:#fff;}
+  .foot-brand .logo small{color:#94a3b8;}
+  .foot-brand p{color:#cbd5f5;font-size:0.9rem;line-height:1.6;max-width:32ch;}
+  .foot-col h4{font-weight:600;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:#94a3b8;margin-bottom:14px;}
+  .foot-col a{display:block;color:#93c5fd;font-size:0.92rem;margin-bottom:9px;transition:color .15s ease;}
+  .foot-col a:hover{color:#bfdbfe;text-decoration:underline;}
+  .foot-col p{display:block;color:#cbd5f5;font-size:0.92rem;margin-bottom:9px;}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:24px;font-weight:500;font-size:0.74rem;color:#94a3b8;}
+  @media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.foot-grid{grid-template-columns:1fr;}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .dash-live .blip{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-contact">
+      <a href="tel:+258858624086"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="label">+258 858 624 086</span></a>
+      <a href="mailto:admin@sabushtech.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg><span class="label">admin@sabushtech.com</span></a>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-social">
+        <a href="https://wa.me/258858624086" target="_blank" rel="noopener" class="ic-whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.31-1.93 1.35-.5.05-1.05.24-3.51-.73-2.98-1.18-4.85-4.14-5-4.34-.15-.2-1.19-1.58-1.19-3.02s.75-2.14 1.02-2.44c.26-.3.57-.37.76-.37s.38.002.55.01c.18.008.42-.07.65.5.24.58.82 2.01.9 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.45.52-.15.15-.3.31-.13.6.17.3.77 1.26 1.65 2.04 1.13 1 2.09 1.32 2.39 1.47.3.15.47.13.65-.08.17-.2.74-.86.94-1.16.2-.3.4-.24.66-.14.27.1 1.7.8 1.99.95.3.15.49.22.56.35.07.13.07.75-.17 1.43z"/></svg><span class="soon-tip" data-en="Chat on WhatsApp" data-pt="Falar no WhatsApp"></span></a>
+        <a href="#" data-soon class="ic-facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+        <a href="#" data-soon class="ic-instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="igGrad2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FEDA75"/><stop offset="35%" stop-color="#D62976"/><stop offset="70%" stop-color="#962FBF"/><stop offset="100%" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#igGrad2)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="url(#igGrad2)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="url(#igGrad2)" stroke="none"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+        <a href="#" data-soon class="ic-linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.3 8.75h3.28V21H3.3zm6.02 0h3.14v1.68h.05c.44-.83 1.5-1.7 3.1-1.7 3.31 0 3.92 2.18 3.92 5.02V21h-3.28v-5.6c0-1.34-.02-3.05-1.86-3.05-1.87 0-2.16 1.46-2.16 2.96V21H9.32z"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+        <a href="#" data-soon class="ic-youtube" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12z"/></svg><span class="soon-tip" data-en="Coming soon" data-pt="Brevemente"></span></a>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-pt" class="active">PT</button>
+        <button type="button" id="lang-en">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="dot"></span>
+      <span>SABUSH TECH<br><small data-pt="LDA · PLATAFORMA DE GESTÃO EMPRESARIAL">LDA · BUSINESS MANAGEMENT PLATFORM</small></span>
+    </a>
+    <nav class="links">
+      <a href="index.html#products" data-pt="Produtos">Products</a>
+      <a href="index.html#benefits" data-pt="Benefícios">Benefits</a>
+      <a href="bpt.html" class="current">Sabush BPT</a>
+      <a href="index.html#contact" data-pt="Contacto">Contact</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="mailto:admin@sabushtech.com?subject=Sabush%20BPT%20Demo%20Request" data-pt="Pedir uma Demonstração">Request a Demo</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div>
+      <p class="eyebrow gold" data-pt="GESTÃO DE CAPITAL E RENTABILIDADE">BUSINESS CAPITAL &amp; PROFITABILITY MANAGEMENT</p>
+      <h1 data-pt="Conheça o Valor Real do Seu Negócio.">Know the True Value of Your Business.</h1>
+      <p class="lede" data-pt="O Sabush BPT ajuda donos de negócio a monitorizar capital, valor de stock, rentabilidade e crescimento — sem precisar de um sistema POS tradicional.">Sabush BPT helps business owners monitor capital, inventory value, profitability, and business growth without needing a traditional POS system.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:admin@sabushtech.com?subject=Sabush%20BPT%20Demo%20Request" data-pt="Pedir uma Demonstração">Request a Demo</a>
+        <a class="btn btn-ghost" href="#how-it-works" data-pt="Ver Visão Geral">Watch Overview</a>
+      </div>
+      <div class="stamp-row">
+        <div class="stamp" data-pt-html="Sem&nbsp;precisar&nbsp;de&nbsp;<b>POS</b>">No <b>POS</b> required</div>
+        <div class="stamp" data-pt-html="Feito&nbsp;para&nbsp;<b>PMEs</b>&nbsp;africanas">Built for <b>African SMEs</b></div>
+        <div class="stamp" data-pt-html="<b>Zero</b>&nbsp;conhecimento&nbsp;contabilístico"><b>Zero</b> accounting knowledge needed</div>
+      </div>
+    </div>
+
+    <div class="dash-preview" id="worthPreview">
+      <div class="dash-head">
+        <span class="dash-title" data-pt="Sabush BPT · Valor do Negócio">Sabush BPT · Business Worth</span>
+        <span class="dash-live"><span class="blip"></span><span data-pt="Actualizado">Up to date</span></span>
+      </div>
+      <div class="worth-hero">
+        <div class="worth-hero-label" data-pt="Valor total do negócio">Total business worth</div>
+        <div class="worth-hero-val" data-count="1284500" data-prefix="MZN ">MZN 0</div>
+        <div class="worth-hero-delta">▲ 18% <span data-pt="este trimestre">this quarter</span></div>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat">
+          <span class="dash-stat-label" data-pt="Capital em stock">Capital in stock</span>
+          <span class="dash-stat-val" data-count="342000" data-prefix="MZN ">MZN 0</span>
+        </div>
+        <div class="dash-stat">
+          <span class="dash-stat-label" data-pt="Lucro embutido">Embedded profit</span>
+          <span class="dash-stat-val" data-count="96700" data-prefix="MZN ">MZN 0</span>
+        </div>
+        <div class="dash-stat">
+          <span class="dash-stat-label" data-pt="Despesas do mês">Expenses this month</span>
+          <span class="dash-stat-val" data-count="18400" data-prefix="MZN ">MZN 0</span>
+          <span class="dash-stat-delta dash-stat-delta-warn" data-pt="Monitorizado">Tracked</span>
+        </div>
+        <div class="dash-stat">
+          <span class="dash-stat-label" data-pt="Perdas de stock">Inventory losses</span>
+          <span class="dash-stat-val" data-count="1200" data-prefix="MZN ">MZN 0</span>
+          <span class="dash-stat-delta">-0.4%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tear wrap"></div>
+
+  <!-- ================= PROBLEM ================= -->
+  <section class="wrap" id="problem">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="O Problema">The Problem</p>
+      <h2 data-pt="Gerir um Negócio Não Devia Ser Adivinhar.">Running a Business Shouldn't Mean Guessing.</h2>
+      <p data-pt="A maioria dos donos de negócio em África gere as suas lojas de memória — sem saber realmente quanto valem, quanto lucram ou se estão a crescer. Isto soa familiar?">Most business owners across Africa run their shops from memory — without ever really knowing what they're worth, what they earn, or whether they're growing. Does this sound familiar?</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card"><div class="qmark">&ldquo;</div><p data-pt="Não sei quanto vale a minha loja.">I don't know how much my shop is worth.</p></div>
+      <div class="problem-card"><div class="qmark">&ldquo;</div><p data-pt="Compro stock todos os meses, mas não sei se o meu negócio está a crescer.">I buy stock every month but don't know if my business is growing.</p></div>
+      <div class="problem-card"><div class="qmark">&ldquo;</div><p data-pt="Perco produtos, mas nunca sei quanto dinheiro desapareceu.">I lose products but never know how much money disappeared.</p></div>
+      <div class="problem-card"><div class="qmark">&ldquo;</div><p data-pt="Misturo o dinheiro do negócio com o dinheiro pessoal.">I mix business money with personal money.</p></div>
+      <div class="problem-card"><div class="qmark">&ldquo;</div><p data-pt="Não sei se estou realmente a progredir.">I don't know if I'm making real progress.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= SOLUTION ================= -->
+  <section class="wrap section-soft" id="solution">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="A Solução">The Solution</p>
+      <h2 data-pt="O Sabush BPT Transforma Incerteza em Clareza.">Sabush BPT Turns Guesswork Into Clarity.</h2>
+      <p data-pt="Em vez de vender pontos de venda, o Sabush BPT protege e revela o capital que já está dentro do seu negócio.">Instead of selling you a checkout, Sabush BPT protects and reveals the capital that's already inside your business.</p>
+    </div>
+    <div class="solution-wrap">
+      <ul class="check-list">
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Registe o seu stock inicial.">Record your initial inventory.</b><span data-pt="Defina um ponto de partida verdadeiro para o capital do seu negócio.">Set a true starting point for your business capital.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Acompanhe cada compra de stock.">Track every stock purchase.</b><span data-pt="Saiba exactamente quanto capital entra em novo stock.">Know exactly how much capital goes into new stock.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Conheça o valor do seu stock.">Know your inventory value.</b><span data-pt="Veja o que o seu stock realmente vale, em tempo real.">See what your stock is really worth, in real time.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Veja o lucro embutido em cada lote de stock.">See the embedded profit inside every stock batch.</b><span data-pt="Perceba o lucro que já está sentado nas suas prateleiras.">Understand the profit already sitting on your shelves.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Monitorize as despesas.">Monitor expenses.</b><span data-pt="Impeça que os custos operacionais consumam silenciosamente o seu capital.">Keep operating costs from quietly eating your capital.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Acompanhe as perdas de stock.">Track inventory losses.</b><span data-pt="Detecte perdas antes que se tornem um hábito.">Catch shrinkage before it becomes a habit.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Registe os levantamentos do proprietário.">Record owner withdrawals.</b><span data-pt="Separe as despesas pessoais do capital do negócio.">Separate personal spending from business capital.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Verifique o seu stock através de contagens físicas.">Verify your stock through physical counts.</b><span data-pt="Confirme que os números batem com a realidade.">Confirm the numbers match reality.</span></div>
+        </li>
+        <li class="check-item">
+          <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b data-pt="Meça o crescimento do negócio ao longo do tempo.">Measure business growth over time.</b><span data-pt="Veja o seu capital e valor a crescer, mês após mês.">Watch your capital and worth grow, month by month.</span></div>
+        </li>
+      </ul>
+
+      <div class="batch-card">
+        <div class="batch-card-head">
+          <b data-pt="Lote #A-104 · Arroz 25kg">Batch #A-104 · Rice 25kg</b>
+          <span class="batch-tag" data-pt="Activo">Active</span>
+        </div>
+        <div class="batch-row"><span data-pt="Unidades compradas">Units purchased</span><b>120</b></div>
+        <div class="batch-row"><span data-pt="Custo por unidade">Cost per unit</span><b>MZN 850</b></div>
+        <div class="batch-row"><span data-pt="Preço de venda">Selling price</span><b>MZN 1,050</b></div>
+        <div class="batch-row"><span data-pt="Unidades restantes">Units remaining</span><b>76</b></div>
+        <div class="batch-profit">
+          <span data-pt="Lucro embutido restante">Remaining embedded profit</span>
+          <b>MZN 15,200</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY BUSINESS OWNERS LOVE SABUSH BPT ================= -->
+  <section class="wrap" id="benefits">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="Porquê o Sabush BPT">Why Business Owners Love Sabush BPT</p>
+      <h2 data-pt="Construído para proteger o que já construiu.">Built to Protect What You've Already Built.</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3 data-pt="Conheça o valor real do seu negócio.">Know your real business worth.</h3>
+        <p data-pt="Um número claro, sempre actualizado, que responde à pergunta mais importante do seu negócio.">A clear, always-current number that answers your business's most important question.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <h3 data-pt="Proteja o seu investimento.">Protect your investment.</h3>
+        <p data-pt="Detecte fugas silenciosas de capital antes que se tornem prejuízos reais.">Catch silent capital leaks before they turn into real losses.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3 data-pt="Perceba para onde vai o seu dinheiro.">Understand where your money goes.</h3>
+        <p data-pt="Despesas, levantamentos e perdas — tudo registado, nada escondido.">Expenses, withdrawals, and losses — all recorded, nothing hidden.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+        <h3 data-pt="Veja o crescimento do negócio com clareza.">See business growth clearly.</h3>
+        <p data-pt="Uma linha do tempo do seu capital, para que o progresso deixe de ser uma sensação e passe a ser um facto.">A timeline of your capital, so progress stops being a feeling and becomes a fact.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M3 3v18h18V3"/><path d="M3 11h18"/></svg></div>
+        <h3 data-pt="Relatórios profissionais.">Professional reports.</h3>
+        <p data-pt="Relatórios claros que pode partilhar com sócios, bancos ou investidores.">Clean reports you can confidently share with partners, banks, or investors.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg></div>
+        <h3 data-pt="Simples o suficiente para pequenos negócios.">Simple enough for small businesses.</h3>
+        <p data-pt="Sem jargão, sem complicações — desenhado para o dia-a-dia de uma loja real.">No jargon, no complexity — built for the daily reality of a real shop.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4-2.6-8-6.6-8-11.5A8 8 0 0112 2a8 8 0 018 7.5c0 4.9-3.6 8.9-8 11.5z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+        <h3 data-pt="Desenhado para PMEs Africanas.">Designed for African SMEs.</h3>
+        <p data-pt="Construído para a realidade de negócios em Moçambique e em toda a África.">Built for the realities of businesses in Mozambique and across Africa.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3 data-pt="Não precisa de conhecimentos de contabilidade.">No accounting knowledge required.</h3>
+        <p data-pt="Se sabe gerir a sua loja, sabe usar o Sabush BPT.">If you know how to run your shop, you know how to use Sabush BPT.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURE SHOWCASE ================= -->
+  <section class="wrap section-soft" id="features">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="O que o Sabush BPT inclui">What's Inside Sabush BPT</p>
+      <h2 data-pt="Cada funcionalidade protege o seu capital.">Every Feature Protects Your Capital.</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+        <h3 data-pt="Contagem Inicial de Stock">Initial Stock Count</h3>
+        <p data-pt="Comece com uma base de referência exacta, para que todos os números seguintes sejam fiáveis.">Start with an accurate baseline so every number that follows is trustworthy.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="7" height="7" rx="1.3"/><rect x="14" y="7" width="7" height="7" rx="1.3"/><rect x="8.5" y="14" width="7" height="7" rx="1.3"/></svg></div>
+        <h3 data-pt="Gestão de Lotes">Batch Management</h3>
+        <p data-pt="Acompanhe o stock por lotes, para saber sempre quanto pagou e quanto vale.">Track stock in batches so you always know what you paid, and what it's worth.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3 data-pt="Lucro Embutido">Embedded Profit</h3>
+        <p data-pt="Veja o lucro escondido nas suas prateleiras antes mesmo de vender.">See the profit hiding inside your shelves before you even make the sale.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3 data-pt="Verificação de Stock">Inventory Verification</h3>
+        <p data-pt="Compare contagens físicas com os seus registos para detectar discrepâncias cedo.">Compare physical counts against your records to catch discrepancies early.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3 data-pt="Valor do Negócio">Business Worth</h3>
+        <p data-pt="Um único número que lhe diz quanto o seu negócio realmente vale hoje.">A single number that tells you what your business is really worth today.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20"/></svg></div>
+        <h3 data-pt="Despesas">Expenses</h3>
+        <p data-pt="Registe custos operacionais para que nunca corroam silenciosamente o seu capital.">Log operating costs so they never quietly erode your capital.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M4 20c1.6-4 4.6-6 8-6s6.4 2 8 6"/></svg></div>
+        <h3 data-pt="Levantamentos do Proprietário">Owner Withdrawals</h3>
+        <p data-pt="Mantenha os gastos pessoais separados e veja o seu impacto real no capital.">Keep personal spending separate and see its real impact on your capital.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M3 3v18h18V3"/><path d="M3 11h18"/></svg></div>
+        <h3 data-pt="Relatórios">Reports</h3>
+        <p data-pt="Relatórios claros e profissionais em que pode confiar — sem folhas de cálculo.">Clear, professional reports you can trust — no spreadsheets required.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3 data-pt="Linha do Tempo">Timeline</h3>
+        <p data-pt="Um histórico completo de cada transacção que moldou o seu negócio.">A full history of every transaction that shaped your business.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+        <h3 data-pt="Crescimento de Capital">Capital Growth</h3>
+        <p data-pt="Veja o seu capital crescer (ou encolher) mês após mês, num relance.">Watch your capital grow (or shrink) month after month, at a glance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="wrap" id="how-it-works">
+    <div class="sec-head center">
+      <p class="sec-eyebrow" data-pt="Como Funciona">How It Works</p>
+      <h2 data-pt="Do stock na prateleira ao valor do negócio.">From Stock on the Shelf to Business Worth.</h2>
+    </div>
+    <div class="workflow">
+      <div class="workflow-step">
+        <div class="wf-num">1</div>
+        <div class="wf-body"><h3 data-pt="Conte o seu stock actual.">Count your existing inventory.</h3><p data-pt="Estabeleça o seu ponto de partida com uma contagem inicial completa.">Establish your starting point with a full initial count.</p></div>
+      </div>
+      <div class="workflow-step">
+        <div class="wf-num">2</div>
+        <div class="wf-body"><h3 data-pt="Registe cada compra de stock.">Record every stock purchase.</h3><p data-pt="Cada novo lote entra no sistema com o seu custo real.">Every new batch enters the system with its real cost.</p></div>
+      </div>
+      <div class="workflow-step">
+        <div class="wf-num">3</div>
+        <div class="wf-body"><h3 data-pt="Acompanhe despesas e perdas de stock.">Track expenses and inventory losses.</h3><p data-pt="Nada que afecte o seu capital passa despercebido.">Nothing that affects your capital goes unnoticed.</p></div>
+      </div>
+      <div class="workflow-step">
+        <div class="wf-num">4</div>
+        <div class="wf-body"><h3 data-pt="Faça verificações periódicas de stock.">Perform periodic stock verification.</h3><p data-pt="Confirme que os registos batem certo com a realidade física.">Confirm your records match physical reality.</p></div>
+      </div>
+      <div class="workflow-step">
+        <div class="wf-num">5</div>
+        <div class="wf-body"><h3 data-pt="Perceba o valor e o crescimento do seu negócio.">Understand your business worth and growth.</h3><p data-pt="Veja tudo reunido num único número, sempre actualizado.">See it all come together in a single, always-current number.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREENSHOTS ================= -->
+  <section class="wrap section-soft" id="screenshots">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="Capturas de Ecrã">Screenshots</p>
+      <h2 data-pt="Veja o Sabush BPT em acção.">See Sabush BPT in Action.</h2>
+      <p data-pt="Uma visão real de como o Sabush BPT apresenta o capital e o valor do seu negócio.">A real look at how Sabush BPT presents your business's capital and worth.</p>
+    </div>
+    <div class="screens-grid">
+      <div class="screen-card">
+        <div class="screen-toolbar"><span class="pt-dot pt-red"></span><span class="pt-dot pt-yellow"></span><span class="pt-dot pt-green"></span><span class="screen-label">bpt.sabushtech.com/dashboard</span></div>
+        <div class="screen-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.3"/><rect x="14" y="3" width="7" height="7" rx="1.3"/><rect x="14" y="14" width="7" height="7" rx="1.3"/><rect x="3" y="14" width="7" height="7" rx="1.3"/></svg><span data-pt="Pré-visualização brevemente">Preview coming soon</span></div>
+        <div class="screen-name" data-pt="Painel">Dashboard</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-toolbar"><span class="pt-dot pt-red"></span><span class="pt-dot pt-yellow"></span><span class="pt-dot pt-green"></span><span class="screen-label">bpt.sabushtech.com/products</span></div>
+        <div class="screen-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M3 11h18M9 7V5a3 3 0 013-3v0a3 3 0 013 3v2"/></svg><span data-pt="Pré-visualização brevemente">Preview coming soon</span></div>
+        <div class="screen-name" data-pt="Gestão de Produtos">Product Management</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-toolbar"><span class="pt-dot pt-red"></span><span class="pt-dot pt-yellow"></span><span class="pt-dot pt-green"></span><span class="screen-label">bpt.sabushtech.com/batches</span></div>
+        <div class="screen-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="7" height="7" rx="1.3"/><rect x="14" y="7" width="7" height="7" rx="1.3"/><rect x="8.5" y="14" width="7" height="7" rx="1.3"/></svg><span data-pt="Pré-visualização brevemente">Preview coming soon</span></div>
+        <div class="screen-name" data-pt="Lotes de Stock">Stock Batches</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-toolbar"><span class="pt-dot pt-red"></span><span class="pt-dot pt-yellow"></span><span class="pt-dot pt-green"></span><span class="screen-label">bpt.sabushtech.com/reports</span></div>
+        <div class="screen-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v4H3z"/><path d="M3 3v18h18V3"/><path d="M3 11h18"/></svg><span data-pt="Pré-visualização brevemente">Preview coming soon</span></div>
+        <div class="screen-name" data-pt="Relatórios">Reports</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-toolbar"><span class="pt-dot pt-red"></span><span class="pt-dot pt-yellow"></span><span class="pt-dot pt-green"></span><span class="screen-label">bpt.sabushtech.com/timeline</span></div>
+        <div class="screen-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg><span data-pt="Pré-visualização brevemente">Preview coming soon</span></div>
+        <div class="screen-name" data-pt="Linha do Tempo">Timeline</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-toolbar"><span class="pt-dot pt-red"></span><span class="pt-dot pt-yellow"></span><span class="pt-dot pt-green"></span><span class="screen-label">bpt.sabushtech.com/worth</span></div>
+        <div class="screen-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-pt="Pré-visualização brevemente">Preview coming soon</span></div>
+        <div class="screen-name" data-pt="Valor do Negócio">Business Worth</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHO IS IT FOR ================= -->
+  <section class="wrap" id="audience">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="Para Quem É">Who Is It For?</p>
+      <h2 data-pt="Feito para negócios baseados em stock.">Built for Stock-Based Businesses.</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 21v-6h6v6"/></svg></span><span data-pt="Lojas de Retalho">Retail Shops</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></span><span data-pt="Grossistas">Wholesalers</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4 4 0 014 4v3h3a4 4 0 010 8h-3v3a4 4 0 01-8 0v-3H5a4 4 0 010-8h3V6a4 4 0 014-4z"/></svg></span><span data-pt="Farmácias">Pharmacies</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.7 6.7l-6.9 6.9a2 2 0 01-2.8-2.8l6.9-6.9a5 5 0 016.7-6.7l-3.1 3.1z"/></svg></span><span data-pt="Lojas de Ferragens">Hardware Stores</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="10" width="18" height="10" rx="1"/><path d="M3 10l3-6h12l3 6"/><path d="M9 14h6"/></svg></span><span data-pt="Mini-Mercados">Mini Markets</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="9" width="14" height="9" rx="1"/><path d="M15 12h4l3 3v3h-7z"/><circle cx="6" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg></span><span data-pt="Distribuidores">Distributors</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 6 5 10 5 14a7 7 0 0014 0c0-4-3-8-7-12z"/></svg></span><span data-pt="Lojas de Insumos Agrícolas">Agricultural Supply Stores</span></div>
+      <div class="audience-card"><span class="audience-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></span><span data-pt="Negócios de Comércio Geral">General Trading Businesses</span></div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="wrap section-soft" id="testimonials">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="Testemunhos">Testimonials</p>
+      <h2 data-pt="Confiado por donos de negócio.">Trusted by Business Owners.</h2>
+    </div>
+    <p class="testi-note" data-pt="Conteúdo provisório — a substituir por testemunhos reais de clientes.">Placeholder content — to be replaced with real customer feedback.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote" data-pt="Pela primeira vez sei exactamente quanto vale a minha loja. Já não estou a adivinhar.">For the first time, I actually know what my shop is worth. I'm not guessing anymore.</p>
+        <div class="testi-person"><span class="testi-avatar">R</span><div><b data-pt="Dono de Loja de Retalho">Retail Shop Owner</b><span data-pt="Maputo, Moçambique">Maputo, Mozambique</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote" data-pt="O Sabush BPT mostrou-me para onde o dinheiro estava realmente a ir. Foi um choque — mas um choque útil.">Sabush BPT showed me where my money was actually going. It was a wake-up call — a useful one.</p>
+        <div class="testi-person"><span class="testi-avatar">D</span><div><b data-pt="Distribuidor Grossista">Wholesale Distributor</b><span data-pt="Matola, Moçambique">Matola, Mozambique</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote" data-pt="Simples de usar e finalmente consigo ver o meu negócio a crescer com números reais, não com sensações.">Simple to use, and I can finally see my business growing with real numbers, not just a feeling.</p>
+        <div class="testi-person"><span class="testi-avatar">M</span><div><b data-pt="Proprietário de Mini-Mercado">Mini Market Owner</b><span data-pt="Beira, Moçambique">Beira, Mozambique</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="wrap" id="faq">
+    <div class="sec-head center">
+      <p class="sec-eyebrow" data-pt="Perguntas Frequentes">FAQ</p>
+      <h2 data-pt="Perguntas Frequentes.">Frequently Asked Questions.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span data-pt="Preciso de um POS?">Do I need a POS?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-a" data-pt="Não. O Sabush BPT funciona de forma independente de qualquer sistema POS. Foi construído para gestão de capital e rentabilidade — não para processar vendas no balcão.">No. Sabush BPT works independently of any POS system. It's built for capital and profitability management — not for processing sales at the counter.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-pt="Posso usar o meu stock existente?">Can I use existing inventory?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-a" data-pt="Sim. Comece por registar a sua contagem inicial de stock e o Sabush BPT usa-a como ponto de partida do seu capital.">Yes. Start by recording your initial stock count, and Sabush BPT uses it as the starting point for your capital.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-pt="Posso importar produtos?">Can I import products?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-a" data-pt="Sim, os produtos podem ser importados para poupar tempo na configuração inicial.">Yes, products can be imported to save time during initial setup.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-pt="Como é calculado o lucro?">How is profit calculated?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-a" data-pt="O lucro é calculado por lote de stock, com base no custo face ao preço de venda — para que veja o lucro real embutido em cada unidade de stock.">Profit is calculated per stock batch, based on cost versus selling price — so you see the real embedded profit in every unit of stock.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-pt="Com que frequência devo fazer verificação de stock?">How often should I perform stock verification?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-a" data-pt="Recomendamos verificações periódicas — por exemplo, mensais ou trimestrais — para confirmar que os seus registos correspondem à realidade física.">We recommend periodic verification — for example, monthly or quarterly — to confirm your records match physical reality.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="wrap">
+    <div class="cta-band">
+      <h2 data-pt="Comece a Proteger o Capital do Seu Negócio Hoje.">Start Protecting Your Business Capital Today.</h2>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:admin@sabushtech.com?subject=Sabush%20BPT%20Demo%20Request" data-pt="Pedir uma Demonstração">Request a Demo</a>
+        <a class="btn btn-ghost" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.4);color:#fff;" href="https://wa.me/258858624086" target="_blank" rel="noopener" data-pt="Contactar Vendas">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="tear wrap"></div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html">
+          <span class="dot"></span>
+          <span>SABUSH TECH<br><small data-pt="LDA · PLATAFORMA DE GESTÃO EMPRESARIAL">LDA · BUSINESS MANAGEMENT PLATFORM</small></span>
+        </a>
+        <p data-pt="ERP, POS e mercado digital — uma plataforma para gerir e fazer crescer o seu negócio.">ERP, POS, and a digital marketplace — one platform to manage and grow your business.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-pt="Produtos">Products</h4>
+        <a href="https://erp.sabushtech.com" target="_blank" rel="noopener">Sabush ERP</a>
+        <a href="https://pos.sabushtech.com" target="_blank" rel="noopener">Sabush POS</a>
+        <a href="https://mercado.sabushtech.com" target="_blank" rel="noopener">Mercado Sabush</a>
+        <a href="bpt.html">Sabush BPT</a>
+        <a href="https://english.sabushtech.com" target="_blank" rel="noopener">Sabush English Club</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-pt="Empresa">Company</h4>
+        <a href="index.html#preview" data-pt="Como funciona">How it works</a>
+        <a href="index.html#benefits" data-pt="Benefícios">Benefits</a>
+        <a href="privacy.html" data-pt="Política de privacidade">Privacy Policy</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-pt="Contacte-nos">Get in touch</h4>
+        <a href="mailto:admin@sabushtech.com">admin@sabushtech.com</a>
+        <a href="tel:+258858624086">+258 858 624 086</a>
+        <p>Província de Maputo<br>Cidade de Matola, 1114</p>
+      </div>
+    </div>
+    <div class="tear on-paper" style="margin-bottom:24px;"></div>
+    <div class="foot-bottom">
+      <span data-pt="© 2026 SABUSH TECH LDA. TODOS OS DIREITOS RESERVADOS.">© 2026 SABUSH TECH LDA. ALL RIGHTS RESERVED.</span>
+      <span data-pt="CONSTRUÍDO À DISTÂNCIA, A FUNCIONAR EM TODO O LADO.">BUILT REMOTELY, RUN EVERYWHERE.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function formatNumber(n, decimals){
+    if(decimals){ return n.toFixed(decimals); }
+    return Math.round(n).toLocaleString('en-US');
+  }
+
+  function animateCount(el){
+    const target = parseFloat(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = (el.dataset.count.indexOf('.') > -1) ? (el.dataset.count.split('.')[1] || '').length : 0;
+    if(prefersReduced){
+      el.textContent = prefix + formatNumber(target, decimals) + suffix;
+      return;
+    }
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + formatNumber(target * eased, decimals) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          animateCount(el);
+          observer.disconnect();
+        }
+      });
+    }, {threshold:0.4});
+    observer.observe(el);
+  });
+
+  // ---------- PT/EN language toggle (site always lands in Portuguese) ----------
+  (function(){
+    function applyLang(lang){
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-pt]').forEach(function(el){
+        if(!('en' in el.dataset)){ el.dataset.en = el.textContent; }
+        el.textContent = lang === 'pt' ? el.dataset.pt : el.dataset.en;
+      });
+
+      document.querySelectorAll('[data-pt-html]').forEach(function(el){
+        if(!('enHtml' in el.dataset)){ el.dataset.enHtml = el.innerHTML; }
+        el.innerHTML = lang === 'pt' ? el.dataset.ptHtml : el.dataset.enHtml;
+      });
+
+      ['meta-desc','og-desc','tw-desc'].forEach(function(id){
+        var el = document.getElementById(id);
+        if(el){ el.setAttribute('content', lang === 'pt' ? el.dataset.pt : el.getAttribute('content')); }
+      });
+
+      document.getElementById('lang-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    document.getElementById('lang-pt').addEventListener('click', function(){ applyLang('pt'); });
+    document.getElementById('lang-en').addEventListener('click', function(){ applyLang('en'); });
+
+    applyLang('pt');
+  })();
+
+  // ---------- "Coming soon" tooltip for social icons not yet live ----------
+  document.querySelectorAll('.topbar-social a[data-soon]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var tip = a.querySelector('.soon-tip');
+      var lang = document.documentElement.lang === 'pt' ? 'pt' : 'en';
+      if(tip){ tip.textContent = tip.dataset[lang]; }
+      a.classList.add('show-tip');
+      clearTimeout(a._soonTimer);
+      a._soonTimer = setTimeout(function(){ a.classList.remove('show-tip'); }, 1600);
+    });
+  });
+
+  document.querySelectorAll('.topbar-social a[href^="https://wa.me"]').forEach(function(a){
+    a.addEventListener('mouseenter', function(){
+      var tip = a.querySelector('.soon-tip');
+      var lang = document.documentElement.lang === 'pt' ? 'pt' : 'en';
+      if(tip){ tip.textContent = tip.dataset[lang]; a.classList.add('show-tip'); }
+    });
+    a.addEventListener('mouseleave', function(){ a.classList.remove('show-tip'); });
+  });
+</script>
+
+</body>
+</html>
