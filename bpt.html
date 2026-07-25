@@ -300,6 +300,16 @@
   .faq-item[open] summary .chev{transform:rotate(180deg);}
   .faq-item .faq-a{padding:0 24px 20px;color:var(--text-soft);font-size:0.92rem;line-height:1.65;}
 
+  /* ---------- ECOSYSTEM CROSS-LINK ---------- */
+  .ecosystem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .eco-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 20px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;}
+  .eco-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(0,0,0,0.14);border-color:rgba(37,99,235,0.25);}
+  .eco-icon{width:36px;height:36px;border-radius:9px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .eco-icon svg{width:18px;height:18px;}
+  .eco-card h3{color:var(--text);font-size:0.98rem;margin-bottom:6px;}
+  .eco-card p{color:var(--text-soft);font-size:0.86rem;line-height:1.55;}
+  .eco-card .arrow{display:inline-flex;margin-top:12px;color:var(--blue);font-weight:600;font-size:0.82rem;}
+
   /* ---------- CTA ---------- */
   .cta-band{background:linear-gradient(135deg, #2563eb, #1d4ed8);color:#fff;border-radius:16px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
   .cta-band h2{color:#fff;max-width:20ch;}
@@ -356,9 +366,10 @@
       <span>SABUSH TECH<br><small data-pt="LDA · PLATAFORMA DE GESTÃO EMPRESARIAL">LDA · BUSINESS MANAGEMENT PLATFORM</small></span>
     </a>
     <nav class="links">
+      <a href="index.html" data-pt="Início">Home</a>
       <a href="index.html#products" data-pt="Produtos">Products</a>
-      <a href="index.html#benefits" data-pt="Benefícios">Benefits</a>
-      <a href="bpt.html" class="current">Sabush BPT</a>
+      <a href="#how-it-works" data-pt="Como funciona">How it works</a>
+      <a href="#benefits" data-pt="Benefícios">Benefits</a>
       <a href="index.html#contact" data-pt="Contacto">Contact</a>
     </nav>
     <a class="btn btn-primary nav-cta" href="mailto:admin@sabushtech.com?subject=Sabush%20BPT%20Demo%20Request" data-pt="Pedir uma Demonstração">Request a Demo</a>
@@ -750,6 +761,41 @@
         <summary><span data-pt="Com que frequência devo fazer verificação de stock?">How often should I perform stock verification?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
         <p class="faq-a" data-pt="Recomendamos verificações periódicas — por exemplo, mensais ou trimestrais — para confirmar que os seus registos correspondem à realidade física.">We recommend periodic verification — for example, monthly or quarterly — to confirm your records match physical reality.</p>
       </details>
+    </div>
+  </section>
+
+  <!-- ================= ECOSYSTEM CROSS-LINK ================= -->
+  <section class="wrap section-soft" id="ecosystem">
+    <div class="sec-head">
+      <p class="sec-eyebrow" data-pt="Parte do Ecossistema Sabush">Part of the Sabush Ecosystem</p>
+      <h2 data-pt="O Sabush BPT trabalha bem sozinho — e melhor com o resto do Sabush.">Sabush BPT works great on its own — and even better with the rest of Sabush.</h2>
+      <p data-pt="A Sabush Tech constrói um ecossistema completo de software para negócios. Conheça os outros produtos.">Sabush Tech builds a full ecosystem of business software. Explore the other products.</p>
+    </div>
+    <div class="ecosystem-grid">
+      <div class="eco-card">
+        <div class="eco-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <h3>Sabush ERP</h3>
+        <p data-pt="Finanças, inventário e operações num só sistema.">Finance, inventory, and operations in one system.</p>
+        <a class="arrow" href="https://erp.sabushtech.com" target="_blank" rel="noopener" data-pt="Explorar →">Explore →</a>
+      </div>
+      <div class="eco-card">
+        <div class="eco-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20"/><path d="M7 16h4"/></svg></div>
+        <h3>Sabush POS</h3>
+        <p data-pt="Checkout rápido e moderno para lojas e balcões.">Fast, modern checkout for shops and counters.</p>
+        <a class="arrow" href="https://pos.sabushtech.com" target="_blank" rel="noopener" data-pt="Explorar →">Explore →</a>
+      </div>
+      <div class="eco-card">
+        <div class="eco-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Mercado Sabush</h3>
+        <p data-pt="Venda online e alcance mais clientes.">Sell online and reach more customers.</p>
+        <a class="arrow" href="https://mercado.sabushtech.com" target="_blank" rel="noopener" data-pt="Explorar →">Explore →</a>
+      </div>
+      <div class="eco-card">
+        <div class="eco-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.1 2.7 3 6 3s6-1.9 6-3v-4.5"/><path d="M22 10v6"/></svg></div>
+        <h3>Sabush English Club</h3>
+        <p data-pt="Aulas de inglês online para equipas e donos de negócio.">Online English lessons for teams and business owners.</p>
+        <a class="arrow" href="https://english.sabushtech.com" target="_blank" rel="noopener" data-pt="Explorar →">Explore →</a>
+      </div>
     </div>
   </section>
 
